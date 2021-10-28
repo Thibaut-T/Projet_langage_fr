@@ -44,7 +44,7 @@ lignes:{ }
 separteur : SEPARATOR '\n'
 
 case : {}
-        | case CASE condition separteur instruction BREAK '\n'
+        | case CASE condition SEPARATOR instruction BREAK '\n'
 
 alors : {}| ELSE separteur lignes
 
