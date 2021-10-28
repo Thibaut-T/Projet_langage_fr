@@ -31,7 +31,8 @@ Tan|TAN|tan|tangente|Tangente|TANGENTE { return TAN; }
 exp|Exp|EXP {return exp};
 racine|Racine|RACINE {return sqrt};
 carre|Carre|CARRE {return pow};
-Ouvrir|OUVRIR|ouvrir { return openFile};
+Ouvrir[" "]en[" "]lecture|OUVRIR[" "]EN[" "]LECTURE|ouvrir[" "]en[" "]lecture { return openFileRead};
+Ouvrir[" "]en[" "]ecriture|OUVRIR[" "]EN[" "]ECRITURE|ouvrir[" "]en[" "]ecriture { return openFileWrite};
 supprimer|Supprimer|SUPPRIMER {return remove};
 renommer|Renommer|RENOMMER {return rename};
 minuscule|Minuscule|MINUSCULE {return tolower};
