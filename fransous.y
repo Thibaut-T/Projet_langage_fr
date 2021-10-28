@@ -11,7 +11,14 @@
   int yyerror(char *s);
 %}
 
-%%
+%token SI
+%token ALORS
+%token SINON
+%token FINSI
+%token REPETER
+%token FINREPETER
+%token FOR
+%token FINPOUR
 
 %%
 
