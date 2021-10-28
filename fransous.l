@@ -14,8 +14,11 @@
 
 afficher|Afficher|AFFICHER {return PRINT};
 choix|Choix|CHOIX {return SWITCH};
+fin[" "]choix|FIN[" "]SWITCH|Fin[""]Switch {return ENDSWITCH}
+cas|Cas|CAS { return CASE};
+fin[" "]cas|FIN[" "]CAS|Fin[" "]Cas { return BREAK};
 Tant[" "]que|TANT[" "]QUE|tant[" "]que {return WHILE};
-Fin[" "]tant|FIN[" "]TANT|fin[" "]tant {return endWhile};
+Fin[" "]tant|FIN[" "]TANT|fin[" "]tant {return ENDWHILE};
 si|SI|Si     { return IF; }
 alors|ALORS|Alors   { return THEN; }
 sinon|Sinon|SINON   { return ELSE; }

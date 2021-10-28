@@ -26,6 +26,10 @@
 %token SEPARATOR
 %token WHILE
 %token ENDWHILE
+%token SWITCH
+%token ENDSWITCH
+%token CASE
+%token BREAK
 
 %%
 
@@ -33,6 +37,9 @@ lignes:{ }
      | lignes instruction '\n'
 
 separteur : SEPARATOR '\n'
+
+case : {}
+        | case CASE condition separteur instruction BREAK '\n'
 
 instruction: {}
         |expr  {}
@@ -48,6 +55,9 @@ instruction: {}
         |WHILE condition separteur
             lignes
         ENDWHILE
+        |SWITCH separteur
+            case
+        ENDSWITCH
 
 expr: SIN '(' expr ')'  { }
      | COS '(' expr ')'  { }
