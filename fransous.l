@@ -12,6 +12,7 @@
 " "    { }
 \t     { }
 
+
 afficher|Afficher|AFFICHER {return PRINT;}
 choix|Choix|CHOIX {return SWITCH;}
 fin[" "]choix|FIN[" "]SWITCH|Fin[""]Switch {return ENDSWITCH;}
@@ -28,15 +29,17 @@ fin[" "]du[" "]pour|FIN[" "]DU[" "]POUR|Fin[" "]Du[" "]Pour { return ENDFOR;}
 Sin|SIN|sin|sinus|Sinus|SINUS { return SIN;  }
 Cos|COS|cos|cosinus|Cosinus|COSINUS { return COS;  }
 Tan|TAN|tan|tangente|Tangente|TANGENTE { return TAN; }
-exp|Exp|EXP {return exp};
-racine|Racine|RACINE {return sqrt};
-carre|Carre|CARRE {return pow};
-Ouvrir[" "]en[" "]lecture|OUVRIR[" "]EN[" "]LECTURE|ouvrir[" "]en[" "]lecture { return openFileRead};
-Ouvrir[" "]en[" "]ecriture|OUVRIR[" "]EN[" "]ECRITURE|ouvrir[" "]en[" "]ecriture { return openFileWrite};
-supprimer|Supprimer|SUPPRIMER {return remove};
-renommer|Renommer|RENOMMER {return rename};
-minuscule|Minuscule|MINUSCULE {return tolower};
-
+exp|Exp|EXP {return exp;};
+racine|Racine|RACINE {return sqrt;};
+carre|Carre|CARRE {return pow;};
+Ouvrir[" "]en[" "]lecture|OUVRIR[" "]EN[" "]LECTURE|ouvrir[" "]en[" "]lecture { return openFileRead;};
+Ouvrir[" "]en[" "]ecriture|OUVRIR[" "]EN[" "]ECRITURE|ouvrir[" "]en[" "]ecriture { return openFileWrite;};
+supprimer|Supprimer|SUPPRIMER {return remove;};
+renommer|Renommer|RENOMMER {return rename;};
+minuscule|Minuscule|MINUSCULE {return tolower;};
+en {return "en";};
+dans {return "dans";};
+jusque {return "jusque";};
 : { return SEPARATOR;}
 \(     {  return '('; }
 \)     {  return ')'; }

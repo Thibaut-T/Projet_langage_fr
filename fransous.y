@@ -2,6 +2,7 @@
     #include <stdio.h>
     #include <stdlib.h>
     #include <string>
+    #include <algorithm>
 
     using namespace std;
 
@@ -72,8 +73,12 @@ expr: SIN '(' expr ')'  {$$ = sin($3); printf ("sin(%g) = %g\n", $3, $$ ); }
      |sqrt '(' expr ')' { $$ = sqrt($3); printf ("sqrt(%g) = %g\n", $3, $$ ); }
      | { }
     
-fonction : openFileRead variable {fopen("$2",r)}
-        |openFileWrite variable {fopen("$2",w)}
+fonction : openFileRead variable {fopen("$2",r);}
+        |openFileWrite variable {fopen("$2",w);}
+        |remove variable "dans" variable "jusque" variable {$$=remove($3,$4,$2);} /*Enleve "A" dans camion jusque M*/
+        |rename variable "en" variable{$$=rename($2;$3);}
+        |tolower variable {$$=tolower($2);}
+
 
 condition  : {}
 var : {}
