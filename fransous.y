@@ -17,9 +17,7 @@
 %token ENDIF
 %token FOR
 %token ENDFOR
-%token WHILE
 %token PRINT
-%token SWITCH
 %token SIN
 %token COS
 %token TAN
