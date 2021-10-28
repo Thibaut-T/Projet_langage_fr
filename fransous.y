@@ -46,13 +46,14 @@ separteur : SEPARATOR '\n'
 case : {}
         | case CASE condition separteur instruction BREAK '\n'
 
+alors : {}| ELSE separteur lignes
+
 instruction: {}
         |expr  {}
         |IF condition separteur
         THEN separteur
             lignes
-        ELSE separteur
-            lignes
+            alors
         ENDIF
         |FOR expr separteur
             lignes
@@ -60,7 +61,7 @@ instruction: {}
         |WHILE condition separteur
             lignes
         ENDWHILE
-        |SWITCH separteur
+        |SWITCH var separteur
             case
         ENDSWITCH
 expr: SIN '(' expr ')'  { }
@@ -72,6 +73,7 @@ expr: SIN '(' expr ')'  { }
     
 
 condition  : {}
+var : {}
 %%
 
 int yyerror(char *s) {					

@@ -1,4 +1,15 @@
 pour cos() :
 fin du pour
 
+choix :
+ cas : 
+    sin() fin cas
+ cas : 
+    tan() fin cas
+fin choix
+
+si :
+    alors :
+        cos()
+fin du si
 
