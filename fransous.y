@@ -19,6 +19,10 @@
 %token ENDREPEAT
 %token FOR
 %token ENDFOR
+%token WHILE
+%token PRINT
+%token SWITCH
+
 
 %%
 
