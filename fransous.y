@@ -62,7 +62,14 @@ instruction: {}
 expr: SIN '(' expr ')'  { }
      | COS '(' expr ')'  { }
      | TAN '(' expr ')'  { }
+     | { }
+
+condition  : {}
 %%
+
+int yyerror(char *s) {					
+    printf("%s : %s\n", s, yytext);
+}
 
 int main(int argc, char **argv){
 
