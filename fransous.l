@@ -1,4 +1,3 @@
-
 %option noyywrap
 
 %{
@@ -9,6 +8,8 @@
 
 %%
 
+afficher|Afficher|AFFICHER {return print};
+choix|Choix|CHOIX {return swicth};
 
 
 %%
