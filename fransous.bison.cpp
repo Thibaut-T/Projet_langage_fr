@@ -528,8 +528,8 @@ static const yytype_int8 yytranslate[] =
 static const yytype_int8 yyrline[] =
 {
        0,    34,    34,    35,    37,    39,    40,    42,    42,    44,
-      45,    46,    51,    54,    57,    61,    62,    63,    64,    66,
-      67
+      45,    46,    51,    54,    57,    60,    61,    62,    63,    65,
+      66
 };
 #endif
 
@@ -1156,37 +1156,37 @@ yyreduce:
     break;
 
   case 15: /* expr: SIN '(' expr ')'  */
-#line 61 "fransous.y"
+#line 60 "fransous.y"
                         { }
 #line 1162 "fransous.bison.cpp"
     break;
 
   case 16: /* expr: COS '(' expr ')'  */
-#line 62 "fransous.y"
+#line 61 "fransous.y"
                          { }
 #line 1168 "fransous.bison.cpp"
     break;
 
   case 17: /* expr: TAN '(' expr ')'  */
-#line 63 "fransous.y"
+#line 62 "fransous.y"
                          { }
 #line 1174 "fransous.bison.cpp"
     break;
 
   case 18: /* expr: %empty  */
-#line 64 "fransous.y"
+#line 63 "fransous.y"
        { }
 #line 1180 "fransous.bison.cpp"
     break;
 
   case 19: /* condition: %empty  */
-#line 66 "fransous.y"
+#line 65 "fransous.y"
              {}
 #line 1186 "fransous.bison.cpp"
     break;
 
   case 20: /* var: %empty  */
-#line 67 "fransous.y"
+#line 66 "fransous.y"
       {}
 #line 1192 "fransous.bison.cpp"
     break;
@@ -1385,7 +1385,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 68 "fransous.y"
+#line 67 "fransous.y"
 
 
 int yyerror(char *s) {					
