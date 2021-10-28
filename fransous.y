@@ -58,7 +58,6 @@ instruction: {}
         |SWITCH separteur
             case
         ENDSWITCH
-
 expr: SIN '(' expr ')'  { }
      | COS '(' expr ')'  { }
      | TAN '(' expr ')'  { }

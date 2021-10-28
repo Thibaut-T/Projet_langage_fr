@@ -1,2 +1,4 @@
 pour cos() :
 fin du pour
+
+
