@@ -19,6 +19,9 @@
 %token ENDREPEAT
 %token FOR
 %token ENDFOR
+%token SIN
+%token COS
+%token TAN
 
 %%
 
