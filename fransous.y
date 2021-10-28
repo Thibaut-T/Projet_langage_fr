@@ -31,7 +31,7 @@
 %token exp
 %token sqrt
 %token pow
-%token openFile
+%token openFileRead
 %token remove
 %token rename
 %token tolower
@@ -42,6 +42,7 @@ lignes:{ }
      | lignes instruction '\n'
 
 separteur : SEPARATOR '\n'
+
 
 case : {}
         | case CASE condition separteur instruction BREAK '\n'
@@ -64,13 +65,15 @@ instruction: {}
         |SWITCH var separteur
             case
         ENDSWITCH
-expr: SIN '(' expr ')'  { }
-     | COS '(' expr ')'  { }
-     | TAN '(' expr ')'  { }    
-     | exp '('expr ')'   { }
-     |sqrt '(' expr ')' { }
+expr: SIN '(' expr ')'  {$$ = sin($3); printf ("sin(%g) = %g\n", $3, $$ ); }
+     | COS '(' expr ')'  {$$ = cos($3); printf ("cos(%g) = %g\n", $3, $$ );  }
+     | TAN '(' expr ')'  {$$ = tan($3); printf ("tan(%g) = %g\n", $3, $$ ); }    
+     | exp '('expr ')'   {$$ = exp($3); printf ("exp(%g) = %g\n", $3, $$ ); }
+     |sqrt '(' expr ')' { $$ = sqrt($3); printf ("sqrt(%g) = %g\n", $3, $$ ); }
      | { }
     
+fonction : openFileRead variable {fopen("$2",r)}
+        |openFileWrite variable {fopen("$2",w)}
 
 condition  : {}
 var : {}
