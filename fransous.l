@@ -16,11 +16,11 @@
   si|SI|Si     { return SI; }
   alors|ALORS|Alors   { return ALORS; }
   sinon|Sinon|SINON   { return SINON; }
-  fin du si| FIN DU SI|Fin du si|Fin Du Si  { return FINSI; }
+  fin[" "]du[" "]si| FIN[" "]DU[" "]SI|Fin[" "]du[" "]si|Fin[" "]Du[" "]Si  { return FINSI; }
   repeter|REPETER|Repeter { return REPETER; }
-  fin du repeter|FIN DU REPETER|Fin Du Repeter { return FINREPETER;}
+  fin[" "]du[" "]repeter|FIN[" "]DU[" "]REPETER|Fin[" "]Du[" "]Repeter { return FINREPETER;}
   pour|POUR|Pour { return FOR;}
-  fin du pour|FIN DU POUR|Fin Du Pour { return FINPOUR;}
+  fin [" "]du[" "]pour|FIN[" "]DU[" "]POUR|Fin[" "]Du[" "]Pour { return FINPOUR;}
   
 
   <<EOF>> { printf ("Le programme est correct.\n"); return 0;}
