@@ -28,6 +28,13 @@
 %token ENDSWITCH
 %token CASE
 %token BREAK
+%token exp
+%token sqrt
+%token pow
+%token openFile
+%token remove
+%token rename
+%token tolower
 
 %%
 
@@ -58,8 +65,11 @@ instruction: {}
         ENDSWITCH
 expr: SIN '(' expr ')'  { }
      | COS '(' expr ')'  { }
-     | TAN '(' expr ')'  { }
+     | TAN '(' expr ')'  { }    
+     | exp '('expr ')'   { }
+     |sqrt '(' expr ')' { }
      | { }
+    
 
 condition  : {}
 %%

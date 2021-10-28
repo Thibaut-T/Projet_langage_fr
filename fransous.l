@@ -28,6 +28,14 @@ fin[" "]du[" "]pour|FIN[" "]DU[" "]POUR|Fin[" "]Du[" "]Pour { return ENDFOR;}
 Sin|SIN|sin|sinus|Sinus|SINUS { return SIN;  }
 Cos|COS|cos|cosinus|Cosinus|COSINUS { return COS;  }
 Tan|TAN|tan|tangente|Tangente|TANGENTE { return TAN; }
+exp|Exp|EXP {return exp};
+racine|Racine|RACINE {return sqrt};
+carre|Carre|CARRE {return pow};
+Ouvrir|OUVRIR|ouvrir { return openFile};
+supprimer|Supprimer|SUPPRIMER {return remove};
+renommer|Renommer|RENOMMER {return rename};
+minuscule|Minuscule|MINUSCULE {return tolower};
+
 : { return SEPARATOR;}
 \(     {  return '('; }
 \)     {  return ')'; }
