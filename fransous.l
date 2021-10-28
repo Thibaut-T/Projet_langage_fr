@@ -15,6 +15,7 @@
 afficher|Afficher|AFFICHER {return PRINT};
 choix|Choix|CHOIX {return SWITCH};
 Tant[" "]que|TANT[" "]QUE|tant[" "]que {return WHILE};
+Fin[" "]tant|FIN[" "]TANT|fin[" "]tant {return endWhile};
 si|SI|Si     { return IF; }
 alors|ALORS|Alors   { return THEN; }
 sinon|Sinon|SINON   { return ELSE; }
