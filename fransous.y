@@ -15,14 +15,40 @@
 %token THEN
 %token ELSE
 %token ENDIF
-%token REPEAT
-%token ENDREPEAT
 %token FOR
 %token ENDFOR
 %token SIN
 %token COS
 %token TAN
+%token SEPARATOR
+%token WHILE
+%token ENDWHILE
 
+%%
+
+lignes:{ }
+     | lignes instruction '\n'
+
+separteur : SEPARATOR '\n'
+
+instruction: {}
+        |expr  {}
+        |IF condition separteur
+        THEN separteur
+            lignes
+        ELSE separteur
+            lignes
+        ENDIF
+        |FOR expr separteur
+            lignes
+        ENDFOR
+        |WHILE condition separteur
+            lignes
+        ENDWHILE
+
+expr: SIN '(' expr ')'  { }
+     | COS '(' expr ')'  { }
+     | TAN '(' expr ')'  { }
 %%
 
 int main(int argc, char **argv){
