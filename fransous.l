@@ -12,9 +12,9 @@
 " "    { }
 \t     { }
 
-afficher|Afficher|AFFICHER {return print};
-choix|Choix|CHOIX {return swicth};
-Tant[" "]que|TANT[" "]QUE|tant[" "]que {return while};
+afficher|Afficher|AFFICHER {return PRINT};
+choix|Choix|CHOIX {return SWITCH};
+Tant[" "]que|TANT[" "]QUE|tant[" "]que {return WHILE};
 si|SI|Si     { return IF; }
 alors|ALORS|Alors   { return THEN; }
 sinon|Sinon|SINON   { return ELSE; }
