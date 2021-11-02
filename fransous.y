@@ -36,6 +36,9 @@
 %token remove
 %token rename
 %token tolower
+%token fist
+%token last
+%token size
 
 %%
 
@@ -78,6 +81,10 @@ fonction : openFileRead variable {fopen("$2",r);}
         |remove variable "dans" variable "jusque" variable {$$=remove($3,$4,$2);} /*Enleve "A" dans camion jusque M*/
         |rename variable "en" variable{$$=rename($2;$3);}
         |tolower variable {$$=tolower($2);}
+        |first "de" variable {$$=front($3)}
+        |last "de" variable {$$=back($3)}
+        |size "de" variable {$$=size($3)}
+
 
 
 condition  : {}

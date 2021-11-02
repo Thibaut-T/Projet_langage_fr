@@ -39,9 +39,14 @@ minuscule|Minuscule|MINUSCULE {return tolower;};
 en {return "en";};
 dans {return "dans";};
 jusque {return "jusque";};
+premier|Premier|PREMIER {return first};
+dernier|Dernier|DERNIER {return last};
+taille|Taille|TAILLE {return size};
+de {return de};
 : { return SEPARATOR;}
 \(     {  return '('; }
 \)     {  return ')'; }
+
   
 
   <<EOF>> { printf ("Le programme est correct.\n"); return 0;}
