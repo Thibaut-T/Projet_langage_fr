@@ -1,0 +1,14 @@
+int x=5;
+int alpha = 14;
+
+
+classe maison:
+	bool ouvert = false
+	texte description = La maison est rouge
+	entier largeurMaison = 15
+	entier hauteurMaison = 4
+	entier longueurMaison = 25
+
+fin
+
+int y = 666;
