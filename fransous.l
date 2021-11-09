@@ -12,6 +12,7 @@
 " "    { }
 \t     { }
 
+(\/\*)([\s\S]*?)(\*\/)|\/\/([\S\s]*?)\n  {return commentaire;}
 afficher|Afficher|AFFICHER {return PRINT;}
 choix|Choix|CHOIX {return SWITCH;}
 fin[" "]choix|FIN[" "]SWITCH|Fin[""]Switch {return ENDSWITCH;}
