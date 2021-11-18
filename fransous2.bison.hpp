@@ -1,4 +1,4 @@
-/* A Bison parser, made by GNU Bison 3.8.2.  */
+/* A Bison parser, made by GNU Bison 3.7.6.  */
 
 /* Bison interface for Yacc-like parsers in C
 
@@ -58,7 +58,9 @@ extern int yydebug;
     TEXT = 259,                    /* TEXT  */
     SIN = 260,                     /* SIN  */
     COS = 261,                     /* COS  */
-    FOR = 262                      /* FOR  */
+    FOR = 262,                     /* FOR  */
+    VRAI = 263,                    /* VRAI  */
+    FAUX = 264                     /* FAUX  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -67,14 +69,14 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 21 "fransous2.y"
+#line 22 "fransous2.y"
 
   float nombre; //Les float
   char texte[50]; //Les string
   bool booleen; //Les bool
   class classe;
 
-#line 78 "fransous2.bison.hpp"
+#line 80 "fransous2.bison.hpp"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -85,8 +87,6 @@ typedef union YYSTYPE YYSTYPE;
 
 extern YYSTYPE yylval;
 
-
 int yyparse (void);
-
 
 #endif /* !YY_YY_FRANSOUS2_BISON_HPP_INCLUDED  */
