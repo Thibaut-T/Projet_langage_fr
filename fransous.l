@@ -7,6 +7,7 @@
 %}
 
 %%
+"non" {return NON; }
 \n     {  return '\n'; }
 \r     { }
 " "    { }
@@ -55,6 +56,12 @@ taille|Taille|TAILLE {return size};
 Attendre|attendre|ATTENDRE {return wait};
 de {return de};
 : { return SEPARATOR;}
+<|inferieur|Inferieur {return INF;}
+>|superieur|Superieur {return SUP;}
+<=|inferieur[" "]ou[" "]egal|Inferieur[" "]ou[" "]egal|Inferieur[" "]Ou[" "]Egal {return INFEG; }
+>=|superieur[" "]ou[" "]egal|Superieur[" "]ou[" "]Egal|superieur[" "]Ou[" "]Egal {return SUPEG; }
+!=|different|Different {return DIFF; }
+==|egal|Egal {return EGAL; }
 \(     {  return '('; }
 \)     {  return ')'; }
 vrai {return VRAI;}
