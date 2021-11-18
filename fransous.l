@@ -7,6 +7,7 @@
 %}
 
 %%
+"non" {return NON; }
 \n     {  return '\n'; }
 \r     { }
 " "    { }
@@ -44,6 +45,14 @@ premier|Premier|PREMIER {return first};
 dernier|Dernier|DERNIER {return last};
 taille|Taille|TAILLE {return size};
 de {return de};
+
+"<" {return INF;}
+">" {return SUP;}
+"<=" {return INFEG; }
+">=" {return SUPEG; }
+"!=" {return DIFF; }
+"==" {return EGAL; }
+
 : { return SEPARATOR;}
 \(     {  return '('; }
 \)     {  return ')'; }

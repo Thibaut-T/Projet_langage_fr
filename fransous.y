@@ -52,7 +52,8 @@
 
 %token <valeur> NUM
 %token <nom> VAR
-%type <valeur> expr 
+%type <valeur> expr
+%type <valeur> condition 
 %token <adresse> SI
 %token GOTO
 %token <nom> LABEL
@@ -87,6 +88,13 @@
 %token first
 %token last
 %token size
+%token INF
+%token SUP
+%token INFEG
+%token SUPEG
+%token EGAL
+%token DIFF
+%token NON
 
 %right ADD SUB   // N'oubliez pas de remettre left !
 %left MULT DIV
@@ -162,7 +170,14 @@ fonction : openFileRead variable {fopen("$2",r);}
 
 
 
-condition  : {}
+condition  : expr
+          |expr SUP expr {add_instruction(SUP);}
+          |expr INF expr {add_instruction(INF);}
+          |expr SUPEG expr {add_instruction(SUPEG);}
+          |expr INFEG expr {add_instruction(INFEG);}
+          |expr DIFF expr {add_instruction(DIFF);}
+          |expr EGAL expr {add_instruction(EGAL);}
+          |NON '('condition')' {add_instruction(NON);}
 var : {}
 %%
 
@@ -177,13 +192,22 @@ int yyerror(char *s) {
 string print_code(int ins) {
   switch (ins) {
     case ADD      : return "ADD";
-    case MULT     : return "MUL";    
+    case SUB      : return "SUB";
+    case MULT     : return "MUL";
+    case DIV      : return "DIV";   
     case NUM      : return "NUM";
     case VAR      : return "VAR";
     case PRINT    : return "OUT";
     case ASSIGN   : return "MOV";
     case JMP      : return "JMP";
     case JMPCOND  : return "JC ";
+    case INF      : return "INF";
+    case SUP      : return "SUP";
+    case SUPEG    : return "SUPEG";
+    case INFEG    : return "INFEG";
+    case EGAL     : return "EGAL";
+    case DIFF     : return "DIFF";
+    case NON      : return "NON";
     default : return "";
   }
 }
@@ -213,6 +237,16 @@ while (ic < code_genere.size()){   // tant que nous ne sommes pas à la fin du p
             pile.push(r1+r2);
             ic++;
           break;
+        case SUB:
+            r1 = pile.top();    // Rrécupérer la tête de pile;
+            pile.pop();
+
+            r2 = pile.top();    // Rrécupérer la tête de pile;
+            pile.pop();
+
+            pile.push(r2-r1);
+            ic++;
+          break;
         case MULT:
             r1 = pile.top();    // Rrécupérer la tête de pile;
             pile.pop();
@@ -223,7 +257,16 @@ while (ic < code_genere.size()){   // tant que nous ne sommes pas à la fin du p
             pile.push(r1*r2);
             ic++;
           break;
+        case DIV:
+            r1 = pile.top();    // Rrécupérer la tête de pile;
+            pile.pop();
 
+            r2 = pile.top();    // Rrécupérer la tête de pile;
+            pile.pop();
+
+            pile.push(r2/r1);
+            ic++;
+          break;
         case ASSIGN:
             r1 = pile.top();    // Rrécupérer la tête de pile;
             pile.pop();
@@ -272,6 +315,73 @@ while (ic < code_genere.size()){   // tant que nous ne sommes pas à la fin du p
                 ic++;
             }
           break;
+          case SUP:
+            r1 = pile.top();    // Rrécupérer la tête de pile;
+            pile.pop();
+
+            r2 = pile.top();    // Rrécupérer la tête de pile;
+            pile.pop();
+
+            pile.push(r2>r1);
+            ic++;
+        break;
+        case SUPEG:
+            r1 = pile.top();    // Rrécupérer la tête de pile;
+            pile.pop();
+
+            r2 = pile.top();    // Rrécupérer la tête de pile;
+            pile.pop();
+
+            pile.push(r2>=r1);
+            ic++;
+        break;
+        case INF:
+            r1 = pile.top();    // Rrécupérer la tête de pile;
+            pile.pop();
+
+            r2 = pile.top();    // Rrécupérer la tête de pile;
+            pile.pop();
+
+            pile.push(r2<r1);
+            ic++;
+        break;
+        case INFEG:
+            r1 = pile.top();    // Rrécupérer la tête de pile;
+            pile.pop();
+
+            r2 = pile.top();    // Rrécupérer la tête de pile;
+            pile.pop();
+
+            pile.push(r2<=r1);
+            ic++;
+        break;
+        case EGAL:
+            r1 = pile.top();    // Rrécupérer la tête de pile;
+            pile.pop();
+
+            r2 = pile.top();    // Rrécupérer la tête de pile;
+            pile.pop();
+
+            pile.push(r1==r2);
+            ic++;
+        break;
+        case DIFF:
+          r1 = pile.top();    // Rrécupérer la tête de pile;
+          pile.pop();
+
+          r2 = pile.top();    // Rrécupérer la tête de pile;
+          pile.pop();
+
+          pile.push(r1!=r2);
+          ic++;
+        break;
+        case NON:
+          r1 = pile.top();
+          pile.pop();
+
+          pile.push(!r1);
+          ic++;
+        break;
       }
   }
 }
