@@ -43,6 +43,7 @@ jusque {return "jusque";};
 premier|Premier|PREMIER {return first};
 dernier|Dernier|DERNIER {return last};
 taille|Taille|TAILLE {return size};
+Attendre|attendre|ATTENDRE {return wait};
 de {return de};
 : { return SEPARATOR;}
 \(     {  return '('; }

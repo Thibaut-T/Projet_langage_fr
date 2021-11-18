@@ -39,6 +39,7 @@
 %token fist
 %token last
 %token size
+%token wait
 
 %%
 
@@ -84,6 +85,7 @@ fonction : openFileRead variable {fopen("$2",r);}
         |first "de" variable {$$=front($3)}
         |last "de" variable {$$=back($3)}
         |size "de" variable {$$=size($3)}
+        |attendre variable {$$=wait($2)}
 
 
 
