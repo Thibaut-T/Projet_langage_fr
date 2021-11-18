@@ -11,11 +11,23 @@
   extern char* yytext;
   extern FILE* yyin;
   int yyerror(char *s);
-
-  // Déclaration de la map qui associe
-  // les noms des variables à leur valeur
+  
   map<string,double> variables ;
 
+  class maClasse{
+  public: 
+    maClass (const string &t="", const string &n="", const double &v=0) {type = t; nom = n; valeur = v;};  
+    string type;
+    string nom;
+    double valeur;
+  };
+
+  vector <maClasse> uneClasse;    
+
+  int add_paramClass(const string &t="", const string &n="", const double &v=0) {
+      uneClasse.push_back(maClasse(t,n,v)); 
+      return 0; 
+   }; 
 %}
 
 %union {
@@ -27,39 +39,35 @@
 %token <valeur> NUM
 %token <nom> VAR
 %type <valeur> expr 
-%token SIN
-%token COS
+%token DACCOLADE
+%token FACCOLADE
 
 %left '+' '-'
-%left '*' '/'
+%left '*' '/
 
 %%
-ligne:  /* Epsilon */
-     | ligne instruction '\n'   
+bloc:  /* Epsilon */
+     | bloc classe '\n'   
 
-instruction : expr         { printf("Résultat du calcul : %g\n", $1); }
-            | VAR '=' expr { variables[$1]=$3;  
-                             printf ("Affectation de %g à %s\n", $3, $1);
-                           }
+classe:   /* Epsilon, ligne vide */
+            DACCOLADE { }
+            | '(' expr expr expr ')' '\n' { }
+              bloc
+            FACCOLADE { }
 
-expr:  NUM               { $$ = $1; }
-     | VAR               { try { 
-                                  $$ = variables.at($1);
-                               }
-                           catch(...){
-                               printf ("La variable %s est utilisée mais jamais initialisée\n",$1);
-                               variables[$1]=0;
-                               $$ = 0.;
-                               } 
-                          }
-     | SIN '(' expr ')'  { $$ = sin($3); printf ("sin(%g) = %g\n", $3, $$ ); }
-     | COS '(' expr ')'  { $$ = cos($3); printf ("cos(%g) = %g\n", $3, $$ ); }
-     | '(' expr ')'      { $$ = $2; }
-     | expr '+' expr     { $$ = $1 + $3; printf ("%g + %g = %g\n", $1, $3, $$ );}
-     | expr '-' expr     { $$ = $1 - $3; printf ("%g - %g = %g\n", $1, $3, $$ );}   		
-     | expr '*' expr     { $$ = $1 * $3; printf ("%g * %g = %g\n", $1, $3, $$ );}		
-     | expr '/' expr     { $$ = $1 / $3; printf ("%g / %g = %g\n", $1, $3, $$ );}    
+expr:
+
 %%
+
+string print_code(int ins) {
+  switch (ins) {
+    case ADD      : return "ADD";
+    case MULT     : return "MUL";    
+    case NUM      : return "NUM";
+    case VAR      : return "VAR";
+    default : return "";
+  }
+}
 
 int yyerror(char *s) {					
     printf("%s : %s\n", s, yytext);
@@ -74,7 +82,7 @@ int main(int argc, char **argv) {
   else
     yyin = stdin;
 
-  yyparse();						
+  yyparse();	
 
   return 0;
 }
