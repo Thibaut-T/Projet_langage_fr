@@ -90,6 +90,8 @@
 %token wait
 %token VARS
 %token VARAPO
+%token VRAI
+%token FAUX
 
 %right ADD SUB   // N'oubliez pas de remettre left !
 %left MULT DIV
@@ -147,11 +149,19 @@ expr: NUM {add_instruction (NUM, $1); }
      |VARS {}
      |VARAPO {}
      |VAR {add_instruction (VAR, 0, $1); }
+     |VRAI {$$ = true; }
+     |FAUX {$$  = false; }
      |SIN '(' expr ')'  {$$ = sin($3); printf ("sin(%g) = %g\n", $3, $$ ); }
      |COS '(' expr ')'  {$$ = cos($3); printf ("cos(%g) = %g\n", $3, $$ );  }
      |TAN '(' expr ')'  {$$ = tan($3); printf ("tan(%g) = %g\n", $3, $$ ); }    
      |exp '('expr ')'   {$$ = exp($3); printf ("exp(%g) = %g\n", $3, $$ ); }
      |sqrt '(' expr ')' { $$ = sqrt($3); printf ("sqrt(%g) = %g\n", $3, $$ ); }
+     | '(' expr ')'      { $$ = $2; }
+     | expr '+' expr     { $$ = $1 + $3; printf ("%g + %g = %g\n", $1, $3, $$ );}
+     | expr '-' expr     { $$ = $1 - $3; printf ("%g - %g = %g\n", $1, $3, $$ );}   		
+     | expr '*' expr     { $$ = $1 * $3; printf ("%g * %g = %g\n", $1, $3, $$ );}		
+     | expr '/' expr     { $$ = $3 / $1; printf ("%g / %g = %g\n", $3, $1, $$ );}
+     | expr '=' expr     { $1 = $3; printf ("%g = %g\n", $1, $3);}
      |expr ADD expr {add_instruction(ADD); } 
      |expr SUB expr {add_instruction(SUB); } 
      |expr MULT expr {add_instruction(MULT); }
