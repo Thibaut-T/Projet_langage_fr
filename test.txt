@@ -1,3 +1,5 @@
 2 plus 4
 90 fois 75
 65 divise 130
+vrai
+faux

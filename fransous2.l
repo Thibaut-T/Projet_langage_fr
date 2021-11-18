@@ -17,6 +17,8 @@
 Sin|SIN|sin|sinus|Sinus|SINUS { return SIN;  }
 Cos|COS|cos|cosinus|Cosinus|COSINUS { return COS;  }
 [Ff][Oo][Rr] {return FOR;}
+vrai {return VRAI;}
+faux {return FAUX;}
 
 plus    { return '+'; }
 moins   { return '-'; }

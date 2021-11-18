@@ -28,11 +28,13 @@
 
 %token <nombre> NUM
 %token <texte> TEXT
-%token <booleen> BOOL
 %type <nombre> expr 
+
 %token SIN
 %token COS
 %token FOR
+%token VRAI
+%token FAUX
 
 %left "plus" "moins"
 %left "fois" "divise"
@@ -40,15 +42,9 @@
 
 %%
 ligne:  /* Epsilon */
-     | ligne instruction '\n'   
+     | ligne instruction '\n' 
 
-instruction : expr         { printf("Résultat du calcul : %g\n", $1); }
-            | TEXT 'est' expr { variables[$1]=$3;  
-                            printf ("Affectation de %g à %s\n", $3, $1);
-                            }
-            | BOOL 'est' expr { variables[$1]=$3; 
-                            printf("%s", x ? "vrai" : "faux"); }
-                          
+instruction : expr { printf("Résultat du calcul : %g\n", $1); }
 
 expr:  NUM               { $$ = $1; }
      | TEXT               { try { 
@@ -63,6 +59,8 @@ expr:  NUM               { $$ = $1; }
      | FOR '(' expr ';' expr ';' expr ')' {printf( "le for marche"); }
      | SIN '(' expr ')'  { $$ = sin($3); printf ("sin(%g) = %g\n", $3, $$ ); }
      | COS '(' expr ')'  { $$ = cos($3); printf ("cos(%g) = %g\n", $3, $$ ); }
+     | VRAI {$$ = true; }
+     | FAUX {$$  = false; }
      | '(' expr ')'      { $$ = $2; }
      | expr '+' expr     { $$ = $1 + $3; printf ("%g + %g = %g\n", $1, $3, $$ );}
      | expr '-' expr     { $$ = $1 - $3; printf ("%g - %g = %g\n", $1, $3, $$ );}   		
