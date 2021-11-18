@@ -13,6 +13,15 @@
 " "    { }
 \t     { }
 
+[A-Za-z_][A-Za-z_0-9]* { 
+                         strcpy( yylval.nom, yytext) ;
+                         return VARS;
+                       }
+
+
+"[A-Za-z_][A-Za-z_0-9]*" {strcpy( yylval.varapo, yytext) ;
+                         return VARAPO;}
+}
 (\/\*)([\s\S]*?)(\*\/)|\/\/([\S\s]*?)\n  {return commentaire;}
 afficher|Afficher|AFFICHER {return PRINT;}
 choix|Choix|CHOIX {return SWITCH;}
@@ -44,6 +53,7 @@ jusque {return "jusque";};
 premier|Premier|PREMIER {return first};
 dernier|Dernier|DERNIER {return last};
 taille|Taille|TAILLE {return size};
+Attendre|attendre|ATTENDRE {return wait};
 de {return de};
 
 "<" {return INF;}
