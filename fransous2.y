@@ -28,6 +28,7 @@
 
 %token <nombre> NUM
 %token <texte> TEXT
+%token <booleen> BOOL
 %type <nombre> expr 
 %token SIN
 %token COS
@@ -42,9 +43,12 @@ ligne:  /* Epsilon */
      | ligne instruction '\n'   
 
 instruction : expr         { printf("Résultat du calcul : %g\n", $1); }
-            | TEXT "est" expr { variables[$1]=$3;  
+            | TEXT 'est' expr { variables[$1]=$3;  
                             printf ("Affectation de %g à %s\n", $3, $1);
                             }
+            | BOOL 'est' expr { variables[$1]=$3; 
+                            printf("%s", x ? "vrai" : "faux"); }
+                          
 
 expr:  NUM               { $$ = $1; }
      | TEXT               { try { 
