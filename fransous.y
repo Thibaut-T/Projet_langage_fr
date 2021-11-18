@@ -88,6 +88,8 @@
 %token last
 %token size
 %token wait
+%token VARS
+%token VARAPO
 
 %right ADD SUB   // N'oubliez pas de remettre left !
 %left MULT DIV
@@ -112,6 +114,8 @@ instruction: {}
         | expr         {  }
         | PRINT expr   { add_instruction(PRINT); }
         | VAR '=' expr { add_instruction(ASSIGN, 0, $1); }
+
+        
         | GOTO LABEL   {  // J'insère un JMP vers une adresse que je ne connais pas encore.
                             // J'utiliserai la table des adresses pour la récupérer lors de l'exécution
                             add_instruction(JMP, -999, $2); 
@@ -140,6 +144,8 @@ instruction: {}
             case
         ENDSWITCH
 expr: NUM {add_instruction (NUM, $1); } 
+     |VARS {}
+     |VARAPO {}
      |VAR {add_instruction (VAR, 0, $1); }
      |SIN '(' expr ')'  {$$ = sin($3); printf ("sin(%g) = %g\n", $3, $$ ); }
      |COS '(' expr ')'  {$$ = cos($3); printf ("cos(%g) = %g\n", $3, $$ );  }
@@ -152,21 +158,24 @@ expr: NUM {add_instruction (NUM, $1); }
      |expr DIV expr { add_instruction(DIV); }
 
     
-fonction : openFileRead variable {fopen("$2",r);}
-        |openFileWrite variable {fopen("$2",w);}
-        |remove variable "dans" variable "jusque" variable {$$=remove($3,$4,$2);} /*Enleve "A" dans camion jusque M*/
-        |rename variable "en" variable{$$=rename($2;$3);}
-        |tolower variable {$$=tolower($2);}
-        |first "de" variable {$$=front($3)}
-        |last "de" variable {$$=back($3)}
-        |size "de" variable {$$=size($3)}
-        |attendre variable {$$=wait($2)}
+fonction : openFileRead expr {add_instruction(OPENFR);}
+        |openFileWrite expr {add_instruction(OPENFW);}
+        |remove expr "dans" expr "jusque" expr {add_instruction(REMOVE);}
+        |rename expr "en" expr{add_instruction(RENAME);}
+        |tolower VARS {add_instruction(LOWER);}
+        |first "de" VARS {add_instruction(FIRST);}
+        |last "de" VARS {add_instruction(LAST);}
+        |size "de" VARS {add_instruction(SIZE);}
+        |wait VARS {add_instruction(WAIT);}
 
 
 
 condition  : {}
 var : {}
+varapo : {}
+vars : {}
 %%
+
 
 int yyerror(char *s) {					
     printf("%s : %s\n", s, yytext);
@@ -205,6 +214,67 @@ printf("C'est quoi la réponse à la grande question sur la vie, l'univers et le
 while (ic < code_genere.size()){   // tant que nous ne sommes pas à la fin du programme
     auto ins = code_genere[ic];
     switch (ins.code){
+        case OPENFR :
+            r1=pile.top();
+            pile.pop();
+            fopen(r1,r)
+            ic++
+            break;
+        case OPENFW :
+            r1=pile.top();
+            pile.pop();
+            fopen(r1,w)
+            ic++
+            break;
+        case REMOVE :
+            r1=pile.top();
+            pile.pop();
+            r2=pile.top();
+            pile.pop();
+            r3=pile.top();
+            pile.pop();
+            remove(r3,r2,r1);} /*Enleve "A" dans camion jusque M*/
+            ic++;
+            break;
+        case RENAME :
+            r1=pile.top();
+            pile.pop();
+            r2=pile.top();
+            pile.pop();
+            rename(r1,r2);
+            ic++
+            break;
+        case LOWER :
+            r1=pile.top();
+            pile.pop();
+            tolower(r1);
+            ic++
+            break;
+        case FIRST :
+            r1=pile.top();
+            pile.pop();
+            front(r1);
+            ic++
+            break;
+
+        case LAST :
+            r1=pile.top();
+            pile.pop();
+            back(r1);
+            ic++
+            break;
+        case SIZE : 
+            r1=pile.top();
+            pile.pop();
+            size(r1);
+            ic++
+            break;
+        case WAIT :
+            r1=pile.top();
+            pile.pop();
+            wait(r1);
+            ic++
+            break;
         case ADD:
             r1 = pile.top();    // Rrécupérer la tête de pile;
             pile.pop();
@@ -262,7 +332,7 @@ while (ic < code_genere.size()){   // tant que nous ne sommes pas à la fin du p
                 ic = (int)ins.value;             
           break;
 
-        case VAR:    // je consulte la table de symbole et j'empile la valeur de la variable
+        case VAR:    // je consulte la table de symbole et j'empile la valeur de la VARS
              // Si elle existe bien sur... 
             try {
                 pile.push(variables.at(ins.name));

@@ -12,6 +12,15 @@
 " "    { }
 \t     { }
 
+[A-Za-z_][A-Za-z_0-9]* { 
+                         strcpy( yylval.nom, yytext) ;
+                         return VARS;
+                       }
+
+
+"[A-Za-z_][A-Za-z_0-9]*" {strcpy( yylval.varapo, yytext) ;
+                         return VARAPO;}
+}
 (\/\*)([\s\S]*?)(\*\/)|\/\/([\S\s]*?)\n  {return commentaire;}
 afficher|Afficher|AFFICHER {return PRINT;}
 choix|Choix|CHOIX {return SWITCH;}
