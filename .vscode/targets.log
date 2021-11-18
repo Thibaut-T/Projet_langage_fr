@@ -1,0 +1,309 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 4.3
+ 
+# Built for x86_64-pc-cygwin
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+ 
+
+# Make data base, printed on Thu Nov 18 08:01:31 2021
+
+# Variables
+
+ 
+# environment
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+# environment
+SYSTEMDRIVE = C:
+# environment
+LC_ALL = C
+# environment
+USERPROFILE = C:\Users\Administrateur
+# environment
+LOCALAPPDATA = C:\Users\Administrateur\AppData\Local
+# environment
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-36ee0b59-a269-4664-a7c5-0467a7ad9502-sock
+# environment
+VSCODE_CWD = C:\Microsoft VS Code
+# environment
+SYSTEMROOT = C:\WINDOWS
+# environment
+PROCESSOR_LEVEL = 6
+# environment
+PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+# environment
+GOOGLE_API_KEY = AIzaSyDJD3V3FQfT4IijkFIR5OLTWHPeqsqnMag
+# default
+MAKE_COMMAND := make
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+VSCODE_PREVENT_FOREIGN_INSPECT = true
+# environment
+ONEDRIVECOMMERCIAL = C:\Users\Administrateur\OneDrive - yncréa
+# environment
+FPS_BROWSER_USER_PROFILE_STRING = Default
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+VSCODE_LOG_STACK = false
+# automatic
+%F = $(notdir $%)
+# environment
+LANG = C
+# default
+.LOADED := 
+# environment
+TMP = /cygdrive/c/Users/ADMINI~1/AppData/Local/Temp
+# default
+.INCLUDE_DIRS = /usr/include /usr/include
+# makefile
+MAKEFLAGS = pqrR
+# environment
+ONEDRIVE = C:\Users\Administrateur\OneDrive - yncréa
+# makefile
+CURDIR := /cygdrive/c/Users/Administrateur/Desktop/Projet_langage_fr
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+PROGRAMFILES = C:\Program Files
+# environment
+WALLABY_PRODUCTION = true
+# environment
+MFLAGS = -pqrR
+# default
+.SHELLFLAGS := -c
+# environment
+!C: = c:\Users\Administrateur\Desktop\Projet_langage_fr
+# environment
+COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_PID = 15628
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+GOOGLE_DEFAULT_CLIENT_ID = 334183695846-l6k6ruadkhrjq000qeaadedterlskoom.apps.googleusercontent.com
+# environment
+VERBOSE_LOGGING = true
+# automatic
+*F = $(notdir $*)
+# environment
+AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"locale":"fr","availableLanguages":{"*":"fr"},"_languagePackId":"2f0b2e06726e2725b0cc3311ce25b1c7.fr","_translationsConfigFile":"C:\\Users\\Administrateur\\AppData\\Roaming\\Code\\clp\\2f0b2e06726e2725b0cc3311ce25b1c7.fr\\tcf.json","_cacheRoot":"C:\\Users\\Administrateur\\AppData\\Roaming\\Code\\clp\\2f0b2e06726e2725b0cc3311ce25b1c7.fr","_resolvedLanguagePackCoreLocation":"C:\\Users\\Administrateur\\AppData\\Roaming\\Code\\clp\\2f0b2e06726e2725b0cc3311ce25b1c7.fr\\c7d83e57cd18f18026a8162d042843bda1bcf21f","_corruptedFile":"C:\\Users\\Administrateur\\AppData\\Roaming\\Code\\clp\\2f0b2e06726e2725b0cc3311ce25b1c7.fr\\corrupted.info","_languagePackSupport":true}
+# default
+MAKE_HOST := x86_64-pc-cygwin
+# environment
+PROGRAMDATA = C:\ProgramData
+# default
+SHELL := /bin/sh
+# environment
+HOMEPATH = \Users\Administrateur
+# default
+MAKECMDGOALS := all
+# environment
+DRIVERDATA = C:\Windows\System32\Drivers\DriverData
+# environment
+COMSPEC = C:\WINDOWS\system32\cmd.exe
+# environment
+WINDIR = C:\WINDOWS
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = /usr/bin:/cygdrive/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/cygdrive/c/Program Files (x86)/Microsoft Visual Studio/Shared/Python37_64/Scripts:/cygdrive/c/Program Files (x86)/Microsoft Visual Studio/Shared/Python37_64:/cygdrive/c/Program Files/Scripts:/cygdrive/c/Program Files:/cygdrive/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/cygdrive/c/WINDOWS/system32:/cygdrive/c/WINDOWS:/cygdrive/c/WINDOWS/System32/Wbem:/cygdrive/c/WINDOWS/System32/WindowsPowerShell/v1.0:/cygdrive/c/WINDOWS/System32/OpenSSH:/cygdrive/c/Program Files/MATLAB/R2021b/bin:/cygdrive/c/Program Files/dotnet:/cygdrive/c/Program Files/Microsoft SQL Server/130/Tools/Binn:/cygdrive/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn:/cygdrive/c/Program Files/nodejs:/cygdrive/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit:/cygdrive/c/Program Files/Git/cmd:/cygdrive/c/Users/Administrateur/.platformio/python37/Scripts:/cygdrive/c/Users/Administrateur/.platformio/python37:/cygdrive/c/Users/Administrateur/AppData/Local/Microsoft/WindowsApps:/cygdrive/c/Users/Administrateur/AppData/Local/Programs/Microsoft VS Code/bin:/cygdrive/c/Users/Administrateur/AppData/Roaming/npm:/cygdrive/c/intelFPGA/20.1/modelsim_ase/win32aloem:/cygdrive/c/intelFPGA_lite/18.1/modelsim_ase/win32aloem:/cygdrive/c/Users/Administrateur/AppData/Local/GitHubDesktop/bin
+# environment
+COMPUTERNAME = LY0699
+# default
+MAKEFILES := 
+# automatic
+^F = $(notdir $^)
+# environment
+PROMPT = $P$G
+# environment
+LOGONSERVER = \\LY0699
+# environment
+QSYS_ROOTDIR = C:\intelFPGA_lite\18.1\quartus\sopc_builder\bin
+# environment
+USERNAME = Administrateur
+# environment
+VSCODE_LOGS = C:\Users\Administrateur\AppData\Roaming\Code\logs\20211118T080123
+# environment
+COMMONPROGRAMFILES = C:\Program Files\Common Files
+# automatic
+?F = $(notdir $?)
+# environment
+PROGRAMW6432 = C:\Program Files
+# environment
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+# automatic
++F = $(notdir $+)
+# environment
+USERDOMAIN = LY0699
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+OS = Windows_NT
+# makefile
+.DEFAULT_GOAL := all
+# environment
+PIPE_LOGGING = true
+# default
+MAKE_VERSION := 4.3
+# environment
+PROGRAMFILES(X86) = C:\Program Files (x86)
+# environment
+USERDOMAIN_ROAMINGPROFILE = LY0699
+# environment
+NUMBER_OF_PROCESSORS = 8
+# environment
+PUBLIC = C:\Users\Public
+# environment
+QUARTUS_ROOTDIR = C:\intelFPGA_lite\18.1\quartus
+# environment
+SOPC_KIT_NIOS2 = C:\intelFPGA_lite\18.1\nios2eds
+# environment
+VSCODE_NODE_CACHED_DATA_DIR = C:\Users\Administrateur\AppData\Roaming\Code\CachedData\c7d83e57cd18f18026a8162d042843bda1bcf21f
+# environment
+APPDATA = C:\Users\Administrateur\AppData\Roaming
+# environment
+HOMEDRIVE = C:
+# environment
+PROCESSOR_ARCHITECTURE = AMD64
+# environment
+HOME = /home/Administrateur
+# environment
+COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+TEMP = /cygdrive/c/Users/ADMINI~1/AppData/Local/Temp
+# environment
+VSCODE_IPC_HOOK = \\.\pipe\62f043acfa9849b62a35bbbe0d109af1-1.35.1-main-sock
+# environment
+TERM = xterm-256color
+# environment
+GOOGLE_DEFAULT_CLIENT_SECRET = 8XZYC_wy6CIjQgXcMPVOM-p2
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+ 
+# default
+SUFFIXES := 
+# environment
+ALLUSERSPROFILE = C:\ProgramData
+# environment
+SESSIONNAME = Console
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
+# environment
+PROCESSOR_REVISION = 8e0c
+# environment
+PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 142 Stepping 12, GenuineIntel
+# variable set hash-table stats:
+# Load=103/1024=10%, Rehash=0, Collisions=12/133=9%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 3998354518, inode 3096224743835966): 13 files, no impossibilities.
+
+# 13 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2021-10-28 10:39:45.2122524
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all:
+#  Command line target.
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := all
+# automatic
+# * := 
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/11=9%
+#  recipe to execute (from 'Makefile', line 2):
+	rm -f fransous.exe fransous.lex.cpp fr.bison.cpp fransous.bison.h
+	bison -d fransous.y -o fransous.bison.cpp
+	flex -o fransous.lex.cpp fransous.l
+	g++ -w fransous.lex.cpp fransous.bison.cpp -o fransous
+	./fransous testfransous.txt
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=4/1024=0%, Rehash=0, Collisions=0/16=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 17 / storage = 180 B / avg = 10 B
+# current buf: size = 8162 B / used = 180 B / count = 17 / avg = 10 B
+
+# strcache performance: lookups = 24 / hit rate = 29%
+# hash-table stats:
+# Load=17/8192=0%, Rehash=0, Collisions=0/24=0%
+# Finished Make data base on Thu Nov 18 08:01:31 2021
+
+ 
