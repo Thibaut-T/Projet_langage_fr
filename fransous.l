@@ -55,17 +55,33 @@ dernier|Dernier|DERNIER {return last};
 taille|Taille|TAILLE {return size};
 Attendre|attendre|ATTENDRE {return wait};
 de {return de};
-
-"<" {return INF;}
-">" {return SUP;}
-"<=" {return INFEG; }
-">=" {return SUPEG; }
-"!=" {return DIFF; }
-"==" {return EGAL; }
-
 : { return SEPARATOR;}
+<|inferieur|Inferieur {return INF;}
+>|superieur|Superieur {return SUP;}
+<=|inferieur[" "]ou[" "]egal|Inferieur[" "]ou[" "]egal|Inferieur[" "]Ou[" "]Egal {return INFEG; }
+>=|superieur[" "]ou[" "]egal|Superieur[" "]ou[" "]Egal|superieur[" "]Ou[" "]Egal {return SUPEG; }
+!=|different|Different {return DIFF; }
+==|egal|Egal {return EGAL; }
 \(     {  return '('; }
 \)     {  return ')'; }
+vrai {return VRAI;}
+faux {return FAUX;}
+
+plus    { return '+'; }
+moins   { return '-'; }
+fois    { return '*'; }
+divise  { return '/'; } /*Peut-être penser à un autre nom pour l'opérateur*/
+
+[A-Za-z_][A-Za-z_0-9]* { strcpy( yylval.texte, yytext) ;  return TEXT; }
+
+\+     {  return yytext[0];  }  // la même chose que return '+'  
+"-"    {  return '-'; }
+"*"    {  return '*'; }
+"/"    {  return '/'; }
+"="|"<-"|"est"    {  return '='; }
+\(     {  return '('; }
+\)     {  return ')'; }
+.      {  printf ("Erreur lexicale : %s\n", yytext); return 0; }
 
   
 
