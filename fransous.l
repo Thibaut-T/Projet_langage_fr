@@ -57,6 +57,24 @@ de {return de};
 : { return SEPARATOR;}
 \(     {  return '('; }
 \)     {  return ')'; }
+vrai {return VRAI;}
+faux {return FAUX;}
+
+plus    { return '+'; }
+moins   { return '-'; }
+fois    { return '*'; }
+divise  { return '/'; } /*Peut-être penser à un autre nom pour l'opérateur*/
+
+[A-Za-z_][A-Za-z_0-9]* { strcpy( yylval.texte, yytext) ;  return TEXT; }
+
+\+     {  return yytext[0];  }  // la même chose que return '+'  
+"-"    {  return '-'; }
+"*"    {  return '*'; }
+"/"    {  return '/'; }
+"="|"<-"|"est"    {  return '='; }
+\(     {  return '('; }
+\)     {  return ')'; }
+.      {  printf ("Erreur lexicale : %s\n", yytext); return 0; }
 
   
 
