@@ -1,15 +1,6 @@
-pour cos() :
-fin du pour
-
-choix :
- cas : 
-    sin() fin cas
- cas : 
-    tan() fin cas
-fin choix
-
-si :
+si 3 == 2 :
     alors :
-        cos()
+        afficher cos(1.5)
+    sinon :
+        afficher 1+1
 fin du si
-

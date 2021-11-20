@@ -44,6 +44,16 @@
 #if YYDEBUG
 extern int yydebug;
 #endif
+/* "%code requires" blocks.  */
+#line 42 "fransous.y"
+
+    typedef struct adr {
+        int jmp;  // adresse du jmp
+        int jc;  // adrese  du jc
+    } type_adresse;
+  
+
+#line 57 "fransous.bison.hpp"
 
 /* Token kinds.  */
 #ifndef YYTOKENTYPE
@@ -54,30 +64,85 @@ extern int yydebug;
     YYEOF = 0,                     /* "end of file"  */
     YYerror = 256,                 /* error  */
     YYUNDEF = 257,                 /* "invalid token"  */
-    IF = 258,                      /* IF  */
-    THEN = 259,                    /* THEN  */
-    ELSE = 260,                    /* ELSE  */
-    ENDIF = 261,                   /* ENDIF  */
-    FOR = 262,                     /* FOR  */
-    ENDFOR = 263,                  /* ENDFOR  */
-    PRINT = 264,                   /* PRINT  */
-    SIN = 265,                     /* SIN  */
-    COS = 266,                     /* COS  */
-    TAN = 267,                     /* TAN  */
-    SEPARATOR = 268,               /* SEPARATOR  */
-    WHILE = 269,                   /* WHILE  */
-    ENDWHILE = 270,                /* ENDWHILE  */
-    SWITCH = 271,                  /* SWITCH  */
-    ENDSWITCH = 272,               /* ENDSWITCH  */
-    CASE = 273,                    /* CASE  */
-    BREAK = 274                    /* BREAK  */
+    NUM = 258,                     /* NUM  */
+    VAR = 259,                     /* VAR  */
+    SI = 260,                      /* SI  */
+    GOTO = 261,                    /* GOTO  */
+    LABEL = 262,                   /* LABEL  */
+    JMP = 263,                     /* JMP  */
+    JMPCOND = 264,                 /* JMPCOND  */
+    ASSIGN = 265,                  /* ASSIGN  */
+    IF = 266,                      /* IF  */
+    THEN = 267,                    /* THEN  */
+    ELSE = 268,                    /* ELSE  */
+    ENDIF = 269,                   /* ENDIF  */
+    FOR = 270,                     /* FOR  */
+    ENDFOR = 271,                  /* ENDFOR  */
+    AND = 272,                     /* AND  */
+    BETWEEN = 273,                 /* BETWEEN  */
+    DECR = 274,                    /* DECR  */
+    INCR = 275,                    /* INCR  */
+    PRINT = 276,                   /* PRINT  */
+    SIN = 277,                     /* SIN  */
+    COS = 278,                     /* COS  */
+    TAN = 279,                     /* TAN  */
+    SEPARATOR = 280,               /* SEPARATOR  */
+    WHILE = 281,                   /* WHILE  */
+    ENDWHILE = 282,                /* ENDWHILE  */
+    SWITCH = 283,                  /* SWITCH  */
+    ENDSWITCH = 284,               /* ENDSWITCH  */
+    CASE = 285,                    /* CASE  */
+    BREAK = 286,                   /* BREAK  */
+    EXP = 287,                     /* EXP  */
+    SQRT = 288,                    /* SQRT  */
+    POW = 289,                     /* POW  */
+    OPENFR = 290,                  /* OPENFR  */
+    OPENFW = 291,                  /* OPENFW  */
+    SUPPR = 292,                   /* SUPPR  */
+    NEWNAME = 293,                 /* NEWNAME  */
+    TOLOWER = 294,                 /* TOLOWER  */
+    FIRST = 295,                   /* FIRST  */
+    LAST = 296,                    /* LAST  */
+    SIZE = 297,                    /* SIZE  */
+    WAIT = 298,                    /* WAIT  */
+    VARS = 299,                    /* VARS  */
+    VARAPO = 300,                  /* VARAPO  */
+    VRAI = 301,                    /* VRAI  */
+    FAUX = 302,                    /* FAUX  */
+    INF = 303,                     /* INF  */
+    SUP = 304,                     /* SUP  */
+    INFEG = 305,                   /* INFEG  */
+    SUPEG = 306,                   /* SUPEG  */
+    EGAL = 307,                    /* EGAL  */
+    DIFF = 308,                    /* DIFF  */
+    NON = 309,                     /* NON  */
+    commentaire = 310,             /* commentaire  */
+    DANS = 311,                    /* DANS  */
+    DE = 312,                      /* DE  */
+    JUSQUE = 313,                  /* JUSQUE  */
+    EN = 314,                      /* EN  */
+    ADD = 315,                     /* ADD  */
+    SUB = 316,                     /* SUB  */
+    MULT = 317,                    /* MULT  */
+    DIV = 318                      /* DIV  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef int YYSTYPE;
+union YYSTYPE
+{
+#line 49 "fransous.y"
+
+  double valeur;
+  char nom[50];
+  type_adresse adresse;  
+
+#line 143 "fransous.bison.hpp"
+
+};
+typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif

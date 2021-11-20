@@ -13,15 +13,6 @@
 " "    { }
 \t     { }
 
-[A-Za-z_][A-Za-z_0-9]* { 
-                         strcpy( yylval.nom, yytext) ;
-                         return VARS;
-                       }
-
-
-"[A-Za-z_][A-Za-z_0-9]*" {strcpy( yylval.varapo, yytext) ;
-                         return VARAPO;}
-}
 (\/\*)([\s\S]*?)(\*\/)|\/\/([\S\s]*?)\n  {return commentaire;}
 afficher|Afficher|AFFICHER {return PRINT;}
 choix|Choix|CHOIX {return SWITCH;}
@@ -43,53 +34,59 @@ on[" "]enleve {return DECR;}
 Sin|SIN|sin|sinus|Sinus|SINUS { return SIN;  }
 Cos|COS|cos|cosinus|Cosinus|COSINUS { return COS;  }
 Tan|TAN|tan|tangente|Tangente|TANGENTE { return TAN; }
-exp|Exp|EXP {return exp;};
-racine|Racine|RACINE {return sqrt;};
-carre|Carre|CARRE {return pow;};
-Ouvrir[" "]en[" "]lecture|OUVRIR[" "]EN[" "]LECTURE|ouvrir[" "]en[" "]lecture { return openFileRead;};
-Ouvrir[" "]en[" "]ecriture|OUVRIR[" "]EN[" "]ECRITURE|ouvrir[" "]en[" "]ecriture { return openFileWrite;};
-supprimer|Supprimer|SUPPRIMER {return remove;};
-renommer|Renommer|RENOMMER {return rename;};
-minuscule|Minuscule|MINUSCULE {return tolower;};
-en {return "en";};
-dans {return "dans";};
-jusque {return "jusque";};
-premier|Premier|PREMIER {return first};
-dernier|Dernier|DERNIER {return last};
-taille|Taille|TAILLE {return size};
-Attendre|attendre|ATTENDRE {return wait};
-de {return de};
+exp|Exp|EXP {return EXP;};
+racine|Racine|RACINE {return SQRT;};
+carre|Carre|CARRE {return POW;};
+Ouvrir[" "]en[" "]lecture|OUVRIR[" "]EN[" "]LECTURE|ouvrir[" "]en[" "]lecture { return OPENFR;};
+Ouvrir[" "]en[" "]ecriture|OUVRIR[" "]EN[" "]ECRITURE|ouvrir[" "]en[" "]ecriture { return OPENFW;};
+supprimer|Supprimer|SUPPRIMER {return SUPPR;};
+renommer|Renommer|RENOMMER {return NEWNAME;};
+minuscule|Minuscule|MINUSCULE {return TOLOWER;};
+en {return EN;};
+dans {return DANS;};
+jusque {return JUSQUE;};
+premier|Premier|PREMIER {return FIRST;};
+dernier|Dernier|DERNIER {return LAST;};
+taille|Taille|TAILLE {return SIZE;};
+Attendre|attendre|ATTENDRE {return WAIT;};
+de {return DE;};
 : { return SEPARATOR;}
-<|inferieur|Inferieur {return INF;}
->|superieur|Superieur {return SUP;}
-<=|inferieur[" "]ou[" "]egal|Inferieur[" "]ou[" "]egal|Inferieur[" "]Ou[" "]Egal {return INFEG; }
->=|superieur[" "]ou[" "]egal|Superieur[" "]ou[" "]Egal|superieur[" "]Ou[" "]Egal {return SUPEG; }
-!=|different|Different {return DIFF; }
-==|egal|Egal {return EGAL; }
+"<"|inferieur|Inferieur {return INF;}
+">"|superieur|Superieur {return SUP;}
+"<="|inferieur[" "]ou[" "]egal|Inferieur[" "]ou[" "]egal|Inferieur[" "]Ou[" "]Egal {return INFEG; }
+">="|superieur[" "]ou[" "]egal|Superieur[" "]ou[" "]Egal|superieur[" "]Ou[" "]Egal {return SUPEG; }
+"!="|different|Different {return DIFF; }
+"=="|egal|Egal {return EGAL; }
 \(     {  return '('; }
 \)     {  return ')'; }
 vrai {return VRAI;}
 faux {return FAUX;}
 
-plus    { return '+'; }
-moins   { return '-'; }
-fois    { return '*'; }
-divise  { return '/'; } /*Peut-être penser à un autre nom pour l'opérateur*/
+"+"|plus    { return ADD; }
+"-"|moins   { return SUB; }
+"*"|fois    { return MULT; }
+"/"|divise  { return DIV; } /*Peut-être penser à un autre nom pour l'opérateur*/
 
-[A-Za-z_][A-Za-z_0-9]* { strcpy( yylval.texte, yytext) ;  return TEXT; }
+[A-Za-z_][A-Za-z_0-9]* { 
+                         strcpy( yylval.nom, yytext) ;
+                         return VARS;
+                       }
 
-\+     {  return yytext[0];  }  // la même chose que return '+'  
-"-"    {  return '-'; }
-"*"    {  return '*'; }
-"/"    {  return '/'; }
+
+\"[A-Za-z_][A-Za-z_0-9]*\" {strcpy( yylval.nom, yytext) ;
+                         return VARAPO;}
+
+[0-9]+(\.[0-9]*)?([Ee][+-]?[0-9]+)? { // s'il s'agit d'un nombre on le stocke dans le champ "valeur"
+                                      yylval.valeur = atof(yytext);
+                                      return NUM;
+                                    }
+
+
 "="|"<-"|"est"    {  return '='; }
-\(     {  return '('; }
-\)     {  return ')'; }
-.      {  printf ("Erreur lexicale : %s\n", yytext); return 0; }
-
+"," {return ',';}
   
 
-  <<EOF>> { printf ("Le programme est correct.\n"); return 0;}
-.      {  printf ("lex error : %s\n", yytext); return 0; }
+<<EOF>> { printf ("Le programme est correct.\n"); return 0;}
+.      {  printf ("Erreur lexicale : %s\n", yytext); return 0; }
 
 %%
