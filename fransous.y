@@ -64,8 +64,12 @@
 %token THEN
 %token ELSE
 %token ENDIF
-%token FOR
+%token <adresse> FOR
 %token ENDFOR
+%token AND 
+%token BETWEEN
+%token DECR
+%token INCR
 %token PRINT
 %token SIN
 %token COS
@@ -144,9 +148,26 @@ instruction: {}
         ENDIF           { // Je mets à jour l'adresse du saut inconditionnel
                         code_genere[$1.jmp].value = ic;} 
 
-        |FOR expr separateur
+        |FOR VAR BETWEEN NUM AND NUM INCR NUM separateur { add_instruction(VAR, 0, $2);
+                                                                add_instruction(NUM, $4);
+                                                                add_instruction(NUM, $8);
+                                                                add_instruction(SUB);
+                                                                add_instruction(ASSIGN, 0, $2);
+
+                                                                $1.jmp = ic;
+                                                                add_instruction(VAR, 0, $2);
+                                                                add_instruction(NUM, $8);
+                                                                add_instruction(ADD);
+                                                                add_instruction(ASSIGN, 0, $2);
+                                                                add_instruction(VAR, 0, $2);
+                                                                add_instruction(NUM, $6);
+                                                                add_instruction(INF);
+                                                                $1.jc = ic;
+                                                                add_instruction(JMPCOND);}
             lignes
-        ENDFOR
+        ENDFOR                                          {add_instruction(JMP);
+                                                              code_genere[ic-1].value = $1.jmp;
+                                                              code_genere[$1.jc].value = ic;}
         |WHILE condition separateur
             lignes
         ENDWHILE
@@ -159,11 +180,11 @@ expr: NUM {add_instruction (NUM, $1); }
      |VAR {add_instruction (VAR, 0, $1); }
      |VRAI {$$ = true; }
      |FAUX {$$  = false; }
-     |SIN '(' expr ')'  {$$ = sin($3); printf ("sin(%g) = %g\n", $3, $$ ); }
-     |COS '(' expr ')'  {$$ = cos($3); printf ("cos(%g) = %g\n", $3, $$ );  }
-     |TAN '(' expr ')'  {$$ = tan($3); printf ("tan(%g) = %g\n", $3, $$ ); }    
-     |exp '('expr ')'   {$$ = exp($3); printf ("exp(%g) = %g\n", $3, $$ ); }
-     |sqrt '(' expr ')' { $$ = sqrt($3); printf ("sqrt(%g) = %g\n", $3, $$ ); }
+     |SIN '(' expr ')'  {add_instruction(NUM, sin($3));/*$$ = sin($3); printf ("sin(%g) = %g\n", $3, $$ );*/ }
+     |COS '(' expr ')'  {add_instruction(NUM, cos($3));/*$$ = cos($3); printf ("cos(%g) = %g\n", $3, $$ );*/  }
+     |TAN '(' expr ')'  {add_instruction(NUM, tan($3));/*$$ = tan($3); printf ("tan(%g) = %g\n", $3, $$ );*/ }    
+     |exp '('expr ')'   {add_instruction(NUM, exp($3));/*$$ = exp($3); printf ("exp(%g) = %g\n", $3, $$ );*/ }
+     |sqrt '(' expr ')' {add_instruction(NUM ,sqrt($3));/*$$ = sqrt($3); printf ("sqrt(%g) = %g\n", $3, $$ );*/ }
      | '(' expr ')'      { $$ = $2; }
      | expr '+' expr     { $$ = $1 + $3; printf ("%g + %g = %g\n", $1, $3, $$ );}
      | expr '-' expr     { $$ = $1 - $3; printf ("%g - %g = %g\n", $1, $3, $$ );}   		

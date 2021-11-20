@@ -36,6 +36,10 @@ sinon|Sinon|SINON   { return ELSE; }
 fin[" "]du[" "]si|FIN[" "]DU[" "]SI|Fin[" "]du[" "]si|Fin[" "]Du[" "]Si  { return ENDIF; }
 pour|POUR|Pour { return FOR;}
 fin[" "]du[" "]pour|FIN[" "]DU[" "]POUR|Fin[" "]Du[" "]Pour { return ENDFOR;}
+entre {return BETWEEN;}
+et {return AND;}
+on[" "]ajoute {return INCR;}
+on[" "]enleve {return DECR;}
 Sin|SIN|sin|sinus|Sinus|SINUS { return SIN;  }
 Cos|COS|cos|cosinus|Cosinus|COSINUS { return COS;  }
 Tan|TAN|tan|tangente|Tangente|TANGENTE { return TAN; }
