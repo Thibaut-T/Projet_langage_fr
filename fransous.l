@@ -20,7 +20,7 @@ fin[" "]choix|FIN[" "]SWITCH|Fin[""]Switch {return ENDSWITCH;}
 cas|Cas|CAS { return CASE;}
 fin[" "]cas|FIN[" "]CAS|Fin[" "]Cas { return BREAK;}
 Tant[" "]que|TANT[" "]QUE|tant[" "]que {return WHILE;}
-Fin[" "]tant|FIN[" "]TANT|fin[" "]tant {return ENDWHILE;}
+Fin[" "]tant[" "]que|FIN[" "]TANT[" "]QUE|fin[" "]tant[" "]que {return ENDWHILE;}
 si|SI|Si     { return IF; }
 alors|ALORS|Alors   { return THEN; }
 sinon|Sinon|SINON   { return ELSE; }
@@ -69,7 +69,7 @@ faux {return FAUX;}
 
 [A-Za-z_][A-Za-z_0-9]* { 
                          strcpy( yylval.nom, yytext) ;
-                         return VARS;
+                         return VAR;
                        }
 
 

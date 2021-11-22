@@ -179,46 +179,48 @@ enum yysymbol_kind_t
   YYSYMBOL_LAST = 41,                      /* LAST  */
   YYSYMBOL_SIZE = 42,                      /* SIZE  */
   YYSYMBOL_WAIT = 43,                      /* WAIT  */
-  YYSYMBOL_VARS = 44,                      /* VARS  */
-  YYSYMBOL_VARAPO = 45,                    /* VARAPO  */
-  YYSYMBOL_VRAI = 46,                      /* VRAI  */
-  YYSYMBOL_FAUX = 47,                      /* FAUX  */
-  YYSYMBOL_INF = 48,                       /* INF  */
-  YYSYMBOL_SUP = 49,                       /* SUP  */
-  YYSYMBOL_INFEG = 50,                     /* INFEG  */
-  YYSYMBOL_SUPEG = 51,                     /* SUPEG  */
-  YYSYMBOL_EGAL = 52,                      /* EGAL  */
-  YYSYMBOL_DIFF = 53,                      /* DIFF  */
-  YYSYMBOL_NON = 54,                       /* NON  */
-  YYSYMBOL_commentaire = 55,               /* commentaire  */
-  YYSYMBOL_DANS = 56,                      /* DANS  */
-  YYSYMBOL_DE = 57,                        /* DE  */
-  YYSYMBOL_JUSQUE = 58,                    /* JUSQUE  */
-  YYSYMBOL_EN = 59,                        /* EN  */
-  YYSYMBOL_ADD = 60,                       /* ADD  */
-  YYSYMBOL_SUB = 61,                       /* SUB  */
-  YYSYMBOL_MULT = 62,                      /* MULT  */
-  YYSYMBOL_DIV = 63,                       /* DIV  */
-  YYSYMBOL_64_n_ = 64,                     /* '\n'  */
-  YYSYMBOL_65_ = 65,                       /* ':'  */
-  YYSYMBOL_66_ = 66,                       /* '='  */
-  YYSYMBOL_67_ = 67,                       /* '('  */
-  YYSYMBOL_68_ = 68,                       /* ')'  */
-  YYSYMBOL_69_ = 69,                       /* ','  */
-  YYSYMBOL_YYACCEPT = 70,                  /* $accept  */
-  YYSYMBOL_lignes = 71,                    /* lignes  */
-  YYSYMBOL_label = 72,                     /* label  */
-  YYSYMBOL_separateur = 73,                /* separateur  */
-  YYSYMBOL_case = 74,                      /* case  */
-  YYSYMBOL_instruction = 75,               /* instruction  */
-  YYSYMBOL_76_1 = 76,                      /* $@1  */
-  YYSYMBOL_77_2 = 77,                      /* $@2  */
-  YYSYMBOL_78_3 = 78,                      /* $@3  */
-  YYSYMBOL_79_4 = 79,                      /* $@4  */
-  YYSYMBOL_expr = 80,                      /* expr  */
-  YYSYMBOL_fonction = 81,                  /* fonction  */
-  YYSYMBOL_condition = 82,                 /* condition  */
-  YYSYMBOL_var = 83                        /* var  */
+  YYSYMBOL_VARAPO = 44,                    /* VARAPO  */
+  YYSYMBOL_VRAI = 45,                      /* VRAI  */
+  YYSYMBOL_FAUX = 46,                      /* FAUX  */
+  YYSYMBOL_INF = 47,                       /* INF  */
+  YYSYMBOL_SUP = 48,                       /* SUP  */
+  YYSYMBOL_INFEG = 49,                     /* INFEG  */
+  YYSYMBOL_SUPEG = 50,                     /* SUPEG  */
+  YYSYMBOL_EGAL = 51,                      /* EGAL  */
+  YYSYMBOL_DIFF = 52,                      /* DIFF  */
+  YYSYMBOL_NON = 53,                       /* NON  */
+  YYSYMBOL_commentaire = 54,               /* commentaire  */
+  YYSYMBOL_DANS = 55,                      /* DANS  */
+  YYSYMBOL_DE = 56,                        /* DE  */
+  YYSYMBOL_JUSQUE = 57,                    /* JUSQUE  */
+  YYSYMBOL_EN = 58,                        /* EN  */
+  YYSYMBOL_ADD = 59,                       /* ADD  */
+  YYSYMBOL_SUB = 60,                       /* SUB  */
+  YYSYMBOL_MULT = 61,                      /* MULT  */
+  YYSYMBOL_DIV = 62,                       /* DIV  */
+  YYSYMBOL_63_n_ = 63,                     /* '\n'  */
+  YYSYMBOL_64_ = 64,                       /* ':'  */
+  YYSYMBOL_65_ = 65,                       /* '='  */
+  YYSYMBOL_66_ = 66,                       /* '('  */
+  YYSYMBOL_67_ = 67,                       /* ')'  */
+  YYSYMBOL_68_ = 68,                       /* ','  */
+  YYSYMBOL_YYACCEPT = 69,                  /* $accept  */
+  YYSYMBOL_lignes = 70,                    /* lignes  */
+  YYSYMBOL_label = 71,                     /* label  */
+  YYSYMBOL_separateur = 72,                /* separateur  */
+  YYSYMBOL_case = 73,                      /* case  */
+  YYSYMBOL_instruction = 74,               /* instruction  */
+  YYSYMBOL_75_1 = 75,                      /* $@1  */
+  YYSYMBOL_76_2 = 76,                      /* $@2  */
+  YYSYMBOL_77_3 = 77,                      /* $@3  */
+  YYSYMBOL_78_4 = 78,                      /* $@4  */
+  YYSYMBOL_79_5 = 79,                      /* $@5  */
+  YYSYMBOL_80_6 = 80,                      /* $@6  */
+  YYSYMBOL_81_7 = 81,                      /* $@7  */
+  YYSYMBOL_expr = 82,                      /* expr  */
+  YYSYMBOL_fonction = 83,                  /* fonction  */
+  YYSYMBOL_condition = 84,                 /* condition  */
+  YYSYMBOL_var = 85                        /* var  */
 };
 typedef enum yysymbol_kind_t yysymbol_kind_t;
 
@@ -546,19 +548,19 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  2
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   220
+#define YYLAST   225
 
 /* YYNTOKENS -- Number of terminals.  */
-#define YYNTOKENS  70
+#define YYNTOKENS  69
 /* YYNNTS -- Number of nonterminals.  */
-#define YYNNTS  14
+#define YYNNTS  17
 /* YYNRULES -- Number of rules.  */
-#define YYNRULES  58
+#define YYNRULES  60
 /* YYNSTATES -- Number of states.  */
-#define YYNSTATES  152
+#define YYNSTATES  154
 
 /* YYMAXUTOK -- Last valid token kind.  */
-#define YYMAXUTOK   318
+#define YYMAXUTOK   317
 
 
 /* YYTRANSLATE(TOKEN-NUM) -- Symbol number corresponding to TOKEN-NUM
@@ -573,12 +575,12 @@ union yyalloc
 static const yytype_int8 yytranslate[] =
 {
        0,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-      64,     2,     2,     2,     2,     2,     2,     2,     2,     2,
+      63,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-      67,    68,     2,     2,    69,     2,     2,     2,     2,     2,
-       2,     2,     2,     2,     2,     2,     2,     2,    65,     2,
-       2,    66,     2,     2,     2,     2,     2,     2,     2,     2,
+      66,    67,     2,     2,    68,     2,     2,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,     2,     2,    64,     2,
+       2,    65,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -603,19 +605,20 @@ static const yytype_int8 yytranslate[] =
       25,    26,    27,    28,    29,    30,    31,    32,    33,    34,
       35,    36,    37,    38,    39,    40,    41,    42,    43,    44,
       45,    46,    47,    48,    49,    50,    51,    52,    53,    54,
-      55,    56,    57,    58,    59,    60,    61,    62,    63
+      55,    56,    57,    58,    59,    60,    61,    62
 };
 
 #if YYDEBUG
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,   125,   125,   126,   128,   129,   134,   137,   138,   140,
-     141,   142,   143,   146,   150,   152,   150,   164,   164,   184,
-     184,   204,   207,   210,   211,   212,   213,   214,   215,   216,
-     217,   218,   219,   220,   221,   222,   223,   224,   225,   226,
-     229,   230,   231,   232,   233,   234,   235,   236,   237,   238,
-     242,   243,   244,   245,   246,   247,   248,   249,   251
+       0,   124,   124,   125,   127,   128,   133,   136,   137,   139,
+     140,   141,   142,   145,   149,   151,   149,   163,   163,   183,
+     183,   204,   205,   208,   204,   212,   215,   216,   217,   218,
+     219,   220,   221,   222,   223,   224,   225,   226,   227,   228,
+     229,   230,   233,   234,   235,   236,   237,   238,   239,   240,
+     241,   242,   246,   247,   248,   249,   250,   251,   252,   253,
+     255
 };
 #endif
 
@@ -636,12 +639,12 @@ static const char *const yytname[] =
   "ENDIF", "FOR", "ENDFOR", "AND", "BETWEEN", "DECR", "INCR", "PRINT",
   "SIN", "COS", "TAN", "SEPARATOR", "WHILE", "ENDWHILE", "SWITCH",
   "ENDSWITCH", "CASE", "BREAK", "EXP", "SQRT", "POW", "OPENFR", "OPENFW",
-  "SUPPR", "NEWNAME", "TOLOWER", "FIRST", "LAST", "SIZE", "WAIT", "VARS",
-  "VARAPO", "VRAI", "FAUX", "INF", "SUP", "INFEG", "SUPEG", "EGAL", "DIFF",
-  "NON", "commentaire", "DANS", "DE", "JUSQUE", "EN", "ADD", "SUB", "MULT",
-  "DIV", "'\\n'", "':'", "'='", "'('", "')'", "','", "$accept", "lignes",
-  "label", "separateur", "case", "instruction", "$@1", "$@2", "$@3", "$@4",
-  "expr", "fonction", "condition", "var", YY_NULLPTR
+  "SUPPR", "NEWNAME", "TOLOWER", "FIRST", "LAST", "SIZE", "WAIT", "VARAPO",
+  "VRAI", "FAUX", "INF", "SUP", "INFEG", "SUPEG", "EGAL", "DIFF", "NON",
+  "commentaire", "DANS", "DE", "JUSQUE", "EN", "ADD", "SUB", "MULT", "DIV",
+  "'\\n'", "':'", "'='", "'('", "')'", "','", "$accept", "lignes", "label",
+  "separateur", "case", "instruction", "$@1", "$@2", "$@3", "$@4", "$@5",
+  "$@6", "$@7", "expr", "fonction", "condition", "var", YY_NULLPTR
 };
 
 static const char *
@@ -651,12 +654,12 @@ yysymbol_name (yysymbol_kind_t yysymbol)
 }
 #endif
 
-#define YYPACT_NINF (-70)
+#define YYPACT_NINF (-116)
 
 #define yypact_value_is_default(Yyn) \
   ((Yyn) == YYPACT_NINF)
 
-#define YYTABLE_NINF (-16)
+#define YYTABLE_NINF (-24)
 
 #define yytable_value_is_error(Yyn) \
   0
@@ -665,22 +668,22 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int16 yypact[] =
 {
-     -70,    23,   -70,   -43,   100,   -70,   -70,   -31,    38,   127,
-      36,   153,   -13,     9,    14,   127,   -70,    15,    19,    20,
-     153,   153,   153,   153,    44,     7,    34,    45,    63,   -70,
-     -70,   -70,   -70,   153,    49,    92,   -70,   153,   -70,   -70,
-      42,   154,    89,   107,    92,   153,   153,   153,    89,    89,
-     153,   153,   153,    92,    92,    56,   -51,   -70,    83,   104,
-     114,   -70,   -24,   -70,   153,   153,   153,   153,    92,   127,
-     153,   153,   153,   153,   153,   153,   105,   -70,   163,   -11,
-      17,    33,   -70,   -70,    37,   102,   -35,   153,   153,   -70,
-     -70,   -70,   -70,    92,    92,   -70,   -70,   110,    92,    92,
-      92,    92,    92,    92,   -70,   156,   162,   -70,   -70,   -70,
-      -3,    -9,   -70,   -70,   153,   150,    92,   -70,    89,   177,
-     -70,   -70,   127,   128,   153,   -70,    12,   157,   -70,    92,
-      46,   180,   181,   100,   179,    89,    89,   164,    89,   -70,
-     -70,   129,   -70,   -70,   -70,   -70,    51,    -2,    -1,   -70,
-     -70,   -70
+    -116,    26,  -116,   -59,    99,  -116,  -116,   -57,     3,   125,
+      23,    52,   -13,    -8,     7,  -116,  -116,    12,    14,    15,
+      52,    52,    52,    52,    39,    31,    32,    33,    88,  -116,
+    -116,  -116,    52,    30,   102,  -116,    52,  -116,  -116,    29,
+     133,    74,    82,   102,    52,    52,    52,   125,    74,    52,
+      52,    52,   102,   102,   113,   128,  -116,    97,   100,   103,
+    -116,   -23,  -116,    52,    52,    52,    52,   102,   125,    52,
+      52,    52,    52,    52,    52,    43,  -116,   105,   -10,    93,
+     137,    74,  -116,   141,   150,   -48,    52,    52,  -116,  -116,
+    -116,  -116,   102,   102,  -116,  -116,    45,   102,   102,   102,
+     102,   102,   102,  -116,   101,    94,  -116,  -116,  -116,  -116,
+      -7,  -116,  -116,    52,   163,   102,  -116,    74,   112,  -116,
+    -116,   125,   154,    52,  -116,    44,    -6,    91,  -116,   102,
+      41,   114,   121,   119,    99,   138,    74,    74,  -116,    95,
+      74,  -116,  -116,    87,  -116,  -116,  -116,  -116,    65,    -1,
+      18,  -116,  -116,  -116
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -688,36 +691,36 @@ static const yytype_int16 yypact[] =
    means the default is an error.  */
 static const yytype_int8 yydefact[] =
 {
-       2,     4,     1,     0,     9,     5,    23,    26,     0,     0,
-       0,     0,     0,     0,     0,     0,    58,     0,     0,     0,
-       0,     0,     0,     0,     0,     0,     0,     0,     0,    24,
-      25,    27,    28,     0,     0,    10,    11,     0,    13,    26,
-       0,    50,     0,     0,    49,     0,     0,     0,     0,     0,
-       0,     0,     0,    40,    41,     0,     0,    44,     0,     0,
-       0,    48,     0,     3,     0,     0,     0,     0,    12,     0,
-       0,     0,     0,     0,     0,     0,     0,    14,     0,     0,
-       0,     0,     2,     7,     0,     0,     0,     0,     0,    45,
-      46,    47,    35,    36,    37,    38,    39,     0,    52,    51,
-      54,    53,    56,    55,     6,     0,     0,    29,    30,    31,
-       4,     0,    32,    33,     0,     0,    43,    57,     0,     0,
-      21,    22,     0,     0,     0,     2,     0,     0,    34,    42,
-       4,     0,     0,     9,     0,     0,     0,     0,     0,    19,
-      17,     0,     2,     2,     2,     8,     4,     4,     4,    16,
-      20,    18
+       2,     4,     1,     0,     9,     5,    26,    28,     0,     0,
+       0,     0,     0,     0,     0,    21,    60,     0,     0,     0,
+       0,     0,     0,     0,     0,     0,     0,     0,     0,    27,
+      29,    30,     0,     0,    10,    11,     0,    13,    28,     0,
+      52,     0,     0,    51,     0,     0,     0,     0,     0,     0,
+       0,     0,    42,    43,     0,     0,    46,     0,     0,     0,
+      50,     0,     3,     0,     0,     0,     0,    12,     0,     0,
+       0,     0,     0,     0,     0,     0,    14,     0,     0,     0,
+       0,     0,     7,     0,     0,     0,     0,     0,    47,    48,
+      49,    37,    38,    39,    40,    41,     0,    54,    53,    56,
+      55,    58,    57,     6,     0,     0,    31,    32,    33,    22,
+       0,    34,    35,     0,     0,    45,    59,     0,     0,     2,
+      25,     0,     0,     0,     2,     0,     4,     0,    36,    44,
+       4,     0,     0,     0,     9,     0,     0,     0,    24,     0,
+       0,    19,    17,     0,     2,     2,     2,     8,     4,     4,
+       4,    16,    20,    18
 };
 
 /* YYPGOTO[NTERM-NUM].  */
 static const yytype_int8 yypgoto[] =
 {
-     -70,   -69,   -70,   -46,   -70,    68,   -70,   -70,   -70,   -70,
-      -4,   -70,   -14,   -70
+    -116,  -115,  -116,   -46,  -116,    22,  -116,  -116,  -116,  -116,
+    -116,  -116,  -116,    -4,  -116,   -44,  -116
 };
 
 /* YYDEFGOTO[NTERM-NUM].  */
 static const yytype_uint8 yydefgoto[] =
 {
-       0,     1,     4,    77,   111,    34,   105,   134,   144,   143,
-      41,    36,    42,    49
+       0,     1,     4,    76,   110,    33,   104,   135,   146,   145,
+      47,   119,   133,    40,    35,    41,    48
 };
 
 /* YYTABLE[YYPACT[STATE-NUM]] -- What to do in state STATE-NUM.  If
@@ -725,89 +728,90 @@ static const yytype_uint8 yydefgoto[] =
    number is the opposite.  If YYTABLE_NINF, syntax error.  */
 static const yytype_int16 yytable[] =
 {
-      35,    48,    82,    83,     3,     3,     3,    44,    88,    64,
-      65,    66,    67,   110,   150,   151,    53,    54,    55,    56,
-     121,   122,     5,     2,   120,    64,    65,    66,    67,    62,
-       3,   131,   132,    68,   114,    37,    64,    65,    66,    67,
-      43,    79,    80,    81,    92,    38,    84,    85,    86,    64,
-      65,    66,    67,     3,    45,    97,   130,   107,     3,   -15,
-      93,    94,    95,    96,    58,   149,    98,    99,   100,   101,
-     102,   103,   125,   146,   147,   148,    46,    64,    65,    66,
-      67,    47,    50,   115,   116,   108,    51,    52,    57,   139,
-     140,    59,   142,    64,    65,    66,    67,    64,    65,    66,
-      67,   109,    60,     6,     7,   112,     8,    61,   127,    69,
-     123,     9,    87,    63,    76,    10,    64,    65,    66,    67,
-     129,    11,    12,    13,    14,    78,    15,    89,    16,    35,
-       6,    39,    17,    18,    19,    20,    21,    22,    23,    24,
-      25,    26,    27,    28,    29,    30,    31,    32,    90,    12,
-      13,    14,    64,    65,    66,    67,     6,    39,    91,    17,
-      18,    19,    64,    65,    66,    67,   106,    33,   118,   104,
-     113,    29,    30,    31,    32,    12,    13,    14,   117,   119,
-     126,    40,   133,   135,   136,    17,    18,    19,    64,    65,
-      66,    67,   138,   145,    33,   141,   128,    29,    30,    31,
-      32,   137,    70,    71,    72,    73,    74,    75,   124,     0,
-      64,    65,    66,    67,    64,    65,    66,    67,     0,     0,
-      33
+      34,     3,    82,    81,   126,     5,     3,    43,    36,   130,
+      37,    63,    64,    65,    66,   152,    52,    53,    54,    55,
+     113,   -23,   120,   121,    96,     3,     2,    42,    61,   148,
+     149,   150,    67,     3,   153,   109,    63,    64,    65,    66,
+      78,    79,    80,    56,    91,    83,    84,    85,     3,    63,
+      64,    65,    66,    44,   -15,     6,    38,   106,    45,    92,
+      93,    94,    95,   131,   132,    97,    98,    99,   100,   101,
+     102,   124,     3,    46,    12,    13,    14,   127,    49,   151,
+      50,    51,   114,   115,    17,    18,    19,    57,    58,    59,
+     141,   142,    60,    62,   144,    68,    29,    30,    31,    75,
+      77,    88,     6,     7,    89,     8,   103,    90,   105,   122,
+       9,   118,   116,   117,    10,   125,   134,   136,    32,   129,
+      11,    12,    13,    14,   137,    15,   143,    16,     6,    38,
+      34,    17,    18,    19,    20,    21,    22,    23,    24,    25,
+      26,    27,    28,    29,    30,    31,   138,    12,    13,    14,
+     147,   140,    63,    64,    65,    66,   139,    17,    18,    19,
+     107,    63,    64,    65,    66,    32,     0,     0,    86,    29,
+      30,    31,    63,    64,    65,    66,     0,     0,    39,     0,
+      69,    70,    71,    72,    73,    74,    87,    63,    64,    65,
+      66,    32,    63,    64,    65,    66,    63,    64,    65,    66,
+      63,    64,    65,    66,   108,     0,     0,     0,   111,    63,
+      64,    65,    66,    63,    64,    65,    66,   112,     0,     0,
+     123,   128,    63,    64,    65,    66
 };
 
 static const yytype_int16 yycheck[] =
 {
-       4,    15,    48,    49,     7,     7,     7,    11,    59,    60,
-      61,    62,    63,    82,    16,    16,    20,    21,    22,    23,
-      29,    30,    65,     0,    27,    60,    61,    62,    63,    33,
-       7,    19,    20,    37,    69,    66,    60,    61,    62,    63,
-       4,    45,    46,    47,    68,     7,    50,    51,    52,    60,
-      61,    62,    63,     7,    67,    69,   125,    68,     7,    13,
-      64,    65,    66,    67,    57,    14,    70,    71,    72,    73,
-      74,    75,   118,   142,   143,   144,    67,    60,    61,    62,
-      63,    67,    67,    87,    88,    68,    67,    67,    44,   135,
-     136,    57,   138,    60,    61,    62,    63,    60,    61,    62,
-      63,    68,    57,     3,     4,    68,     6,    44,   122,    67,
-     114,    11,    56,    64,    25,    15,    60,    61,    62,    63,
-     124,    21,    22,    23,    24,    18,    26,    44,    28,   133,
-       3,     4,    32,    33,    34,    35,    36,    37,    38,    39,
-      40,    41,    42,    43,    44,    45,    46,    47,    44,    22,
-      23,    24,    60,    61,    62,    63,     3,     4,    44,    32,
-      33,    34,    60,    61,    62,    63,     3,    67,    12,    64,
-      68,    44,    45,    46,    47,    22,    23,    24,    68,    17,
-       3,    54,    25,     3,     3,    32,    33,    34,    60,    61,
-      62,    63,    13,    64,    67,    31,    68,    44,    45,    46,
-      47,   133,    48,    49,    50,    51,    52,    53,    58,    -1,
-      60,    61,    62,    63,    60,    61,    62,    63,    -1,    -1,
-      67
+       4,     7,    48,    47,   119,    64,     7,    11,    65,   124,
+       7,    59,    60,    61,    62,    16,    20,    21,    22,    23,
+      68,    27,    29,    30,    68,     7,     0,     4,    32,   144,
+     145,   146,    36,     7,    16,    81,    59,    60,    61,    62,
+      44,    45,    46,     4,    67,    49,    50,    51,     7,    59,
+      60,    61,    62,    66,    13,     3,     4,    67,    66,    63,
+      64,    65,    66,    19,    20,    69,    70,    71,    72,    73,
+      74,   117,     7,    66,    22,    23,    24,   121,    66,    14,
+      66,    66,    86,    87,    32,    33,    34,    56,    56,    56,
+     136,   137,     4,    63,   140,    66,    44,    45,    46,    25,
+      18,     4,     3,     4,     4,     6,    63,     4,     3,   113,
+      11,    17,    67,    12,    15,     3,    25,     3,    66,   123,
+      21,    22,    23,    24,     3,    26,    31,    28,     3,     4,
+     134,    32,    33,    34,    35,    36,    37,    38,    39,    40,
+      41,    42,    43,    44,    45,    46,    27,    22,    23,    24,
+      63,    13,    59,    60,    61,    62,   134,    32,    33,    34,
+      67,    59,    60,    61,    62,    66,    -1,    -1,    55,    44,
+      45,    46,    59,    60,    61,    62,    -1,    -1,    53,    -1,
+      47,    48,    49,    50,    51,    52,    58,    59,    60,    61,
+      62,    66,    59,    60,    61,    62,    59,    60,    61,    62,
+      59,    60,    61,    62,    67,    -1,    -1,    -1,    67,    59,
+      60,    61,    62,    59,    60,    61,    62,    67,    -1,    -1,
+      57,    67,    59,    60,    61,    62
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
    state STATE-NUM.  */
 static const yytype_int8 yystos[] =
 {
-       0,    71,     0,     7,    72,    65,     3,     4,     6,    11,
+       0,    70,     0,     7,    71,    64,     3,     4,     6,    11,
       15,    21,    22,    23,    24,    26,    28,    32,    33,    34,
       35,    36,    37,    38,    39,    40,    41,    42,    43,    44,
-      45,    46,    47,    67,    75,    80,    81,    66,     7,     4,
-      54,    80,    82,     4,    80,    67,    67,    67,    82,    83,
-      67,    67,    67,    80,    80,    80,    80,    44,    57,    57,
-      57,    44,    80,    64,    60,    61,    62,    63,    80,    67,
-      48,    49,    50,    51,    52,    53,    25,    73,    18,    80,
-      80,    80,    73,    73,    80,    80,    80,    56,    59,    44,
-      44,    44,    68,    80,    80,    80,    80,    82,    80,    80,
-      80,    80,    80,    80,    64,    76,     3,    68,    68,    68,
-      71,    74,    68,    68,    69,    80,    80,    68,    12,    17,
-      27,    29,    30,    80,    58,    73,     3,    82,    68,    80,
-      71,    19,    20,    25,    77,     3,     3,    75,    13,    73,
-      73,    31,    73,    79,    78,    64,    71,    71,    71,    14,
-      16,    16
+      45,    46,    66,    74,    82,    83,    65,     7,     4,    53,
+      82,    84,     4,    82,    66,    66,    66,    79,    85,    66,
+      66,    66,    82,    82,    82,    82,     4,    56,    56,    56,
+       4,    82,    63,    59,    60,    61,    62,    82,    66,    47,
+      48,    49,    50,    51,    52,    25,    72,    18,    82,    82,
+      82,    84,    72,    82,    82,    82,    55,    58,     4,     4,
+       4,    67,    82,    82,    82,    82,    84,    82,    82,    82,
+      82,    82,    82,    63,    75,     3,    67,    67,    67,    72,
+      73,    67,    67,    68,    82,    82,    67,    12,    17,    80,
+      29,    30,    82,    57,    72,     3,    70,    84,    67,    82,
+      70,    19,    20,    81,    25,    76,     3,     3,    27,    74,
+      13,    72,    72,    31,    72,    78,    77,    63,    70,    70,
+      70,    14,    16,    16
 };
 
 /* YYR1[RULE-NUM] -- Symbol kind of the left-hand side of rule RULE-NUM.  */
 static const yytype_int8 yyr1[] =
 {
-       0,    70,    71,    71,    72,    72,    73,    74,    74,    75,
-      75,    75,    75,    75,    76,    77,    75,    78,    75,    79,
-      75,    75,    75,    80,    80,    80,    80,    80,    80,    80,
-      80,    80,    80,    80,    80,    80,    80,    80,    80,    80,
-      81,    81,    81,    81,    81,    81,    81,    81,    81,    81,
-      82,    82,    82,    82,    82,    82,    82,    82,    83
+       0,    69,    70,    70,    71,    71,    72,    73,    73,    74,
+      74,    74,    74,    74,    75,    76,    74,    77,    74,    78,
+      74,    79,    80,    81,    74,    74,    82,    82,    82,    82,
+      82,    82,    82,    82,    82,    82,    82,    82,    82,    82,
+      82,    82,    83,    83,    83,    83,    83,    83,    83,    83,
+      83,    83,    84,    84,    84,    84,    84,    84,    84,    84,
+      85
 };
 
 /* YYR2[RULE-NUM] -- Number of symbols on the right-hand side of rule RULE-NUM.  */
@@ -815,10 +819,11 @@ static const yytype_int8 yyr2[] =
 {
        0,     2,     0,     4,     0,     2,     2,     0,     7,     0,
        1,     1,     3,     2,     0,     0,    12,     0,    12,     0,
-      12,     5,     5,     1,     1,     1,     1,     1,     1,     4,
-       4,     4,     4,     4,     6,     3,     3,     3,     3,     3,
-       2,     2,     6,     4,     2,     3,     3,     3,     2,     2,
-       1,     3,     3,     3,     3,     3,     3,     4,     0
+      12,     0,     0,     0,     8,     5,     1,     1,     1,     1,
+       1,     4,     4,     4,     4,     4,     6,     3,     3,     3,
+       3,     3,     2,     2,     6,     4,     2,     3,     3,     3,
+       2,     2,     1,     3,     3,     3,     3,     3,     3,     4,
+       0
 };
 
 
@@ -1282,67 +1287,67 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* lignes: %empty  */
-#line 125 "fransous.y"
+#line 124 "fransous.y"
        { }
-#line 1288 "fransous.bison.cpp"
+#line 1293 "fransous.bison.cpp"
     break;
 
   case 5: /* label: LABEL ':'  */
-#line 129 "fransous.y"
+#line 128 "fransous.y"
                    { // Lorsque je rencontre un label
                      // je stocke le numéro d'instruction actelle
                      // dans la table des adresses. C'est tout!   
                      adresses [(yyvsp[-1].nom)] = ic;}
-#line 1297 "fransous.bison.cpp"
+#line 1302 "fransous.bison.cpp"
     break;
 
   case 7: /* case: %empty  */
-#line 137 "fransous.y"
+#line 136 "fransous.y"
        {}
-#line 1303 "fransous.bison.cpp"
+#line 1308 "fransous.bison.cpp"
     break;
 
   case 9: /* instruction: %empty  */
-#line 140 "fransous.y"
+#line 139 "fransous.y"
              {}
-#line 1309 "fransous.bison.cpp"
+#line 1314 "fransous.bison.cpp"
     break;
 
   case 10: /* instruction: expr  */
-#line 141 "fransous.y"
+#line 140 "fransous.y"
                        { }
-#line 1315 "fransous.bison.cpp"
+#line 1320 "fransous.bison.cpp"
     break;
 
   case 11: /* instruction: fonction  */
-#line 142 "fransous.y"
+#line 141 "fransous.y"
                        { }
-#line 1321 "fransous.bison.cpp"
+#line 1326 "fransous.bison.cpp"
     break;
 
   case 12: /* instruction: VAR '=' expr  */
-#line 143 "fransous.y"
+#line 142 "fransous.y"
                        { add_instruction(ASSIGN, 0, (yyvsp[-2].nom)); }
-#line 1327 "fransous.bison.cpp"
+#line 1332 "fransous.bison.cpp"
     break;
 
   case 13: /* instruction: GOTO LABEL  */
-#line 146 "fransous.y"
+#line 145 "fransous.y"
                        {  // J'insère un JMP vers une adresse que je ne connais pas encore.
                             // J'utiliserai la table des adresses pour la récupérer lors de l'exécution
                             add_instruction(JMP, -999, (yyvsp[0].nom)); 
                         }
-#line 1336 "fransous.bison.cpp"
+#line 1341 "fransous.bison.cpp"
     break;
 
   case 14: /* $@1: %empty  */
-#line 150 "fransous.y"
+#line 149 "fransous.y"
                                  {(yyvsp[-2].adresse).jc = ic; add_instruction(JMPCOND); }
-#line 1342 "fransous.bison.cpp"
+#line 1347 "fransous.bison.cpp"
     break;
 
   case 15: /* $@2: %empty  */
-#line 152 "fransous.y"
+#line 151 "fransous.y"
                           { // Je sauvegarde l'endroit actuel pour revenir mofifier l'adresse 
                           // lorsqu'elle sera connue (celle du JMP)
                           (yyvsp[-6].adresse).jmp = ic;
@@ -1350,18 +1355,18 @@ yyreduce:
                           // Je mets à jour l'adresse du saut conditionnel
                           code_genere[(yyvsp[-6].adresse).jc].value = ic;
                         }
-#line 1354 "fransous.bison.cpp"
+#line 1359 "fransous.bison.cpp"
     break;
 
   case 16: /* instruction: IF condition separateur $@1 THEN separateur lignes $@2 ELSE separateur lignes ENDIF  */
-#line 161 "fransous.y"
+#line 160 "fransous.y"
                         { // Je mets à jour l'adresse du saut inconditionnel
                         code_genere[(yyvsp[-11].adresse).jmp].value = ic;}
-#line 1361 "fransous.bison.cpp"
+#line 1366 "fransous.bison.cpp"
     break;
 
   case 17: /* $@3: %empty  */
-#line 164 "fransous.y"
+#line 163 "fransous.y"
                                                          { add_instruction(VAR, 0, (yyvsp[-7].nom));
                                                                 add_instruction(NUM, (yyvsp[-5].valeur));
                                                                 add_instruction(NUM, (yyvsp[-1].valeur));
@@ -1378,19 +1383,19 @@ yyreduce:
                                                                 add_instruction(INF);
                                                                 (yyvsp[-8].adresse).jc = ic;
                                                                 add_instruction(JMPCOND);}
-#line 1382 "fransous.bison.cpp"
+#line 1387 "fransous.bison.cpp"
     break;
 
   case 18: /* instruction: FOR VAR BETWEEN NUM AND NUM INCR NUM separateur $@3 lignes ENDFOR  */
-#line 181 "fransous.y"
+#line 180 "fransous.y"
                                                         {add_instruction(JMP);
                                                               code_genere[ic-1].value = (yyvsp[-11].adresse).jmp;
                                                               code_genere[(yyvsp[-11].adresse).jc].value = ic;}
-#line 1390 "fransous.bison.cpp"
+#line 1395 "fransous.bison.cpp"
     break;
 
   case 19: /* $@4: %empty  */
-#line 184 "fransous.y"
+#line 183 "fransous.y"
                                                          { add_instruction(VAR, 0, (yyvsp[-7].nom));
                                                                 add_instruction(NUM, (yyvsp[-5].valeur));
                                                                 add_instruction(NUM, (yyvsp[-1].valeur));
@@ -1407,229 +1412,245 @@ yyreduce:
                                                                 add_instruction(INF);
                                                                 (yyvsp[-8].adresse).jc = ic;
                                                                 add_instruction(JMPCOND);}
-#line 1411 "fransous.bison.cpp"
+#line 1416 "fransous.bison.cpp"
     break;
 
   case 20: /* instruction: FOR VAR BETWEEN NUM AND NUM DECR NUM separateur $@4 lignes ENDFOR  */
-#line 201 "fransous.y"
+#line 200 "fransous.y"
                                                         {add_instruction(JMP);
                                                               code_genere[ic-1].value = (yyvsp[-11].adresse).jmp;
                                                               code_genere[(yyvsp[-11].adresse).jc].value = ic;}
-#line 1419 "fransous.bison.cpp"
+#line 1424 "fransous.bison.cpp"
     break;
 
-  case 23: /* expr: NUM  */
-#line 210 "fransous.y"
-          {add_instruction (NUM, (yyvsp[0].valeur)); }
-#line 1425 "fransous.bison.cpp"
+  case 21: /* $@5: %empty  */
+#line 204 "fransous.y"
+                                                      { (yyvsp[0].adresse).jmp = ic;}
+#line 1430 "fransous.bison.cpp"
     break;
 
-  case 24: /* expr: VARS  */
-#line 211 "fransous.y"
-           {}
-#line 1431 "fransous.bison.cpp"
+  case 22: /* $@6: %empty  */
+#line 205 "fransous.y"
+                                                      {(yyvsp[-3].adresse).jc = ic;
+                                                        add_instruction(JMPCOND);
+                                                      }
+#line 1438 "fransous.bison.cpp"
     break;
 
-  case 25: /* expr: VARAPO  */
-#line 212 "fransous.y"
-             {add_instruction(VARAPO, 0, (yyvsp[0].nom));}
-#line 1437 "fransous.bison.cpp"
+  case 23: /* $@7: %empty  */
+#line 208 "fransous.y"
+                                                      { add_instruction(JMP, (yyvsp[-5].adresse).jmp);
+                                                        code_genere[(yyvsp[-5].adresse).jc].value = ic;
+                                                      }
+#line 1446 "fransous.bison.cpp"
     break;
 
-  case 26: /* expr: VAR  */
-#line 213 "fransous.y"
-          {add_instruction (VAR, 0, (yyvsp[0].nom)); }
-#line 1443 "fransous.bison.cpp"
-    break;
-
-  case 27: /* expr: VRAI  */
-#line 214 "fransous.y"
-           {(yyval.valeur) = true; }
-#line 1449 "fransous.bison.cpp"
-    break;
-
-  case 28: /* expr: FAUX  */
+  case 26: /* expr: NUM  */
 #line 215 "fransous.y"
-           {(yyval.valeur)  = false; }
-#line 1455 "fransous.bison.cpp"
+          {add_instruction (NUM, (yyvsp[0].valeur)); }
+#line 1452 "fransous.bison.cpp"
     break;
 
-  case 29: /* expr: SIN '(' expr ')'  */
+  case 27: /* expr: VARAPO  */
 #line 216 "fransous.y"
-                        {add_instruction(SIN);/*$$ = sin($3); printf ("sin(%g) = %g\n", $3, $$ );*/ }
-#line 1461 "fransous.bison.cpp"
+             {add_instruction(VARAPO, 0, (yyvsp[0].nom));}
+#line 1458 "fransous.bison.cpp"
     break;
 
-  case 30: /* expr: COS '(' expr ')'  */
+  case 28: /* expr: VAR  */
 #line 217 "fransous.y"
-                        {add_instruction(COS);/*$$ = cos($3); printf ("cos(%g) = %g\n", $3, $$ );*/  }
-#line 1467 "fransous.bison.cpp"
+          {add_instruction (VAR, 0, (yyvsp[0].nom)); }
+#line 1464 "fransous.bison.cpp"
     break;
 
-  case 31: /* expr: TAN '(' expr ')'  */
+  case 29: /* expr: VRAI  */
 #line 218 "fransous.y"
-                        {add_instruction(TAN);/*$$ = tan($3); printf ("tan(%g) = %g\n", $3, $$ );*/ }
-#line 1473 "fransous.bison.cpp"
+           {(yyval.valeur) = true; }
+#line 1470 "fransous.bison.cpp"
     break;
 
-  case 32: /* expr: EXP '(' expr ')'  */
+  case 30: /* expr: FAUX  */
 #line 219 "fransous.y"
-                        {add_instruction(EXP);/*$$ = exp($3); printf ("exp(%g) = %g\n", $3, $$ );*/ }
-#line 1479 "fransous.bison.cpp"
+           {(yyval.valeur)  = false; }
+#line 1476 "fransous.bison.cpp"
     break;
 
-  case 33: /* expr: SQRT '(' expr ')'  */
+  case 31: /* expr: SIN '(' expr ')'  */
 #line 220 "fransous.y"
-                        {add_instruction(SQRT);/*$$ = sqrt($3); printf ("sqrt(%g) = %g\n", $3, $$ );*/ }
-#line 1485 "fransous.bison.cpp"
+                        {add_instruction(SIN);/*$$ = sin($3); printf ("sin(%g) = %g\n", $3, $$ );*/ }
+#line 1482 "fransous.bison.cpp"
     break;
 
-  case 34: /* expr: POW '(' expr ',' expr ')'  */
+  case 32: /* expr: COS '(' expr ')'  */
 #line 221 "fransous.y"
-                              {add_instruction(POW);}
-#line 1491 "fransous.bison.cpp"
+                        {add_instruction(COS);/*$$ = cos($3); printf ("cos(%g) = %g\n", $3, $$ );*/  }
+#line 1488 "fransous.bison.cpp"
     break;
 
-  case 35: /* expr: '(' expr ')'  */
+  case 33: /* expr: TAN '(' expr ')'  */
 #line 222 "fransous.y"
-                         { (yyval.valeur) = (yyvsp[-1].valeur); }
-#line 1497 "fransous.bison.cpp"
+                        {add_instruction(TAN);/*$$ = tan($3); printf ("tan(%g) = %g\n", $3, $$ );*/ }
+#line 1494 "fransous.bison.cpp"
     break;
 
-  case 36: /* expr: expr ADD expr  */
+  case 34: /* expr: EXP '(' expr ')'  */
 #line 223 "fransous.y"
-                    {add_instruction(ADD); }
-#line 1503 "fransous.bison.cpp"
+                        {add_instruction(EXP);/*$$ = exp($3); printf ("exp(%g) = %g\n", $3, $$ );*/ }
+#line 1500 "fransous.bison.cpp"
     break;
 
-  case 37: /* expr: expr SUB expr  */
+  case 35: /* expr: SQRT '(' expr ')'  */
 #line 224 "fransous.y"
-                    {add_instruction(SUB); }
-#line 1509 "fransous.bison.cpp"
+                        {add_instruction(SQRT);/*$$ = sqrt($3); printf ("sqrt(%g) = %g\n", $3, $$ );*/ }
+#line 1506 "fransous.bison.cpp"
     break;
 
-  case 38: /* expr: expr MULT expr  */
+  case 36: /* expr: POW '(' expr ',' expr ')'  */
 #line 225 "fransous.y"
-                     {add_instruction(MULT); }
-#line 1515 "fransous.bison.cpp"
+                              {add_instruction(POW);}
+#line 1512 "fransous.bison.cpp"
     break;
 
-  case 39: /* expr: expr DIV expr  */
+  case 37: /* expr: '(' expr ')'  */
 #line 226 "fransous.y"
-                    { add_instruction(DIV); }
-#line 1521 "fransous.bison.cpp"
+                         { (yyval.valeur) = (yyvsp[-1].valeur); }
+#line 1518 "fransous.bison.cpp"
     break;
 
-  case 40: /* fonction: OPENFR expr  */
+  case 38: /* expr: expr ADD expr  */
+#line 227 "fransous.y"
+                    {add_instruction(ADD); }
+#line 1524 "fransous.bison.cpp"
+    break;
+
+  case 39: /* expr: expr SUB expr  */
+#line 228 "fransous.y"
+                    {add_instruction(SUB); }
+#line 1530 "fransous.bison.cpp"
+    break;
+
+  case 40: /* expr: expr MULT expr  */
 #line 229 "fransous.y"
-                       {add_instruction(OPENFR);}
-#line 1527 "fransous.bison.cpp"
+                     {add_instruction(MULT); }
+#line 1536 "fransous.bison.cpp"
     break;
 
-  case 41: /* fonction: OPENFW expr  */
+  case 41: /* expr: expr DIV expr  */
 #line 230 "fransous.y"
-                     {add_instruction(OPENFW);}
-#line 1533 "fransous.bison.cpp"
+                    { add_instruction(DIV); }
+#line 1542 "fransous.bison.cpp"
     break;
 
-  case 42: /* fonction: SUPPR expr DANS expr JUSQUE expr  */
-#line 231 "fransous.y"
-                                          {add_instruction(SUPPR);}
-#line 1539 "fransous.bison.cpp"
-    break;
-
-  case 43: /* fonction: NEWNAME expr EN expr  */
-#line 232 "fransous.y"
-                             {add_instruction(NEWNAME);}
-#line 1545 "fransous.bison.cpp"
-    break;
-
-  case 44: /* fonction: TOLOWER VARS  */
+  case 42: /* fonction: OPENFR expr  */
 #line 233 "fransous.y"
-                      {add_instruction(TOLOWER);}
-#line 1551 "fransous.bison.cpp"
+                       {add_instruction(OPENFR);}
+#line 1548 "fransous.bison.cpp"
     break;
 
-  case 45: /* fonction: FIRST DE VARS  */
+  case 43: /* fonction: OPENFW expr  */
 #line 234 "fransous.y"
-                       {add_instruction(FIRST);}
-#line 1557 "fransous.bison.cpp"
+                     {add_instruction(OPENFW);}
+#line 1554 "fransous.bison.cpp"
     break;
 
-  case 46: /* fonction: LAST DE VARS  */
+  case 44: /* fonction: SUPPR expr DANS expr JUSQUE expr  */
 #line 235 "fransous.y"
-                      {add_instruction(LAST);}
-#line 1563 "fransous.bison.cpp"
+                                          {add_instruction(SUPPR);}
+#line 1560 "fransous.bison.cpp"
     break;
 
-  case 47: /* fonction: SIZE DE VARS  */
+  case 45: /* fonction: NEWNAME expr EN expr  */
 #line 236 "fransous.y"
-                      {add_instruction(SIZE);}
-#line 1569 "fransous.bison.cpp"
+                             {add_instruction(NEWNAME);}
+#line 1566 "fransous.bison.cpp"
     break;
 
-  case 48: /* fonction: WAIT VARS  */
+  case 46: /* fonction: TOLOWER VAR  */
 #line 237 "fransous.y"
-                   {add_instruction(WAIT);}
-#line 1575 "fransous.bison.cpp"
+                     {add_instruction(TOLOWER);}
+#line 1572 "fransous.bison.cpp"
     break;
 
-  case 49: /* fonction: PRINT expr  */
+  case 47: /* fonction: FIRST DE VAR  */
 #line 238 "fransous.y"
+                      {add_instruction(FIRST);}
+#line 1578 "fransous.bison.cpp"
+    break;
+
+  case 48: /* fonction: LAST DE VAR  */
+#line 239 "fransous.y"
+                     {add_instruction(LAST);}
+#line 1584 "fransous.bison.cpp"
+    break;
+
+  case 49: /* fonction: SIZE DE VAR  */
+#line 240 "fransous.y"
+                     {add_instruction(SIZE);}
+#line 1590 "fransous.bison.cpp"
+    break;
+
+  case 50: /* fonction: WAIT VAR  */
+#line 241 "fransous.y"
+                  {add_instruction(WAIT);}
+#line 1596 "fransous.bison.cpp"
+    break;
+
+  case 51: /* fonction: PRINT expr  */
+#line 242 "fransous.y"
                       { add_instruction(PRINT); }
-#line 1581 "fransous.bison.cpp"
+#line 1602 "fransous.bison.cpp"
     break;
 
-  case 51: /* condition: expr SUP expr  */
-#line 243 "fransous.y"
-                         {add_instruction(SUP);}
-#line 1587 "fransous.bison.cpp"
-    break;
-
-  case 52: /* condition: expr INF expr  */
-#line 244 "fransous.y"
-                         {add_instruction(INF);}
-#line 1593 "fransous.bison.cpp"
-    break;
-
-  case 53: /* condition: expr SUPEG expr  */
-#line 245 "fransous.y"
-                           {add_instruction(SUPEG);}
-#line 1599 "fransous.bison.cpp"
-    break;
-
-  case 54: /* condition: expr INFEG expr  */
-#line 246 "fransous.y"
-                           {add_instruction(INFEG);}
-#line 1605 "fransous.bison.cpp"
-    break;
-
-  case 55: /* condition: expr DIFF expr  */
+  case 53: /* condition: expr SUP expr  */
 #line 247 "fransous.y"
-                          {add_instruction(DIFF);}
-#line 1611 "fransous.bison.cpp"
+                         {add_instruction(SUP);}
+#line 1608 "fransous.bison.cpp"
     break;
 
-  case 56: /* condition: expr EGAL expr  */
+  case 54: /* condition: expr INF expr  */
 #line 248 "fransous.y"
-                          {add_instruction(EGAL);}
-#line 1617 "fransous.bison.cpp"
+                         {add_instruction(INF);}
+#line 1614 "fransous.bison.cpp"
     break;
 
-  case 57: /* condition: NON '(' condition ')'  */
+  case 55: /* condition: expr SUPEG expr  */
 #line 249 "fransous.y"
-                               {add_instruction(NON);}
-#line 1623 "fransous.bison.cpp"
+                           {add_instruction(SUPEG);}
+#line 1620 "fransous.bison.cpp"
     break;
 
-  case 58: /* var: %empty  */
+  case 56: /* condition: expr INFEG expr  */
+#line 250 "fransous.y"
+                           {add_instruction(INFEG);}
+#line 1626 "fransous.bison.cpp"
+    break;
+
+  case 57: /* condition: expr DIFF expr  */
 #line 251 "fransous.y"
+                          {add_instruction(DIFF);}
+#line 1632 "fransous.bison.cpp"
+    break;
+
+  case 58: /* condition: expr EGAL expr  */
+#line 252 "fransous.y"
+                          {add_instruction(EGAL);}
+#line 1638 "fransous.bison.cpp"
+    break;
+
+  case 59: /* condition: NON '(' condition ')'  */
+#line 253 "fransous.y"
+                               {add_instruction(NON);}
+#line 1644 "fransous.bison.cpp"
+    break;
+
+  case 60: /* var: %empty  */
+#line 255 "fransous.y"
       {}
-#line 1629 "fransous.bison.cpp"
+#line 1650 "fransous.bison.cpp"
     break;
 
 
-#line 1633 "fransous.bison.cpp"
+#line 1654 "fransous.bison.cpp"
 
       default: break;
     }
@@ -1822,7 +1843,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 252 "fransous.y"
+#line 256 "fransous.y"
 
 
 

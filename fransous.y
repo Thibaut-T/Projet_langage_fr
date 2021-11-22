@@ -77,7 +77,7 @@
 %token COS
 %token TAN
 %token SEPARATOR
-%token WHILE
+%token <adresse> WHILE
 %token ENDWHILE
 %token SWITCH
 %token ENDSWITCH
@@ -95,7 +95,6 @@
 %token LAST
 %token SIZE
 %token WAIT
-%token VARS
 %token <nom>VARAPO
 %token VRAI
 %token FAUX
@@ -201,14 +200,19 @@ instruction: {}
         ENDFOR                                          {add_instruction(JMP);
                                                               code_genere[ic-1].value = $1.jmp;
                                                               code_genere[$1.jc].value = ic;}
-        |WHILE condition separateur
-            lignes
-        ENDWHILE
+        
+        |WHILE                                        { $1.jmp = ic;}
+          condition separateur                        {$1.jc = ic;
+                                                        add_instruction(JMPCOND);
+                                                      }
+            lignes                                    { add_instruction(JMP, $1.jmp);
+                                                        code_genere[$1.jc].value = ic;
+                                                      }
+        ENDWHILE                                      
         |SWITCH var separateur
             case
         ENDSWITCH
 expr: NUM {add_instruction (NUM, $1); } 
-     |VARS {}
      |VARAPO {add_instruction(VARAPO, 0, $1);}
      |VAR {add_instruction (VAR, 0, $1); }
      |VRAI {$$ = true; }
@@ -230,11 +234,11 @@ fonction : OPENFR expr {add_instruction(OPENFR);}
         |OPENFW expr {add_instruction(OPENFW);}
         |SUPPR expr DANS expr JUSQUE expr {add_instruction(SUPPR);}
         |NEWNAME expr EN expr{add_instruction(NEWNAME);}
-        |TOLOWER VARS {add_instruction(TOLOWER);}
-        |FIRST DE VARS {add_instruction(FIRST);}
-        |LAST DE VARS {add_instruction(LAST);}
-        |SIZE DE VARS {add_instruction(SIZE);}
-        |WAIT VARS {add_instruction(WAIT);}
+        |TOLOWER VAR {add_instruction(TOLOWER);}
+        |FIRST DE VAR {add_instruction(FIRST);}
+        |LAST DE VAR {add_instruction(LAST);}
+        |SIZE DE VAR {add_instruction(SIZE);}
+        |WAIT VAR {add_instruction(WAIT);}
         |PRINT expr   { add_instruction(PRINT); }
 
 

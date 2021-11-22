@@ -4,3 +4,9 @@ si 3 == 2 :
     sinon :
         afficher 1+1
 fin du si
+
+x = 1
+tant que x < 9 :
+    afficher x
+    x = x + 1
+fin tant que
