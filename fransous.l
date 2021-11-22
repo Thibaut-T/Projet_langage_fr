@@ -16,7 +16,7 @@
 (\/\*)([\s\S]*?)(\*\/)|\/\/([\S\s]*?)\n  {return commentaire;}
 afficher|Afficher|AFFICHER {return PRINT;}
 choix|Choix|CHOIX {return SWITCH;}
-fin[" "]choix|FIN[" "]SWITCH|Fin[""]Switch {return ENDSWITCH;}
+fin[" "]choix|FIN[" "]CHOIX|Fin[""]Choix {return ENDSWITCH;}
 cas|Cas|CAS { return CASE;}
 fin[" "]cas|FIN[" "]CAS|Fin[" "]Cas { return BREAK;}
 Tant[" "]que|TANT[" "]QUE|tant[" "]que {return WHILE;}
@@ -27,6 +27,7 @@ alors|ALORS|Alors   { return THEN; }
 sinon|Sinon|SINON   { return ELSE; }
 fin[" "]du[" "]si|FIN[" "]DU[" "]SI|Fin[" "]du[" "]si|Fin[" "]Du[" "]Si  { return ENDIF; }
 pour|POUR|Pour { return FOR;}
+Pour[" "]tout[" "]elements[" "]de|Pour[" "]Tout[" "]Elements[" "]De|POUR[" "]TOUT[" "]ELEMENTS[" "]DE {return FOREACH;}
 fin[" "]du[" "]pour|FIN[" "]DU[" "]POUR|Fin[" "]Du[" "]Pour { return ENDFOR;}
 entre {return BETWEEN;}
 et {return AND;}

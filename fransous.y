@@ -54,8 +54,10 @@
 
 %token <valeur> NUM
 %token <nom> VAR
+%token VARID
 %type <valeur> expr 
 %type <valeur> condition 
+%type <adresse> case
 %token <adresse> SI
 %token GOTO
 %token <nom> LABEL
@@ -67,6 +69,7 @@
 %token ELSE
 %token ENDIF
 %token <adresse> FOR
+%token <adresse> FOREACH
 %token ENDFOR
 %token AND 
 %token BETWEEN
@@ -82,7 +85,7 @@
 %token <adresse> DO
 %token SWITCH
 %token ENDSWITCH
-%token CASE
+%token <adresse> CASE
 %token BREAK
 %token EXP
 %token SQRT
@@ -135,7 +138,13 @@ separateur : SEPARATOR '\n'
 
 
 case : {}
-        | case CASE condition SEPARATOR instruction BREAK '\n'
+        | case {$1.jmp = ic-1;}
+        CASE expr SEPARATOR {add_instruction(EGAL);
+                            $3.jc = ic; 
+                            add_instruction(JMPCOND);}
+        instruction 
+        BREAK '\n' { code_genere[$3.jc].value = ic;
+                    add_instruction(VARID, 0, code_genere[$1.jmp].name);}
 
 instruction: {}
         | expr         { }
@@ -214,7 +223,10 @@ instruction: {}
           lignes
         WHILE condition                                { add_instruction(NON);
                                                          add_instruction(JMPCOND, $1.jc);}
-        |SWITCH var separateur
+        |FOREACH expr
+          lignes
+        ENDFOR
+        |SWITCH expr separateur
             case
         ENDSWITCH
 expr: NUM {add_instruction (NUM, $1); } 
@@ -277,6 +289,7 @@ string print_code(int ins) {
     case DIV      : return "DIV"; break;
     case NUM      : return "NUM"; break;
     case VAR      : return "VAR"; break;
+    case VARID    : return "VARID"; break;
     case VARAPO   : return "VARAPO"; break;
     case PRINT    : return "PRINT"; break;
     case ASSIGN   : return "MOV"; break;
@@ -485,6 +498,10 @@ void execution ( const vector <instruction> &code_genere,
             pile.push(variables.at(ins.name));
             ic++;
         }
+      break;
+      case VARID:
+            pile.push(variables[ins.name]);
+            ic++;
       break;
       case VARAPO:
         r1 = variablesString.size();

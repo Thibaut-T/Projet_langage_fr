@@ -66,65 +66,67 @@ extern int yydebug;
     YYUNDEF = 257,                 /* "invalid token"  */
     NUM = 258,                     /* NUM  */
     VAR = 259,                     /* VAR  */
-    SI = 260,                      /* SI  */
-    GOTO = 261,                    /* GOTO  */
-    LABEL = 262,                   /* LABEL  */
-    JMP = 263,                     /* JMP  */
-    JMPCOND = 264,                 /* JMPCOND  */
-    ASSIGN = 265,                  /* ASSIGN  */
-    IF = 266,                      /* IF  */
-    THEN = 267,                    /* THEN  */
-    ELSE = 268,                    /* ELSE  */
-    ENDIF = 269,                   /* ENDIF  */
-    FOR = 270,                     /* FOR  */
-    ENDFOR = 271,                  /* ENDFOR  */
-    AND = 272,                     /* AND  */
-    BETWEEN = 273,                 /* BETWEEN  */
-    DECR = 274,                    /* DECR  */
-    INCR = 275,                    /* INCR  */
-    PRINT = 276,                   /* PRINT  */
-    SIN = 277,                     /* SIN  */
-    COS = 278,                     /* COS  */
-    TAN = 279,                     /* TAN  */
-    SEPARATOR = 280,               /* SEPARATOR  */
-    WHILE = 281,                   /* WHILE  */
-    ENDWHILE = 282,                /* ENDWHILE  */
-    DO = 283,                      /* DO  */
-    SWITCH = 284,                  /* SWITCH  */
-    ENDSWITCH = 285,               /* ENDSWITCH  */
-    CASE = 286,                    /* CASE  */
-    BREAK = 287,                   /* BREAK  */
-    EXP = 288,                     /* EXP  */
-    SQRT = 289,                    /* SQRT  */
-    POW = 290,                     /* POW  */
-    OPENFR = 291,                  /* OPENFR  */
-    OPENFW = 292,                  /* OPENFW  */
-    SUPPR = 293,                   /* SUPPR  */
-    NEWNAME = 294,                 /* NEWNAME  */
-    TOLOWER = 295,                 /* TOLOWER  */
-    FIRST = 296,                   /* FIRST  */
-    LAST = 297,                    /* LAST  */
-    SIZE = 298,                    /* SIZE  */
-    WAIT = 299,                    /* WAIT  */
-    VARAPO = 300,                  /* VARAPO  */
-    VRAI = 301,                    /* VRAI  */
-    FAUX = 302,                    /* FAUX  */
-    INF = 303,                     /* INF  */
-    SUP = 304,                     /* SUP  */
-    INFEG = 305,                   /* INFEG  */
-    SUPEG = 306,                   /* SUPEG  */
-    EGAL = 307,                    /* EGAL  */
-    DIFF = 308,                    /* DIFF  */
-    NON = 309,                     /* NON  */
-    commentaire = 310,             /* commentaire  */
-    DANS = 311,                    /* DANS  */
-    DE = 312,                      /* DE  */
-    JUSQUE = 313,                  /* JUSQUE  */
-    EN = 314,                      /* EN  */
-    ADD = 315,                     /* ADD  */
-    SUB = 316,                     /* SUB  */
-    MULT = 317,                    /* MULT  */
-    DIV = 318                      /* DIV  */
+    VARID = 260,                   /* VARID  */
+    SI = 261,                      /* SI  */
+    GOTO = 262,                    /* GOTO  */
+    LABEL = 263,                   /* LABEL  */
+    JMP = 264,                     /* JMP  */
+    JMPCOND = 265,                 /* JMPCOND  */
+    ASSIGN = 266,                  /* ASSIGN  */
+    IF = 267,                      /* IF  */
+    THEN = 268,                    /* THEN  */
+    ELSE = 269,                    /* ELSE  */
+    ENDIF = 270,                   /* ENDIF  */
+    FOR = 271,                     /* FOR  */
+    FOREACH = 272,                 /* FOREACH  */
+    ENDFOR = 273,                  /* ENDFOR  */
+    AND = 274,                     /* AND  */
+    BETWEEN = 275,                 /* BETWEEN  */
+    DECR = 276,                    /* DECR  */
+    INCR = 277,                    /* INCR  */
+    PRINT = 278,                   /* PRINT  */
+    SIN = 279,                     /* SIN  */
+    COS = 280,                     /* COS  */
+    TAN = 281,                     /* TAN  */
+    SEPARATOR = 282,               /* SEPARATOR  */
+    WHILE = 283,                   /* WHILE  */
+    ENDWHILE = 284,                /* ENDWHILE  */
+    DO = 285,                      /* DO  */
+    SWITCH = 286,                  /* SWITCH  */
+    ENDSWITCH = 287,               /* ENDSWITCH  */
+    CASE = 288,                    /* CASE  */
+    BREAK = 289,                   /* BREAK  */
+    EXP = 290,                     /* EXP  */
+    SQRT = 291,                    /* SQRT  */
+    POW = 292,                     /* POW  */
+    OPENFR = 293,                  /* OPENFR  */
+    OPENFW = 294,                  /* OPENFW  */
+    SUPPR = 295,                   /* SUPPR  */
+    NEWNAME = 296,                 /* NEWNAME  */
+    TOLOWER = 297,                 /* TOLOWER  */
+    FIRST = 298,                   /* FIRST  */
+    LAST = 299,                    /* LAST  */
+    SIZE = 300,                    /* SIZE  */
+    WAIT = 301,                    /* WAIT  */
+    VARAPO = 302,                  /* VARAPO  */
+    VRAI = 303,                    /* VRAI  */
+    FAUX = 304,                    /* FAUX  */
+    INF = 305,                     /* INF  */
+    SUP = 306,                     /* SUP  */
+    INFEG = 307,                   /* INFEG  */
+    SUPEG = 308,                   /* SUPEG  */
+    EGAL = 309,                    /* EGAL  */
+    DIFF = 310,                    /* DIFF  */
+    NON = 311,                     /* NON  */
+    commentaire = 312,             /* commentaire  */
+    DANS = 313,                    /* DANS  */
+    DE = 314,                      /* DE  */
+    JUSQUE = 315,                  /* JUSQUE  */
+    EN = 316,                      /* EN  */
+    ADD = 317,                     /* ADD  */
+    SUB = 318,                     /* SUB  */
+    MULT = 319,                    /* MULT  */
+    DIV = 320                      /* DIV  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -139,7 +141,7 @@ union YYSTYPE
   char nom[50];
   type_adresse adresse;  
 
-#line 143 "fransous.bison.hpp"
+#line 145 "fransous.bison.hpp"
 
 };
 typedef union YYSTYPE YYSTYPE;
