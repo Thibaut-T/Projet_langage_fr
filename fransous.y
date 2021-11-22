@@ -79,6 +79,7 @@
 %token SEPARATOR
 %token <adresse> WHILE
 %token ENDWHILE
+%token <adresse> DO
 %token SWITCH
 %token ENDSWITCH
 %token CASE
@@ -208,7 +209,11 @@ instruction: {}
             lignes                                    { add_instruction(JMP, $1.jmp);
                                                         code_genere[$1.jc].value = ic;
                                                       }
-        ENDWHILE                                      
+        ENDWHILE                 
+        |DO separateur                                {$1.jc = ic;}
+          lignes
+        WHILE condition                                { add_instruction(NON);
+                                                         add_instruction(JMPCOND, $1.jc);}
         |SWITCH var separateur
             case
         ENDSWITCH

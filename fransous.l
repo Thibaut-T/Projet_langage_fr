@@ -21,6 +21,7 @@ cas|Cas|CAS { return CASE;}
 fin[" "]cas|FIN[" "]CAS|Fin[" "]Cas { return BREAK;}
 Tant[" "]que|TANT[" "]QUE|tant[" "]que {return WHILE;}
 Fin[" "]tant[" "]que|FIN[" "]TANT[" "]QUE|fin[" "]tant[" "]que {return ENDWHILE;}
+faire|Faire|FAIRE {return DO;}
 si|SI|Si     { return IF; }
 alors|ALORS|Alors   { return THEN; }
 sinon|Sinon|SINON   { return ELSE; }
