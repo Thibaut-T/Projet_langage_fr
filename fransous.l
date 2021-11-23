@@ -17,6 +17,7 @@
 afficher|Afficher|AFFICHER {return PRINT;}
 choix|Choix|CHOIX {return SWITCH;}
 fin[" "]choix|FIN[" "]CHOIX|Fin[""]Choix {return ENDSWITCH;}
+reste|Reste|RESTE {return DEFAULT;}
 cas|Cas|CAS { return CASE;}
 fin[" "]cas|FIN[" "]CAS|Fin[" "]Cas { return BREAK;}
 Tant[" "]que|TANT[" "]QUE|tant[" "]que {return WHILE;}

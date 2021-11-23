@@ -45,15 +45,16 @@
 extern int yydebug;
 #endif
 /* "%code requires" blocks.  */
-#line 42 "fransous.y"
+#line 44 "fransous.y"
 
     typedef struct adr {
         int jmp;  // adresse du jmp
         int jc;  // adrese  du jc
+        int save;
     } type_adresse;
   
 
-#line 57 "fransous.bison.hpp"
+#line 58 "fransous.bison.hpp"
 
 /* Token kinds.  */
 #ifndef YYTOKENTYPE
@@ -95,38 +96,39 @@ extern int yydebug;
     SWITCH = 286,                  /* SWITCH  */
     ENDSWITCH = 287,               /* ENDSWITCH  */
     CASE = 288,                    /* CASE  */
-    BREAK = 289,                   /* BREAK  */
-    EXP = 290,                     /* EXP  */
-    SQRT = 291,                    /* SQRT  */
-    POW = 292,                     /* POW  */
-    OPENFR = 293,                  /* OPENFR  */
-    OPENFW = 294,                  /* OPENFW  */
-    SUPPR = 295,                   /* SUPPR  */
-    NEWNAME = 296,                 /* NEWNAME  */
-    TOLOWER = 297,                 /* TOLOWER  */
-    FIRST = 298,                   /* FIRST  */
-    LAST = 299,                    /* LAST  */
-    SIZE = 300,                    /* SIZE  */
-    WAIT = 301,                    /* WAIT  */
-    VARAPO = 302,                  /* VARAPO  */
-    VRAI = 303,                    /* VRAI  */
-    FAUX = 304,                    /* FAUX  */
-    INF = 305,                     /* INF  */
-    SUP = 306,                     /* SUP  */
-    INFEG = 307,                   /* INFEG  */
-    SUPEG = 308,                   /* SUPEG  */
-    EGAL = 309,                    /* EGAL  */
-    DIFF = 310,                    /* DIFF  */
-    NON = 311,                     /* NON  */
-    commentaire = 312,             /* commentaire  */
-    DANS = 313,                    /* DANS  */
-    DE = 314,                      /* DE  */
-    JUSQUE = 315,                  /* JUSQUE  */
-    EN = 316,                      /* EN  */
-    ADD = 317,                     /* ADD  */
-    SUB = 318,                     /* SUB  */
-    MULT = 319,                    /* MULT  */
-    DIV = 320                      /* DIV  */
+    DEFAULT = 289,                 /* DEFAULT  */
+    BREAK = 290,                   /* BREAK  */
+    EXP = 291,                     /* EXP  */
+    SQRT = 292,                    /* SQRT  */
+    POW = 293,                     /* POW  */
+    OPENFR = 294,                  /* OPENFR  */
+    OPENFW = 295,                  /* OPENFW  */
+    SUPPR = 296,                   /* SUPPR  */
+    NEWNAME = 297,                 /* NEWNAME  */
+    TOLOWER = 298,                 /* TOLOWER  */
+    FIRST = 299,                   /* FIRST  */
+    LAST = 300,                    /* LAST  */
+    SIZE = 301,                    /* SIZE  */
+    WAIT = 302,                    /* WAIT  */
+    VARAPO = 303,                  /* VARAPO  */
+    VRAI = 304,                    /* VRAI  */
+    FAUX = 305,                    /* FAUX  */
+    INF = 306,                     /* INF  */
+    SUP = 307,                     /* SUP  */
+    INFEG = 308,                   /* INFEG  */
+    SUPEG = 309,                   /* SUPEG  */
+    EGAL = 310,                    /* EGAL  */
+    DIFF = 311,                    /* DIFF  */
+    NON = 312,                     /* NON  */
+    commentaire = 313,             /* commentaire  */
+    DANS = 314,                    /* DANS  */
+    DE = 315,                      /* DE  */
+    JUSQUE = 316,                  /* JUSQUE  */
+    EN = 317,                      /* EN  */
+    ADD = 318,                     /* ADD  */
+    SUB = 319,                     /* SUB  */
+    MULT = 320,                    /* MULT  */
+    DIV = 321                      /* DIV  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -135,13 +137,13 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 49 "fransous.y"
+#line 52 "fransous.y"
 
   double valeur;
   char nom[50];
   type_adresse adresse;  
 
-#line 145 "fransous.bison.hpp"
+#line 147 "fransous.bison.hpp"
 
 };
 typedef union YYSTYPE YYSTYPE;

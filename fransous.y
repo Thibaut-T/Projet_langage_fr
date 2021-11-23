@@ -27,6 +27,8 @@
 
     map<string,double> variables;
     map<double, string> variablesString;
+    vector<vector<double>> adresseBreak;
+    vector<double> breakN;
     int ic = 0;
     map<string,int> adresses;
     vector <instruction> code_genere;
@@ -43,6 +45,7 @@
     typedef struct adr {
         int jmp;  // adresse du jmp
         int jc;  // adrese  du jc
+        int save;
     } type_adresse;
   }
 
@@ -86,6 +89,7 @@
 %token SWITCH
 %token ENDSWITCH
 %token <adresse> CASE
+%token DEFAULT
 %token BREAK
 %token EXP
 %token SQRT
@@ -138,13 +142,17 @@ separateur : SEPARATOR '\n'
 
 
 case : {}
-        | case {$1.jmp = ic-1;}
+        | case DEFAULT SEPARATOR instruction BREAK '\n' { breakN.push_back(ic);
+                                                          add_instruction(JMP);}
+        | case {$1.save = ic-1;}
         CASE expr SEPARATOR {add_instruction(EGAL);
                             $3.jc = ic; 
                             add_instruction(JMPCOND);}
         instruction 
-        BREAK '\n' { code_genere[$3.jc].value = ic;
-                    add_instruction(VARID, 0, code_genere[$1.jmp].name);}
+        BREAK '\n' {breakN.push_back(ic) ;
+                    add_instruction(JMP);
+                    code_genere[$3.jc].value = ic;
+                    add_instruction(VARID, 0, code_genere[$1.save].name);}
 
 instruction: {}
         | expr         { }
@@ -226,9 +234,19 @@ instruction: {}
         |FOREACH expr
           lignes
         ENDFOR
-        |SWITCH expr separateur
+        |SWITCH expr separateur                       { if(!breakN.empty()){
+                                                          adresseBreak.push_back(breakN);
+                                                          breakN.clear();
+                                                        }}
             case
-        ENDSWITCH
+        ENDSWITCH                                     {for(auto itr : breakN){
+                                                          code_genere[itr].value = ic;
+                                                          }
+                                                        breakN.clear();
+                                                        if(!adresseBreak.empty()){
+                                                          breakN = adresseBreak.back();
+                                                          adresseBreak.pop_back();
+                                                        } }
 expr: NUM {add_instruction (NUM, $1); } 
      |VARAPO {add_instruction(VARAPO, 0, $1);}
      |VAR {add_instruction (VAR, 0, $1); }

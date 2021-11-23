@@ -1,7 +1,14 @@
-x = 5
+x = 3
+y = 2
 choix x :
-    cas 1 : afficher 1 fin cas
+    cas 1 : afficher 1   fin cas
     cas 2 : afficher 2 fin cas
-    cas 3 : afficher 3 fin cas
+    cas 3 : choix y :
+                cas 1 : afficher 1.1 fin cas
+                cas 2 : afficher 2.1 fin cas
+            fin choix fin cas
     cas 4 : afficher 4 fin cas
+    reste : afficher 56789 fin cas
 fin choix
+
+x = x + 1
