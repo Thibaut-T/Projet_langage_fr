@@ -622,13 +622,13 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int16 yyrline[] =
 {
-       0,   132,   132,   133,   135,   136,   141,   144,   145,   147,
-     148,   147,   157,   158,   159,   160,   163,   167,   169,   167,
-     181,   181,   201,   201,   222,   223,   226,   222,   230,   230,
-     234,   237,   237,   250,   251,   252,   253,   254,   255,   256,
-     257,   258,   259,   260,   261,   262,   263,   264,   265,   268,
-     269,   270,   271,   272,   273,   274,   275,   276,   277,   281,
-     282,   283,   284,   285,   286,   287,   288
+       0,   133,   133,   134,   136,   137,   142,   145,   146,   148,
+     149,   148,   158,   159,   160,   161,   164,   168,   170,   168,
+     182,   182,   202,   202,   223,   224,   227,   223,   231,   231,
+     235,   238,   238,   251,   252,   253,   254,   255,   256,   257,
+     258,   259,   260,   261,   262,   263,   264,   265,   266,   269,
+     270,   271,   272,   273,   274,   275,   276,   277,   278,   282,
+     283,   284,   285,   286,   287,   288,   289
 };
 #endif
 
@@ -679,24 +679,24 @@ yysymbol_name (yysymbol_kind_t yysymbol)
    STATE-NUM.  */
 static const yytype_int16 yypact[] =
 {
-    -137,    28,  -137,   -64,   131,  -137,  -137,   -23,    21,    58,
-      43,   160,   160,   -12,   -11,    -2,  -137,    33,   160,    -1,
-       6,     8,   160,   160,   160,   160,    73,    20,    25,    26,
-      77,  -137,  -137,  -137,   160,    24,   201,  -137,   160,  -137,
-    -137,    23,   139,    33,    78,   201,   201,   160,   160,   160,
-      58,    30,  -137,   -25,   160,   160,   160,   201,   201,    86,
-     197,  -137,    95,   100,   101,  -137,    59,  -137,   160,   160,
+    -137,    28,  -137,   -64,   131,  -137,  -137,   -11,    21,    58,
+      55,   160,   160,    -2,    -1,     6,  -137,    33,   160,     8,
+      10,    11,   160,   160,   160,   160,    73,    26,    31,    38,
+      81,  -137,  -137,  -137,   160,    30,   201,  -137,   160,  -137,
+    -137,    23,   139,    33,    79,   201,   201,   160,   160,   160,
+      58,    43,  -137,   -25,   160,   160,   160,   201,   201,    86,
+     197,  -137,   100,   101,   109,  -137,    59,  -137,   160,   160,
      160,   160,   201,    58,   160,   160,   160,   160,   160,   160,
-    -137,   107,     4,   148,   152,   161,    33,  -137,  -137,  -137,
-     170,   174,    37,   160,   160,  -137,  -137,  -137,  -137,   201,
-     201,  -137,  -137,    42,   201,   201,   201,   201,   201,   201,
-     108,   110,  -137,  -137,  -137,  -137,  -137,    -5,  -137,  -137,
-    -137,   160,   192,   201,  -137,    33,   111,  -137,    58,   -21,
-     183,   160,  -137,    11,     2,  -137,  -137,    99,    98,  -137,
-     201,    49,   129,   130,   115,   131,   160,   122,    33,    33,
-    -137,   102,   -10,    33,  -137,  -137,    72,  -137,  -137,  -137,
-    -137,  -137,   131,    27,     7,    19,   105,  -137,  -137,  -137,
-      79,  -137
+    -137,   111,     4,   148,   152,   161,    33,  -137,  -137,  -137,
+     170,   174,    37,   160,   160,  -137,  -137,  -137,  -137,   -33,
+     -33,  -137,  -137,    50,   201,   201,   201,   201,   201,   201,
+     113,   110,  -137,  -137,  -137,  -137,  -137,    -5,  -137,  -137,
+    -137,   160,   192,   201,  -137,    33,   128,  -137,    58,   -21,
+     183,   160,  -137,    25,     2,  -137,  -137,   105,   103,  -137,
+     201,    49,   130,   134,   115,   131,   160,   125,    33,    33,
+    -137,   118,   -10,    33,  -137,  -137,    93,  -137,  -137,  -137,
+    -137,  -137,   131,    27,     7,    19,   147,  -137,  -137,  -137,
+      98,  -137
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -746,22 +746,22 @@ static const yytype_int16 yytable[] =
       36,    86,    51,     3,     5,    82,    80,    45,    46,   151,
        3,   136,     3,   137,    53,     3,    89,   157,    57,    58,
       59,    60,   112,   128,   103,   168,   166,     3,     2,    39,
-      66,   -26,   142,   143,    72,     3,     3,   169,    68,    69,
-      70,    71,   167,    83,    84,    85,    38,    44,   117,   116,
-      90,    91,    92,    68,    69,    70,    71,     3,    47,    48,
-      51,     6,    40,   -18,    99,   100,   101,   102,    49,    54,
-     104,   105,   106,   107,   108,   109,    55,    61,    56,   135,
-      62,    65,    13,    14,    15,    63,    64,   134,   132,   122,
-     123,    67,   141,    73,    19,    20,    21,    87,    81,    95,
-      68,    69,    70,    71,    96,    97,    31,    32,    33,   121,
-     111,   154,   155,   124,   133,    41,   158,   130,   163,   164,
-     165,   125,    68,    69,    70,    71,   145,   140,    34,   126,
-      98,   146,   148,   149,     6,     7,   153,   156,     8,   161,
-     170,    36,   152,     9,   150,    93,   171,    10,    11,    68,
-      69,    70,    71,     0,    12,    13,    14,    15,    36,    16,
-       0,    17,    18,     6,    40,     0,     0,    19,    20,    21,
+      66,   -26,    70,    71,    72,     3,     3,   169,    68,    69,
+      70,    71,   167,    83,    84,    85,   142,   143,   117,   116,
+      90,    91,    92,    68,    69,    70,    71,     3,    38,    44,
+      51,     6,    40,   -18,    99,   100,   101,   102,    47,    48,
+     104,   105,   106,   107,   108,   109,    49,    61,    54,   135,
+      55,    56,    13,    14,    15,    65,    62,   134,   132,   122,
+     123,    63,   141,    73,    19,    20,    21,    67,    64,    81,
+      68,    69,    70,    71,    95,    96,    31,    32,    33,   121,
+      87,   154,   155,    97,   111,    41,   158,   130,   163,   164,
+     165,   124,    68,    69,    70,    71,   125,   140,    34,   126,
+      98,   133,   145,   148,     6,     7,   146,   149,     8,   153,
+       0,    36,   152,     9,   150,    93,     0,    10,    11,    68,
+      69,    70,    71,   156,    12,    13,    14,    15,    36,    16,
+     161,    17,    18,     6,    40,   171,     0,    19,    20,    21,
       22,    23,    24,    25,    26,    27,    28,    29,    30,    31,
-      32,    33,     0,     0,    13,    14,    15,     0,     0,     0,
+      32,    33,   170,     0,    13,    14,    15,     0,     0,     0,
       74,    75,    76,    77,    78,    79,    19,    20,    21,     0,
        0,    34,    68,    69,    70,    71,     0,     0,    31,    32,
       33,    68,    69,    70,    71,    68,    69,    70,    71,   113,
@@ -777,22 +777,22 @@ static const yytype_int16 yycheck[] =
        4,    50,    27,     8,    68,    45,    43,    11,    12,   145,
        8,    32,     8,    34,    18,     8,    53,    27,    22,    23,
       24,    25,    18,    28,    73,    18,   162,     8,     0,     8,
-      34,    29,    21,    22,    38,     8,     8,    18,    63,    64,
-      65,    66,    15,    47,    48,    49,    69,     4,    88,    86,
-      54,    55,    56,    63,    64,    65,    66,     8,    70,    70,
+      34,    29,    65,    66,    38,     8,     8,    18,    63,    64,
+      65,    66,    15,    47,    48,    49,    21,    22,    88,    86,
+      54,    55,    56,    63,    64,    65,    66,     8,    69,     4,
       27,     3,     4,    14,    68,    69,    70,    71,    70,    70,
       74,    75,    76,    77,    78,    79,    70,     4,    70,   128,
-      60,     4,    24,    25,    26,    60,    60,   127,   125,    93,
-      94,    67,   132,    70,    36,    37,    38,    67,    20,     4,
+      70,    70,    24,    25,    26,     4,    60,   127,   125,    93,
+      94,    60,   132,    70,    36,    37,    38,    67,    60,    20,
       63,    64,    65,    66,     4,     4,    48,    49,    50,    72,
-       3,   148,   149,    71,     3,    57,   153,   121,   158,   159,
-     160,    13,    63,    64,    65,    66,    27,   131,    70,    19,
-      71,    33,     3,     3,     3,     4,    14,    35,     7,    67,
-      35,   145,   146,    12,    29,    59,    67,    16,    17,    63,
-      64,    65,    66,    -1,    23,    24,    25,    26,   162,    28,
-      -1,    30,    31,     3,     4,    -1,    -1,    36,    37,    38,
+      67,   148,   149,     4,     3,    57,   153,   121,   158,   159,
+     160,    71,    63,    64,    65,    66,    13,   131,    70,    19,
+      71,     3,    27,     3,     3,     4,    33,     3,     7,    14,
+      -1,   145,   146,    12,    29,    59,    -1,    16,    17,    63,
+      64,    65,    66,    35,    23,    24,    25,    26,   162,    28,
+      67,    30,    31,     3,     4,    67,    -1,    36,    37,    38,
       39,    40,    41,    42,    43,    44,    45,    46,    47,    48,
-      49,    50,    -1,    -1,    24,    25,    26,    -1,    -1,    -1,
+      49,    50,    35,    -1,    24,    25,    26,    -1,    -1,    -1,
       51,    52,    53,    54,    55,    56,    36,    37,    38,    -1,
       -1,    70,    63,    64,    65,    66,    -1,    -1,    48,    49,
       50,    63,    64,    65,    66,    63,    64,    65,    66,    71,
@@ -1312,13 +1312,13 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* lignes: %empty  */
-#line 132 "fransous.y"
+#line 133 "fransous.y"
        { }
 #line 1318 "fransous.bison.cpp"
     break;
 
   case 5: /* label: LABEL ':'  */
-#line 136 "fransous.y"
+#line 137 "fransous.y"
                    { // Lorsque je rencontre un label
                      // je stocke le numéro d'instruction actelle
                      // dans la table des adresses. C'est tout!   
@@ -1327,26 +1327,26 @@ yyreduce:
     break;
 
   case 7: /* case: %empty  */
-#line 144 "fransous.y"
+#line 145 "fransous.y"
        {}
 #line 1333 "fransous.bison.cpp"
     break;
 
   case 8: /* case: case DEFAULT SEPARATOR instruction BREAK '\n'  */
-#line 145 "fransous.y"
+#line 146 "fransous.y"
                                                         { breakN.push_back(ic);
                                                           add_instruction(JMP);}
 #line 1340 "fransous.bison.cpp"
     break;
 
   case 9: /* $@1: %empty  */
-#line 147 "fransous.y"
+#line 148 "fransous.y"
                {(yyvsp[0].adresse).save = ic-1;}
 #line 1346 "fransous.bison.cpp"
     break;
 
   case 10: /* $@2: %empty  */
-#line 148 "fransous.y"
+#line 149 "fransous.y"
                             {add_instruction(EGAL);
                             (yyvsp[-2].adresse).jc = ic; 
                             add_instruction(JMPCOND);}
@@ -1354,7 +1354,7 @@ yyreduce:
     break;
 
   case 11: /* case: case $@1 CASE expr SEPARATOR $@2 instruction BREAK '\n'  */
-#line 152 "fransous.y"
+#line 153 "fransous.y"
                    {breakN.push_back(ic) ;
                     add_instruction(JMP);
                     code_genere[(yyvsp[-6].adresse).jc].value = ic;
@@ -1363,31 +1363,31 @@ yyreduce:
     break;
 
   case 12: /* instruction: %empty  */
-#line 157 "fransous.y"
+#line 158 "fransous.y"
              {}
 #line 1369 "fransous.bison.cpp"
     break;
 
   case 13: /* instruction: expr  */
-#line 158 "fransous.y"
+#line 159 "fransous.y"
                        { }
 #line 1375 "fransous.bison.cpp"
     break;
 
   case 14: /* instruction: fonction  */
-#line 159 "fransous.y"
+#line 160 "fransous.y"
                        { }
 #line 1381 "fransous.bison.cpp"
     break;
 
   case 15: /* instruction: VAR '=' expr  */
-#line 160 "fransous.y"
+#line 161 "fransous.y"
                        { add_instruction(ASSIGN, 0, (yyvsp[-2].nom)); }
 #line 1387 "fransous.bison.cpp"
     break;
 
   case 16: /* instruction: GOTO LABEL  */
-#line 163 "fransous.y"
+#line 164 "fransous.y"
                        {  // J'insère un JMP vers une adresse que je ne connais pas encore.
                             // J'utiliserai la table des adresses pour la récupérer lors de l'exécution
                             add_instruction(JMP, -999, (yyvsp[0].nom)); 
@@ -1396,13 +1396,13 @@ yyreduce:
     break;
 
   case 17: /* $@3: %empty  */
-#line 167 "fransous.y"
+#line 168 "fransous.y"
                                  {(yyvsp[-2].adresse).jc = ic; add_instruction(JMPCOND); }
 #line 1402 "fransous.bison.cpp"
     break;
 
   case 18: /* $@4: %empty  */
-#line 169 "fransous.y"
+#line 170 "fransous.y"
                           { // Je sauvegarde l'endroit actuel pour revenir mofifier l'adresse 
                           // lorsqu'elle sera connue (celle du JMP)
                           (yyvsp[-6].adresse).jmp = ic;
@@ -1414,14 +1414,14 @@ yyreduce:
     break;
 
   case 19: /* instruction: IF condition separateur $@3 THEN separateur lignes $@4 ELSE separateur lignes ENDIF  */
-#line 178 "fransous.y"
+#line 179 "fransous.y"
                         { // Je mets à jour l'adresse du saut inconditionnel
                         code_genere[(yyvsp[-11].adresse).jmp].value = ic;}
 #line 1421 "fransous.bison.cpp"
     break;
 
   case 20: /* $@5: %empty  */
-#line 181 "fransous.y"
+#line 182 "fransous.y"
                                                          { add_instruction(VAR, 0, (yyvsp[-7].nom));
                                                                 add_instruction(NUM, (yyvsp[-5].valeur));
                                                                 add_instruction(NUM, (yyvsp[-1].valeur));
@@ -1442,7 +1442,7 @@ yyreduce:
     break;
 
   case 21: /* instruction: FOR VAR BETWEEN NUM AND NUM INCR NUM separateur $@5 lignes ENDFOR  */
-#line 198 "fransous.y"
+#line 199 "fransous.y"
                                                         {add_instruction(JMP);
                                                               code_genere[ic-1].value = (yyvsp[-11].adresse).jmp;
                                                               code_genere[(yyvsp[-11].adresse).jc].value = ic;}
@@ -1450,7 +1450,7 @@ yyreduce:
     break;
 
   case 22: /* $@6: %empty  */
-#line 201 "fransous.y"
+#line 202 "fransous.y"
                                                          { add_instruction(VAR, 0, (yyvsp[-7].nom));
                                                                 add_instruction(NUM, (yyvsp[-5].valeur));
                                                                 add_instruction(NUM, (yyvsp[-1].valeur));
@@ -1471,7 +1471,7 @@ yyreduce:
     break;
 
   case 23: /* instruction: FOR VAR BETWEEN NUM AND NUM DECR NUM separateur $@6 lignes ENDFOR  */
-#line 218 "fransous.y"
+#line 219 "fransous.y"
                                                         {add_instruction(JMP);
                                                               code_genere[ic-1].value = (yyvsp[-11].adresse).jmp;
                                                               code_genere[(yyvsp[-11].adresse).jc].value = ic;}
@@ -1479,13 +1479,13 @@ yyreduce:
     break;
 
   case 24: /* $@7: %empty  */
-#line 222 "fransous.y"
+#line 223 "fransous.y"
                                                       { (yyvsp[0].adresse).jmp = ic;}
 #line 1485 "fransous.bison.cpp"
     break;
 
   case 25: /* $@8: %empty  */
-#line 223 "fransous.y"
+#line 224 "fransous.y"
                                                       {(yyvsp[-3].adresse).jc = ic;
                                                         add_instruction(JMPCOND);
                                                       }
@@ -1493,7 +1493,7 @@ yyreduce:
     break;
 
   case 26: /* $@9: %empty  */
-#line 226 "fransous.y"
+#line 227 "fransous.y"
                                                       { add_instruction(JMP, (yyvsp[-5].adresse).jmp);
                                                         code_genere[(yyvsp[-5].adresse).jc].value = ic;
                                                       }
@@ -1501,20 +1501,20 @@ yyreduce:
     break;
 
   case 28: /* $@10: %empty  */
-#line 230 "fransous.y"
+#line 231 "fransous.y"
                                                       {(yyvsp[-1].adresse).jc = ic;}
 #line 1507 "fransous.bison.cpp"
     break;
 
   case 29: /* instruction: DO separateur $@10 lignes WHILE condition  */
-#line 232 "fransous.y"
-                                                       { add_instruction(NON);
-                                                         add_instruction(JMPCOND, (yyvsp[-5].adresse).jc);}
+#line 233 "fransous.y"
+                                                    { add_instruction(NON);
+                                                        add_instruction(JMPCOND, (yyvsp[-5].adresse).jc);}
 #line 1514 "fransous.bison.cpp"
     break;
 
   case 31: /* $@11: %empty  */
-#line 237 "fransous.y"
+#line 238 "fransous.y"
                                                       { if(!breakN.empty()){
                                                           adresseBreak.push_back(breakN);
                                                           breakN.clear();
@@ -1523,7 +1523,7 @@ yyreduce:
     break;
 
   case 32: /* instruction: SWITCH expr separateur $@11 case ENDSWITCH  */
-#line 242 "fransous.y"
+#line 243 "fransous.y"
                                                       {for(auto itr : breakN){
                                                           code_genere[itr].value = ic;
                                                           }
@@ -1536,199 +1536,199 @@ yyreduce:
     break;
 
   case 33: /* expr: NUM  */
-#line 250 "fransous.y"
+#line 251 "fransous.y"
           {add_instruction (NUM, (yyvsp[0].valeur)); }
 #line 1542 "fransous.bison.cpp"
     break;
 
   case 34: /* expr: VARAPO  */
-#line 251 "fransous.y"
+#line 252 "fransous.y"
              {add_instruction(VARAPO, 0, (yyvsp[0].nom));}
 #line 1548 "fransous.bison.cpp"
     break;
 
   case 35: /* expr: VAR  */
-#line 252 "fransous.y"
+#line 253 "fransous.y"
           {add_instruction (VAR, 0, (yyvsp[0].nom)); }
 #line 1554 "fransous.bison.cpp"
     break;
 
   case 36: /* expr: VRAI  */
-#line 253 "fransous.y"
+#line 254 "fransous.y"
            {(yyval.valeur) = true; }
 #line 1560 "fransous.bison.cpp"
     break;
 
   case 37: /* expr: FAUX  */
-#line 254 "fransous.y"
+#line 255 "fransous.y"
            {(yyval.valeur)  = false; }
 #line 1566 "fransous.bison.cpp"
     break;
 
   case 38: /* expr: SIN '(' expr ')'  */
-#line 255 "fransous.y"
+#line 256 "fransous.y"
                         {add_instruction(SIN);/*$$ = sin($3); printf ("sin(%g) = %g\n", $3, $$ );*/ }
 #line 1572 "fransous.bison.cpp"
     break;
 
   case 39: /* expr: COS '(' expr ')'  */
-#line 256 "fransous.y"
+#line 257 "fransous.y"
                         {add_instruction(COS);/*$$ = cos($3); printf ("cos(%g) = %g\n", $3, $$ );*/  }
 #line 1578 "fransous.bison.cpp"
     break;
 
   case 40: /* expr: TAN '(' expr ')'  */
-#line 257 "fransous.y"
+#line 258 "fransous.y"
                         {add_instruction(TAN);/*$$ = tan($3); printf ("tan(%g) = %g\n", $3, $$ );*/ }
 #line 1584 "fransous.bison.cpp"
     break;
 
   case 41: /* expr: EXP '(' expr ')'  */
-#line 258 "fransous.y"
+#line 259 "fransous.y"
                         {add_instruction(EXP);/*$$ = exp($3); printf ("exp(%g) = %g\n", $3, $$ );*/ }
 #line 1590 "fransous.bison.cpp"
     break;
 
   case 42: /* expr: SQRT '(' expr ')'  */
-#line 259 "fransous.y"
+#line 260 "fransous.y"
                         {add_instruction(SQRT);/*$$ = sqrt($3); printf ("sqrt(%g) = %g\n", $3, $$ );*/ }
 #line 1596 "fransous.bison.cpp"
     break;
 
   case 43: /* expr: POW '(' expr ',' expr ')'  */
-#line 260 "fransous.y"
+#line 261 "fransous.y"
                               {add_instruction(POW);}
 #line 1602 "fransous.bison.cpp"
     break;
 
   case 44: /* expr: '(' expr ')'  */
-#line 261 "fransous.y"
+#line 262 "fransous.y"
                          { (yyval.valeur) = (yyvsp[-1].valeur); }
 #line 1608 "fransous.bison.cpp"
     break;
 
   case 45: /* expr: expr ADD expr  */
-#line 262 "fransous.y"
+#line 263 "fransous.y"
                     {add_instruction(ADD); }
 #line 1614 "fransous.bison.cpp"
     break;
 
   case 46: /* expr: expr SUB expr  */
-#line 263 "fransous.y"
+#line 264 "fransous.y"
                     {add_instruction(SUB); }
 #line 1620 "fransous.bison.cpp"
     break;
 
   case 47: /* expr: expr MULT expr  */
-#line 264 "fransous.y"
+#line 265 "fransous.y"
                      {add_instruction(MULT); }
 #line 1626 "fransous.bison.cpp"
     break;
 
   case 48: /* expr: expr DIV expr  */
-#line 265 "fransous.y"
+#line 266 "fransous.y"
                     { add_instruction(DIV); }
 #line 1632 "fransous.bison.cpp"
     break;
 
   case 49: /* fonction: OPENFR expr  */
-#line 268 "fransous.y"
+#line 269 "fransous.y"
                        {add_instruction(OPENFR);}
 #line 1638 "fransous.bison.cpp"
     break;
 
   case 50: /* fonction: OPENFW expr  */
-#line 269 "fransous.y"
+#line 270 "fransous.y"
                      {add_instruction(OPENFW);}
 #line 1644 "fransous.bison.cpp"
     break;
 
   case 51: /* fonction: SUPPR expr DANS expr JUSQUE expr  */
-#line 270 "fransous.y"
+#line 271 "fransous.y"
                                           {add_instruction(SUPPR);}
 #line 1650 "fransous.bison.cpp"
     break;
 
   case 52: /* fonction: NEWNAME expr EN expr  */
-#line 271 "fransous.y"
+#line 272 "fransous.y"
                              {add_instruction(NEWNAME);}
 #line 1656 "fransous.bison.cpp"
     break;
 
   case 53: /* fonction: TOLOWER VAR  */
-#line 272 "fransous.y"
+#line 273 "fransous.y"
                      {add_instruction(TOLOWER);}
 #line 1662 "fransous.bison.cpp"
     break;
 
   case 54: /* fonction: FIRST DE VAR  */
-#line 273 "fransous.y"
+#line 274 "fransous.y"
                       {add_instruction(FIRST);}
 #line 1668 "fransous.bison.cpp"
     break;
 
   case 55: /* fonction: LAST DE VAR  */
-#line 274 "fransous.y"
+#line 275 "fransous.y"
                      {add_instruction(LAST);}
 #line 1674 "fransous.bison.cpp"
     break;
 
   case 56: /* fonction: SIZE DE VAR  */
-#line 275 "fransous.y"
+#line 276 "fransous.y"
                      {add_instruction(SIZE);}
 #line 1680 "fransous.bison.cpp"
     break;
 
   case 57: /* fonction: WAIT VAR  */
-#line 276 "fransous.y"
+#line 277 "fransous.y"
                   {add_instruction(WAIT);}
 #line 1686 "fransous.bison.cpp"
     break;
 
   case 58: /* fonction: PRINT expr  */
-#line 277 "fransous.y"
+#line 278 "fransous.y"
                       { add_instruction(PRINT); }
 #line 1692 "fransous.bison.cpp"
     break;
 
   case 60: /* condition: expr SUP expr  */
-#line 282 "fransous.y"
+#line 283 "fransous.y"
                          {add_instruction(SUP);}
 #line 1698 "fransous.bison.cpp"
     break;
 
   case 61: /* condition: expr INF expr  */
-#line 283 "fransous.y"
+#line 284 "fransous.y"
                          {add_instruction(INF);}
 #line 1704 "fransous.bison.cpp"
     break;
 
   case 62: /* condition: expr SUPEG expr  */
-#line 284 "fransous.y"
+#line 285 "fransous.y"
                            {add_instruction(SUPEG);}
 #line 1710 "fransous.bison.cpp"
     break;
 
   case 63: /* condition: expr INFEG expr  */
-#line 285 "fransous.y"
+#line 286 "fransous.y"
                            {add_instruction(INFEG);}
 #line 1716 "fransous.bison.cpp"
     break;
 
   case 64: /* condition: expr DIFF expr  */
-#line 286 "fransous.y"
+#line 287 "fransous.y"
                           {add_instruction(DIFF);}
 #line 1722 "fransous.bison.cpp"
     break;
 
   case 65: /* condition: expr EGAL expr  */
-#line 287 "fransous.y"
+#line 288 "fransous.y"
                           {add_instruction(EGAL);}
 #line 1728 "fransous.bison.cpp"
     break;
 
   case 66: /* condition: NON '(' condition ')'  */
-#line 288 "fransous.y"
+#line 289 "fransous.y"
                                {add_instruction(NON);}
 #line 1734 "fransous.bison.cpp"
     break;
@@ -1927,12 +1927,12 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 291 "fransous.y"
+#line 290 "fransous.y"
 
 
 
 int yyerror(char *s) {					
-    printf("%s : %s\n", s, yytext);
+    printf("%s : \"%s\"\n", s, yytext);
 }
 
 
@@ -2245,7 +2245,6 @@ void execution ( const vector <instruction> &code_genere,
         r1 = pile.top();
         pile.pop();
         pile.push(cos(r1));
-        cout << "$ cos(" << r1 << ") = " << cos(r1) << " : " << pile.top() << "\n";
         ic++;
       break;
       case TAN: 

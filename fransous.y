@@ -125,7 +125,7 @@
 %token MULT
 %token DIV
 
-%right ADD SUB   // N'oubliez pas de remettre left !
+%left ADD SUB
 %left MULT DIV
 
 %%
@@ -229,8 +229,8 @@ instruction: {}
         ENDWHILE                 
         |DO separateur                                {$1.jc = ic;}
           lignes
-        WHILE condition                                { add_instruction(NON);
-                                                         add_instruction(JMPCOND, $1.jc);}
+        WHILE condition                             { add_instruction(NON);
+                                                        add_instruction(JMPCOND, $1.jc);}
         |FOREACH expr
           lignes
         ENDFOR
@@ -286,13 +286,11 @@ condition  : expr
           |expr DIFF expr {add_instruction(DIFF);}
           |expr EGAL expr {add_instruction(EGAL);}
           |NON '('condition')' {add_instruction(NON);}
-
-var : {}
 %%
 
 
 int yyerror(char *s) {					
-    printf("%s : %s\n", s, yytext);
+    printf("%s : \"%s\"\n", s, yytext);
 }
 
 
@@ -605,7 +603,6 @@ void execution ( const vector <instruction> &code_genere,
         r1 = pile.top();
         pile.pop();
         pile.push(cos(r1));
-        cout << "$ cos(" << r1 << ") = " << cos(r1) << " : " << pile.top() << "\n";
         ic++;
       break;
       case TAN: 
