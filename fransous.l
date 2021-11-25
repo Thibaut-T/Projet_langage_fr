@@ -27,7 +27,7 @@ fin[" "]faire|Fin[" "]Faire|FIN[" "]FAIRE {return ENDDO;}
 si|SI|Si     { return IF; }
 alors|ALORS|Alors   { return THEN; }
 sinon|Sinon|SINON   { return ELSE; }
-fonction|Fonction|FONCTION {return FONCTION};
+fonction|Fonction|FONCTION {return FONCTION;}
 fin[" "]du[" "]si|FIN[" "]DU[" "]SI|Fin[" "]du[" "]si|Fin[" "]Du[" "]Si  { return ENDIF; }
 pour|POUR|Pour { return FOR;}
 Pour[" "]tout[" "]elements[" "]de|Pour[" "]Tout[" "]Elements[" "]De|POUR[" "]TOUT[" "]ELEMENTS[" "]DE {return FOREACH;}
@@ -77,6 +77,7 @@ faux {return FAUX;}
 
 \"[A-Za-z_][A-Za-z_0-9]*\" {strcpy( yylval.nom, yytext) ;
                          return VARAPO;}
+
 
 [0-9]+(\.[0-9]*)?([Ee][+-]?[0-9]+)? { // s'il s'agit d'un nombre on le stocke dans le champ "valeur"
                                       yylval.valeur = atof(yytext);

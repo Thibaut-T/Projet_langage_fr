@@ -56,6 +56,7 @@
 }
 
 %token <valeur> NUM
+%token <valeur> NUMNEG
 %token <nom> VAR
 %token VARID
 %type <valeur> expr 
@@ -123,6 +124,8 @@
 %token INCREMENTER
 %token DECREMENTER
 
+
+%token TAB
 
 %token ADD
 %token SUB
@@ -235,7 +238,7 @@ instruction: {}
         ENDDO '\n'
         WHILE condition                             { add_instruction(NON);
                                                         add_instruction(JMPCOND, $1.jc);}
-        |FOREACH expr
+        |FOREACH TAB
           lignes
         ENDFOR
         |SWITCH expr separateur                       { if(!breakN.empty()){
@@ -251,20 +254,21 @@ instruction: {}
                                                           breakN = adresseBreak.back();
                                                           adresseBreak.pop_back();
                                                         } }
-expr: NUM {add_instruction (NUM, $1); } 
+expr: NUM {add_instruction (NUM, $1);}
      |VARAPO {add_instruction(VARAPO, 0, $1);}
      |VAR {add_instruction (VAR, 0, $1); }
-     |VRAI {$$ = true; }
-     |FAUX {$$  = false; }
-     |SIN '(' expr ')'  {add_instruction(SIN);/*$$ = sin($3); printf ("sin(%g) = %g\n", $3, $$ );*/ }
-     |COS '(' expr ')'  {add_instruction(COS);/*$$ = cos($3); printf ("cos(%g) = %g\n", $3, $$ );*/  }
-     |TAN '(' expr ')'  {add_instruction(TAN);/*$$ = tan($3); printf ("tan(%g) = %g\n", $3, $$ );*/ }   
-     |EXP '('expr ')'   {add_instruction(EXP);/*$$ = exp($3); printf ("exp(%g) = %g\n", $3, $$ );*/ }
-     |SQRT '(' expr ')' {add_instruction(SQRT);/*$$ = sqrt($3); printf ("sqrt(%g) = %g\n", $3, $$ );*/ }
+     |VRAI {add_instruction (NUM, true);} 
+     |FAUX {add_instruction (NUM, false);} 
+     |SIN '(' expr ')'  {add_instruction(SIN);}
+     |COS '(' expr ')'  {add_instruction(COS);}
+     |TAN '(' expr ')'  {add_instruction(TAN);}
+     |EXP '('expr ')'   {add_instruction(EXP);}
+     |SQRT '(' expr ')' {add_instruction(SQRT);}
      |POW '('expr ',' expr')' {add_instruction(POW);}
-     | '(' expr ')'      { $$ = $2; }
+     | '(' expr ')'      { $$ = $2;}
      |expr ADD expr {add_instruction(ADD);} 
      |expr SUB expr {add_instruction(SUB);} 
+     | SUB expr {add_instruction(NUM, -1); add_instruction(MULT);}
      |expr MULT expr {add_instruction(MULT);}
      |expr DIV expr {add_instruction(DIV);}
      |INCREMENTER VAR {add_instruction(VAR, 0, $2); 

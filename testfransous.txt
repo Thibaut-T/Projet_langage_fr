@@ -1,6 +1,6 @@
-x = 5
+x = 0-5
 
-tant que x < 10 :
+tant que x < 0 :
     afficher x
     incrementer x
 fin tant que 
