@@ -1,10 +1,6 @@
-x = 0
-tant que x != 7 :
-    afficher x
-    x = x + 1
-fin tant que
+x = 5
 
-faire :
+tant que x < 10 :
     afficher x
-    x = x - 1
-tant que x > 0
+    incrementer x
+fin tant que 

@@ -86,6 +86,7 @@
 %token <adresse> WHILE
 %token ENDWHILE
 %token <adresse> DO
+%token ENDDO
 %token SWITCH
 %token ENDSWITCH
 %token <adresse> CASE
@@ -118,6 +119,8 @@
 %token DE
 %token JUSQUE
 %token EN
+%token INCREMENTER
+%token DECREMENTER
 
 
 %token ADD
@@ -229,6 +232,7 @@ instruction: {}
         ENDWHILE                 
         |DO separateur                                {$1.jc = ic;}
           lignes
+        ENDDO '\n'
         WHILE condition                             { add_instruction(NON);
                                                         add_instruction(JMPCOND, $1.jc);}
         |FOREACH expr
@@ -259,10 +263,18 @@ expr: NUM {add_instruction (NUM, $1); }
      |SQRT '(' expr ')' {add_instruction(SQRT);/*$$ = sqrt($3); printf ("sqrt(%g) = %g\n", $3, $$ );*/ }
      |POW '('expr ',' expr')' {add_instruction(POW);}
      | '(' expr ')'      { $$ = $2; }
-     |expr ADD expr {add_instruction(ADD); } 
-     |expr SUB expr {add_instruction(SUB); } 
-     |expr MULT expr {add_instruction(MULT); }
-     |expr DIV expr { add_instruction(DIV); }
+     |expr ADD expr {add_instruction(ADD);} 
+     |expr SUB expr {add_instruction(SUB);} 
+     |expr MULT expr {add_instruction(MULT);}
+     |expr DIV expr {add_instruction(DIV);}
+     |INCREMENTER VAR {add_instruction(VAR, 0, $2); 
+                       add_instruction(NUM, 1); 
+                       add_instruction(ADD); 
+                       add_instruction(ASSIGN, 0, $2);}
+     |DECREMENTER VAR {add_instruction(VAR, 0, $2); 
+                       add_instruction(NUM, 1); 
+                       add_instruction(SUB);
+                       add_instruction(ASSIGN, 0, $2);}
 
     
 fonction : OPENFR expr {add_instruction(OPENFR);}
@@ -274,7 +286,7 @@ fonction : OPENFR expr {add_instruction(OPENFR);}
         |LAST DE VAR {add_instruction(LAST);}
         |SIZE DE VAR {add_instruction(SIZE);}
         |WAIT VAR {add_instruction(WAIT);}
-        |PRINT expr   { add_instruction(PRINT); }
+        |PRINT expr {add_instruction(PRINT);}
 
 
 
