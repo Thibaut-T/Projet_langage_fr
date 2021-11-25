@@ -159,14 +159,12 @@ instruction: {}
         | expr         { }
         | fonction     { }
         | VAR '=' expr { add_instruction(ASSIGN, 0, $1); }
-
-        
+        | FONCTION '(' VAR ')' separateur { add_instruction(FONCTION); }
         | GOTO LABEL   {  // J'insère un JMP vers une adresse que je ne connais pas encore.
                             // J'utiliserai la table des adresses pour la récupérer lors de l'exécution
                             add_instruction(JMP, -999, $2); 
                         }
         |IF condition separateur {$1.jc = ic; add_instruction(JMPCOND); }
-        | FONCTION VAR'(' expr ')'':' { add_instruction(FONCTION); }
         THEN separateur
         lignes            { // Je sauvegarde l'endroit actuel pour revenir modifier l'adresse 
                           // lorsqu'elle sera connue (celle du JMP)
