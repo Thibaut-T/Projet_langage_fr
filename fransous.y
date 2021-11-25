@@ -74,8 +74,9 @@
 %token <adresse> FOR
 %token <adresse> FOREACH
 %token ENDFOR
-%token AND 
+%token AND
 %token BETWEEN
+%token FONCTION
 %token DECR
 %token INCR
 %token PRINT
@@ -161,15 +162,14 @@ instruction: {}
         | expr         { }
         | fonction     { }
         | VAR '=' expr { add_instruction(ASSIGN, 0, $1); }
-
-        
+        | FONCTION '(' VAR ')' separateur { add_instruction(FONCTION); }
         | GOTO LABEL   {  // J'insère un JMP vers une adresse que je ne connais pas encore.
                             // J'utiliserai la table des adresses pour la récupérer lors de l'exécution
                             add_instruction(JMP, -999, $2); 
                         }
         |IF condition separateur {$1.jc = ic; add_instruction(JMPCOND); }
         THEN separateur
-        lignes            { // Je sauvegarde l'endroit actuel pour revenir mofifier l'adresse 
+        lignes            { // Je sauvegarde l'endroit actuel pour revenir modifier l'adresse 
                           // lorsqu'elle sera connue (celle du JMP)
                           $1.jmp = ic;
                           add_instruction(JMP);
@@ -258,7 +258,7 @@ expr: NUM {add_instruction (NUM, $1); }
      |FAUX {$$  = false; }
      |SIN '(' expr ')'  {add_instruction(SIN);/*$$ = sin($3); printf ("sin(%g) = %g\n", $3, $$ );*/ }
      |COS '(' expr ')'  {add_instruction(COS);/*$$ = cos($3); printf ("cos(%g) = %g\n", $3, $$ );*/  }
-     |TAN '(' expr ')'  {add_instruction(TAN);/*$$ = tan($3); printf ("tan(%g) = %g\n", $3, $$ );*/ }    
+     |TAN '(' expr ')'  {add_instruction(TAN);/*$$ = tan($3); printf ("tan(%g) = %g\n", $3, $$ );*/ }   
      |EXP '('expr ')'   {add_instruction(EXP);/*$$ = exp($3); printf ("exp(%g) = %g\n", $3, $$ );*/ }
      |SQRT '(' expr ')' {add_instruction(SQRT);/*$$ = sqrt($3); printf ("sqrt(%g) = %g\n", $3, $$ );*/ }
      |POW '('expr ',' expr')' {add_instruction(POW);}
@@ -342,6 +342,7 @@ string print_code(int ins) {
     case EXP      : return "EXP"; break;
     case POW      : return "POW"; break;
     case SQRT     : return "SQRT"; break;
+    case FONCTION : return "FUN"; break;
     default : return ""; break;
   }
 }
@@ -643,6 +644,12 @@ void execution ( const vector <instruction> &code_genere,
         pile.push(sqrt(r1));
         ic++;
       break;
+      case FONCTION:
+        r1 = pile.top();    // Rrécupérer la tête de pile;
+        pile.pop();
+
+        r2 = pile.top();
+        pile.top();
     }
   }
 }

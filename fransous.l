@@ -27,6 +27,7 @@ fin[" "]faire|Fin[" "]Faire|FIN[" "]FAIRE {return ENDDO;}
 si|SI|Si     { return IF; }
 alors|ALORS|Alors   { return THEN; }
 sinon|Sinon|SINON   { return ELSE; }
+fonction|Fonction|FONCTION {return FONCTION};
 fin[" "]du[" "]si|FIN[" "]DU[" "]SI|Fin[" "]du[" "]si|Fin[" "]Du[" "]Si  { return ENDIF; }
 pour|POUR|Pour { return FOR;}
 Pour[" "]tout[" "]elements[" "]de|Pour[" "]Tout[" "]Elements[" "]De|POUR[" "]TOUT[" "]ELEMENTS[" "]DE {return FOREACH;}
