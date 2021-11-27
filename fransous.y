@@ -27,6 +27,7 @@
 
     map<string,double> variables;
     map<double, string> variablesString;
+    map<string, vector<double>> variablesTables;
     vector<vector<double>> adresseBreak;
     vector<double> breakN;
     int ic = 0;
@@ -128,6 +129,10 @@
 
 
 %token TAB
+%token TABADD
+%token A
+%token INDICE
+%token ASSIGNINDICE
 
 %token ADD
 %token SUB
@@ -166,7 +171,9 @@ case : {}
 instruction: {}
         | expr         { }
         | fonction     { }
+        | TAB VAR {add_instruction(TAB, 0, $2);}
         | VAR '=' expr { add_instruction(ASSIGN, 0, $1); }
+        | INDICE expr DE VAR '=' expr {add_instruction(ASSIGNINDICE, 0, $4);}
         | FONCTION '(' VAR ')' separateur { add_instruction(FONCTION); }
         | GOTO LABEL   {  // J'insère un JMP vers une adresse que je ne connais pas encore.
                             // J'utiliserai la table des adresses pour la récupérer lors de l'exécution
@@ -281,6 +288,8 @@ expr: NUM {add_instruction (NUM, $1);}
                        add_instruction(NUM, 1); 
                        add_instruction(SUB);
                        add_instruction(ASSIGN, 0, $2);}
+      |TABADD expr A VAR {add_instruction(TABADD, 0, $4);}
+      |INDICE expr DE VAR {add_instruction(INDICE, 0, $4);}
 
     
 fonction : OPENFR expr {add_instruction(OPENFR);}
@@ -353,6 +362,10 @@ string print_code(int ins) {
     case POW      : return "POW"; break;
     case SQRT     : return "SQRT"; break;
     case FONCTION : return "FUN"; break;
+    case TAB      : return "TAB"; break;
+    case TABADD   : return "TADADD"; break;
+    case INDICE   : return "INDICE"; break;
+    case ASSIGNINDICE : return "ASSIGNINDICE"; break;
     default : return ""; break;
   }
 }
@@ -676,6 +689,50 @@ void execution ( const vector <instruction> &code_genere,
 
         r2 = pile.top();
         pile.top();
+        ic++;
+      break;
+      case TAB : 
+        variablesTables[ins.name];
+        ic++;
+      break;
+      case TABADD:
+        r1 = pile.top();
+        pile.pop();
+        try{
+          variablesTables[ins.name].push_back(r1);
+          ic++;
+        }
+        catch(...){
+          cout << "Tableau non déclaré.\n";
+          ic = code_genere.size();
+        }
+      break;
+      case INDICE:
+        r1 = pile.top() - 1;
+        pile.pop();
+        try{
+          pile.push(variablesTables[ins.name].at(r1));
+          ic++;
+        }
+        catch(...){
+          cout << "Tableau non déclaré.\n";
+          ic = code_genere.size();
+        }
+      break;
+      case ASSIGNINDICE :
+        r1 = pile.top();
+        pile.pop();
+        r2 = pile.top()-1;
+        pile.pop();
+        try{
+          variablesTables[ins.name].at(r2) = r1;
+          ic++;
+        }
+        catch(...){
+          cout << "Impossible d'inssérer un élément dans " << ins.name <<'\n';
+          ic = code_genere.size();
+        }
+      break;
     }
   }
 }

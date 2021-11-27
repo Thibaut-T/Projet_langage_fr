@@ -45,7 +45,7 @@
 extern int yydebug;
 #endif
 /* "%code requires" blocks.  */
-#line 44 "fransous.y"
+#line 45 "fransous.y"
 
     typedef struct adr {
         int jmp;  // adresse du jmp
@@ -133,10 +133,14 @@ extern int yydebug;
     ORCOND = 323,                  /* ORCOND  */
     ANDCOND = 324,                 /* ANDCOND  */
     TAB = 325,                     /* TAB  */
-    ADD = 326,                     /* ADD  */
-    SUB = 327,                     /* SUB  */
-    MULT = 328,                    /* MULT  */
-    DIV = 329                      /* DIV  */
+    TABADD = 326,                  /* TABADD  */
+    A = 327,                       /* A  */
+    INDICE = 328,                  /* INDICE  */
+    ASSIGNINDICE = 329,            /* ASSIGNINDICE  */
+    ADD = 330,                     /* ADD  */
+    SUB = 331,                     /* SUB  */
+    MULT = 332,                    /* MULT  */
+    DIV = 333                      /* DIV  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -145,13 +149,13 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 52 "fransous.y"
+#line 53 "fransous.y"
 
   double valeur;
   char nom[50];
   type_adresse adresse;  
 
-#line 155 "fransous.bison.hpp"
+#line 159 "fransous.bison.hpp"
 
 };
 typedef union YYSTYPE YYSTYPE;

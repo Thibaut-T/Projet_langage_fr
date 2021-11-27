@@ -66,6 +66,11 @@ ou[" "]que|Ou[" "]Que|OU[" "]QUE {return ORCOND;}
 et[" "]que|Et[" "]Que|ET[" "]QUE { return ANDCOND;}
 et {return AND;}
 
+creer[" "]un[" "]tableau|Creer[" "]Un[" "]Tableau|CREER[" "]UN[" "]TABLEAU {return TAB;}
+ajouter|Ajouter|AJOUTER { return TABADD;}
+a|A {return A;}
+element[" "]numero|Element[" "]Numero|ELEMENT[" "]NUMERO {return INDICE;}
+
 incrementer|Incrementer|INCREMENTER {return INCREMENTER;}
 decrementer|Decrementer|DECREMENTER {return DECREMENTER;}
 \(     {  return '('; }

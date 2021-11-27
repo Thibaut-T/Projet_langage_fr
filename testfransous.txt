@@ -1,8 +1,6 @@
-x = 0 moins 5
-y = - 5
+x = -5 
 
-tant que (x < 0 ou que y < 3):
-    afficher x
-    incrementer x
-    incrementer y
-fin tant que 
+creer un tableau alexis
+ajouter x a alexis
+element numero 1 de alexis = 2
+afficher element numero 1 de alexis
