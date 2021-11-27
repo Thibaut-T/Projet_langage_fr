@@ -29,8 +29,8 @@ alors|ALORS|Alors   { return THEN; }
 sinon|Sinon|SINON   { return ELSE; }
 fonction|Fonction|FONCTION {return FONCTION;}
 fin[" "]du[" "]si|FIN[" "]DU[" "]SI|Fin[" "]du[" "]si|Fin[" "]Du[" "]Si  { return ENDIF; }
+pour[" "]tous[" "]elements|Pour[" "]Tous[" "]Elements|POUR[" "]TOUS[" "]ELEMENTS {return FOREACH;}
 pour|POUR|Pour { return FOR;}
-Pour[" "]tout[" "]elements[" "]de|Pour[" "]Tout[" "]Elements[" "]De|POUR[" "]TOUT[" "]ELEMENTS[" "]DE {return FOREACH;}
 fin[" "]du[" "]pour|FIN[" "]DU[" "]POUR|Fin[" "]Du[" "]Pour { return ENDFOR;}
 entre {return BETWEEN;}
 

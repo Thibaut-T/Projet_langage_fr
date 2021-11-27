@@ -214,21 +214,21 @@ instruction: {}
                                                               code_genere[ic-1].value = $1.jmp;
                                                               code_genere[$1.jc].value = ic;}
         |FOR VAR BETWEEN NUM AND NUM DECR NUM separateur { add_instruction(VAR, 0, $2);
-                                                                add_instruction(NUM, $4);
-                                                                add_instruction(NUM, $8);
-                                                                add_instruction(ADD);
-                                                                add_instruction(ASSIGN, 0, $2);
+                                                            add_instruction(NUM, $4);
+                                                            add_instruction(NUM, $8);
+                                                            add_instruction(ADD);
+                                                            add_instruction(ASSIGN, 0, $2);
 
-                                                                $1.jmp = ic;
-                                                                add_instruction(VAR, 0, $2);
-                                                                add_instruction(NUM, $8);
-                                                                add_instruction(SUB);
-                                                                add_instruction(ASSIGN, 0, $2);
-                                                                add_instruction(VAR, 0, $2);
-                                                                add_instruction(NUM, $6);
-                                                                add_instruction(INF);
-                                                                $1.jc = ic;
-                                                                add_instruction(JMPCOND);}
+                                                            $1.jmp = ic;
+                                                            add_instruction(VAR, 0, $2);
+                                                            add_instruction(NUM, $8);
+                                                            add_instruction(SUB);
+                                                            add_instruction(ASSIGN, 0, $2);
+                                                            add_instruction(VAR, 0, $2);
+                                                            add_instruction(NUM, $6);
+                                                            add_instruction(INF);
+                                                            $1.jc = ic;
+                                                            add_instruction(JMPCOND);}
             lignes
         ENDFOR                                          {add_instruction(JMP);
                                                               code_genere[ic-1].value = $1.jmp;
@@ -245,11 +245,32 @@ instruction: {}
         |DO separateur                                {$1.jc = ic;}
           lignes
         ENDDO '\n'
-        WHILE condition                             { add_instruction(NON);
+        WHILE condition                               { add_instruction(NON);
                                                         add_instruction(JMPCOND, $1.jc);}
-        |FOREACH TAB
+        
+        |FOREACH VAR DE VAR separateur                { add_instruction(VAR, 0, "1");
+                                                        //add_instruction(NUM, -1);
+                                                        //add_instruction(ASSIGN, 0, "1");
+                                                        add_instruction(VAR, 0, $2);
+                                                        $1.jmp = ic;
+                                                        add_instruction(VAR, 0, "1");
+                                                        add_instruction(SIZE, 0, $4);
+                                                        add_instruction(INF);
+                                                        $1.jc = ic;
+                                                        add_instruction(JMPCOND);
+                                                        add_instruction(VAR, 0, "1");
+                                                        add_instruction(NUM, 1);
+                                                        add_instruction(ADD);
+                                                        add_instruction(ASSIGN, 0, "1");
+                                                        add_instruction(VAR, 0, "1");
+                                                        add_instruction(INDICE, 0, $4);
+                                                        add_instruction(ASSIGN, 0, $2);
+                                                      }
           lignes
-        ENDFOR
+        ENDFOR                                        { add_instruction(JMP);
+                                                        code_genere[ic-1].value = $1.jmp;
+                                                        code_genere[$1.jc].value = ic;
+                                                      }
         |SWITCH expr separateur                       { if(!breakN.empty()){
                                                           adresseBreak.push_back(breakN);
                                                           breakN.clear();
@@ -299,7 +320,7 @@ fonction : OPENFR expr {add_instruction(OPENFR);}
         |TOLOWER VAR {add_instruction(TOLOWER);}
         |FIRST DE VAR {add_instruction(FIRST);}
         |LAST DE VAR {add_instruction(LAST);}
-        |SIZE DE VAR {add_instruction(SIZE);}
+        |SIZE DE VAR {add_instruction(SIZE, 0, $3);}
         |WAIT VAR {add_instruction(WAIT);}
         |PRINT expr {add_instruction(PRINT);}
 
@@ -450,14 +471,18 @@ void execution ( const vector <instruction> &code_genere,
         strcpy(r4, variablesString[r1].c_str());
         back(r4);
         ic++;
-      break;
+      break;*/
       case SIZE : 
-        r1=pile.top();
-        pile.pop();
-        size(r1);
-        ic++;
+        try{
+          pile.push(variablesTables[ins.name].size());
+          ic++;
+        }
+        catch(...){
+          cout << "Tableau non déclaré.\n";
+          ic = code_genere.size();
+        }
       break;
-      case WAIT :
+      /*case WAIT :
         r1=pile.top();
         pile.pop();
         wait(r1);
@@ -715,7 +740,7 @@ void execution ( const vector <instruction> &code_genere,
           ic++;
         }
         catch(...){
-          cout << "Tableau non déclaré.\n";
+          cout << "Tableau " << ins.name << " non déclaré.\n";
           ic = code_genere.size();
         }
       break;
@@ -729,7 +754,7 @@ void execution ( const vector <instruction> &code_genere,
           ic++;
         }
         catch(...){
-          cout << "Impossible d'inssérer un élément dans " << ins.name <<'\n';
+          cout << "Impossible d'insérer un élément dans " << ins.name <<'\n';
           ic = code_genere.size();
         }
       break;
