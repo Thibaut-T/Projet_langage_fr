@@ -1,6 +1,8 @@
-x = 0-5
+x = 0 moins 5
+y = - 5
 
-tant que x < 0 :
+tant que (x < 0 ou que y < 3):
     afficher x
     incrementer x
+    incrementer y
 fin tant que 

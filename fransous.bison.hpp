@@ -130,11 +130,13 @@ extern int yydebug;
     EN = 320,                      /* EN  */
     INCREMENTER = 321,             /* INCREMENTER  */
     DECREMENTER = 322,             /* DECREMENTER  */
-    TAB = 323,                     /* TAB  */
-    ADD = 324,                     /* ADD  */
-    SUB = 325,                     /* SUB  */
-    MULT = 326,                    /* MULT  */
-    DIV = 327                      /* DIV  */
+    ORCOND = 323,                  /* ORCOND  */
+    ANDCOND = 324,                 /* ANDCOND  */
+    TAB = 325,                     /* TAB  */
+    ADD = 326,                     /* ADD  */
+    SUB = 327,                     /* SUB  */
+    MULT = 328,                    /* MULT  */
+    DIV = 329                      /* DIV  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -149,7 +151,7 @@ union YYSTYPE
   char nom[50];
   type_adresse adresse;  
 
-#line 153 "fransous.bison.hpp"
+#line 155 "fransous.bison.hpp"
 
 };
 typedef union YYSTYPE YYSTYPE;

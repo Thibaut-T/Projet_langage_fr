@@ -33,7 +33,7 @@ pour|POUR|Pour { return FOR;}
 Pour[" "]tout[" "]elements[" "]de|Pour[" "]Tout[" "]Elements[" "]De|POUR[" "]TOUT[" "]ELEMENTS[" "]DE {return FOREACH;}
 fin[" "]du[" "]pour|FIN[" "]DU[" "]POUR|Fin[" "]Du[" "]Pour { return ENDFOR;}
 entre {return BETWEEN;}
-et {return AND;}
+
 on[" "]ajoute {return INCR;}
 on[" "]enleve {return DECR;}
 Sin|SIN|sin|sinus|Sinus|SINUS { return SIN;  }
@@ -62,6 +62,10 @@ de {return DE;};
 ">="|superieur[" "]ou[" "]egal|Superieur[" "]ou[" "]Egal|superieur[" "]Ou[" "]Egal {return SUPEG; }
 "!="|different|Different {return DIFF; }
 "=="|egal|Egal {return EGAL; }
+ou[" "]que|Ou[" "]Que|OU[" "]QUE {return ORCOND;}
+et[" "]que|Et[" "]Que|ET[" "]QUE { return ANDCOND;}
+et {return AND;}
+
 incrementer|Incrementer|INCREMENTER {return INCREMENTER;}
 decrementer|Decrementer|DECREMENTER {return DECREMENTER;}
 \(     {  return '('; }
@@ -69,6 +73,15 @@ decrementer|Decrementer|DECREMENTER {return DECREMENTER;}
 vrai {return VRAI;}
 faux {return FAUX;}
 
+"+"|plus    { return ADD; }
+"-"|moins   { return SUB; }
+"*"|fois    { return MULT; }
+"/"|divise  { return DIV; } /*Peut-être penser à un autre nom pour l'opérateur*/
+
+
+"="|"<-"|"est"    {  return '='; }
+"," {return ',';}
+  
 [A-Za-z_][A-Za-z_0-9]* { 
                          strcpy( yylval.nom, yytext) ;
                          return VAR;
@@ -83,16 +96,6 @@ faux {return FAUX;}
                                       yylval.valeur = atof(yytext);
                                       return NUM;
                                     }
-
-"+"|plus    { return ADD; }
-"-"|moins   { return SUB; }
-"*"|fois    { return MULT; }
-"/"|divise  { return DIV; } /*Peut-être penser à un autre nom pour l'opérateur*/
-
-
-"="|"<-"|"est"    {  return '='; }
-"," {return ',';}
-  
 
 <<EOF>> { printf ("Le programme est correct.\n"); return 0;}
 .      {  printf ("Erreur lexicale : %s\n", yytext); return 0; }

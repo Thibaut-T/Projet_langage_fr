@@ -123,6 +123,8 @@
 %token EN
 %token INCREMENTER
 %token DECREMENTER
+%token ORCOND
+%token ANDCOND
 
 
 %token TAB
@@ -302,6 +304,8 @@ condition  : expr
           |expr DIFF expr {add_instruction(DIFF);}
           |expr EGAL expr {add_instruction(EGAL);}
           |NON '('condition')' {add_instruction(NON);}
+          |'('condition ORCOND condition')' {add_instruction(ORCOND);}
+          |'('condition ANDCOND condition')' {add_instruction(ANDCOND);}
 %%
 
 
@@ -334,6 +338,8 @@ string print_code(int ins) {
     case EGAL     : return "EGAL"; break;
     case DIFF     : return "DIFF"; break;
     case NON      : return "NON"; break;
+    case ANDCOND  : return "ANDCOND"; break;
+    case ORCOND   : return "ORCOND"; break;
     case OPENFR   : return "OPENFR"; break;
     case OPENFW   : return "OPENFW"; break;
     case TOLOWER  : return "TOLOWER"; break;
@@ -608,6 +614,22 @@ void execution ( const vector <instruction> &code_genere,
         pile.pop();
 
         pile.push(!r1);
+        ic++;
+      break;
+      case ANDCOND:
+        r1 = pile.top();
+        pile.pop();
+        r2 = pile.top();
+        pile.pop();
+        pile.push(r1 && r2);
+        ic++;
+      break;
+      case ORCOND:
+        r1 = pile.top();
+        pile.pop();
+        r2 = pile.top();
+        pile.pop();
+        pile.push(r1 || r2);
         ic++;
       break;
       case SIN:
