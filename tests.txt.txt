@@ -1,0 +1,44 @@
+x = -5 
+y = 2-3
+z = 2+5
+b = z+y
+
+afficher x
+afficher y
+afficher z
+afficher b
+
+pour x entre 5 et 0 on enleve 1 :
+    afficher x
+fin du pour
+
+pour x entre 0 et 5 on ajoute 1 :
+    afficher x
+fin du pour
+
+tant que x < 5 :
+    afficher x
+    x = x+1
+fin tant que
+
+faire :
+    afficher x
+    x = x + 1
+fin faire
+tant que x < 5
+
+choix x:
+    cas 0: afficher 0 fin cas
+    cas 1: afficher 1 fin cas
+fin choix
+
+creer un tableau alexis
+ajouter x a alexis
+element numero 1 de alexis = 2
+ajouter 3 a alexis
+ajouter 6 a alexis
+pour tous elements elem de alexis :
+    afficher elem
+fin du pour
+
+

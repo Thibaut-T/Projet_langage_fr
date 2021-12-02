@@ -79,6 +79,7 @@
     #include <vector>
     #include <iostream>
     #include <stack>
+    #include <tuple>
 
     using namespace std;
 
@@ -95,9 +96,10 @@
         string name;      // ou une référence pour la table des données 
     };
 
-    map<string,double> variables;
+
+    map<string,tuple<int, double, string>> variables;
     map<double, string> variablesString;
-    map<string, vector<double>> variablesTables;
+    map<string, vector<tuple<int, double, string>>> variablesTables;
     vector<vector<double>> adresseBreak;
     vector<double> breakN;
     int ic = 0;
@@ -110,7 +112,7 @@
         return 0; 
     }; 
 
-#line 114 "fransous.bison.cpp"
+#line 116 "fransous.bison.cpp"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -571,7 +573,7 @@ union yyalloc
 /* YYFINAL -- State number of the termination state.  */
 #define YYFINAL  2
 /* YYLAST -- Last index in YYTABLE.  */
-#define YYLAST   341
+#define YYLAST   349
 
 /* YYNTOKENS -- Number of terminals.  */
 #define YYNTOKENS  85
@@ -637,14 +639,14 @@ static const yytype_int8 yytranslate[] =
 /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int16 yyrline[] =
 {
-       0,   146,   146,   147,   149,   150,   155,   158,   159,   161,
-     162,   161,   171,   172,   173,   174,   175,   176,   177,   178,
-     182,   184,   182,   196,   196,   216,   216,   237,   238,   241,
-     237,   245,   245,   251,   251,   274,   274,   287,   288,   289,
-     290,   291,   292,   293,   294,   295,   296,   297,   298,   299,
-     300,   301,   302,   303,   304,   308,   312,   313,   316,   317,
-     318,   319,   320,   321,   322,   323,   324,   325,   329,   330,
-     331,   332,   333,   334,   335,   336,   337,   338
+       0,   148,   148,   149,   151,   152,   157,   160,   161,   163,
+     164,   163,   173,   174,   175,   176,   177,   178,   179,   180,
+     184,   186,   184,   198,   198,   218,   218,   239,   240,   243,
+     239,   247,   247,   253,   253,   276,   276,   289,   290,   291,
+     292,   293,   294,   295,   296,   297,   298,   299,   300,   301,
+     302,   303,   304,   305,   306,   310,   314,   315,   316,   317,
+     318,   319,   322,   323,   324,   325,   326,   327,   331,   332,
+     333,   334,   335,   336,   337,   338,   339,   340
 };
 #endif
 
@@ -701,24 +703,24 @@ static const yytype_int16 yypact[] =
       42,    54,   -14,   247,     4,    25,    26,  -180,    83,   247,
       37,    38,    52,   247,   247,   247,   247,   131,    74,    77,
       78,   137,  -180,  -180,  -180,   141,   142,   144,   247,   247,
-     247,   247,    73,   164,  -180,   247,  -180,  -180,    69,   247,
-     196,   226,    83,   138,   101,   160,   164,   247,   247,   247,
-     196,    87,  -180,   -26,   247,   247,   247,   164,   164,   -45,
-      79,  -180,   163,   169,   171,  -180,  -180,  -180,  -180,    39,
-      50,   -35,   155,  -180,   247,   247,   247,   247,   164,   196,
+     247,   247,    73,   271,  -180,   247,  -180,  -180,    69,   247,
+     196,   226,    83,   138,   101,   160,   271,   247,   247,   247,
+     196,    87,  -180,   -26,   247,   247,   247,   271,   271,   -45,
+      79,  -180,   163,   164,   169,  -180,  -180,  -180,  -180,    39,
+      50,   -35,   155,  -180,   247,   247,   247,   247,   271,   196,
       55,    46,    16,   247,   247,   247,   247,   247,   247,  -180,
-     166,   173,    97,   168,   182,   214,    83,  -180,  -180,  -180,
-     232,   249,   129,   247,   247,  -180,  -180,  -180,   178,   197,
-    -180,   -35,   -35,  -180,  -180,   120,   203,   196,   196,   164,
-     164,   164,   164,   164,   164,   195,   190,    83,    83,  -180,
-    -180,  -180,  -180,    -5,  -180,  -180,  -180,   247,    -1,   164,
+     173,   175,    95,   182,   214,   232,    83,  -180,  -180,  -180,
+     249,   258,   129,   247,   247,  -180,  -180,  -180,   178,   197,
+    -180,   -35,   -35,  -180,  -180,   120,   203,   196,   196,   271,
+     271,   271,   271,   271,   271,   195,   190,    83,    83,  -180,
+    -180,  -180,  -180,    -5,  -180,  -180,  -180,   247,    -1,   271,
     -180,   133,  -180,  -180,   134,   136,    83,   217,  -180,  -180,
-    -180,   146,   -27,   258,   247,   247,  -180,  -180,  -180,    72,
-    -180,    -2,   198,  -180,   200,   218,  -180,   164,   164,    49,
-     223,   231,     5,   222,   196,   145,   247,   240,    83,    83,
-    -180,  -180,  -180,   228,    -6,    83,  -180,  -180,   185,  -180,
-    -180,  -180,  -180,  -180,   145,    57,     7,    29,   230,  -180,
-    -180,  -180,   191,  -180
+    -180,   146,   -27,   262,   247,   247,  -180,  -180,  -180,    72,
+    -180,    -2,   198,  -180,   200,   204,  -180,   271,   271,    49,
+     223,   231,     5,   208,   196,   145,   247,   236,    83,    83,
+    -180,  -180,  -180,   215,    -6,    83,  -180,  -180,   162,  -180,
+    -180,  -180,  -180,  -180,   145,    57,     7,    29,   216,  -180,
+    -180,  -180,   167,  -180
 };
 
 /* YYDEFACT[STATE-NUM] -- Default reduction number in state STATE-NUM.
@@ -732,18 +734,18 @@ static const yytype_int8 yydefact[] =
        0,     0,    38,    40,    41,     0,     0,     0,     0,     0,
        0,     0,     0,    13,    14,     0,    19,    39,     0,     0,
        0,    68,     0,     0,     0,     0,    67,     0,     0,     0,
-       0,     0,    31,     0,     0,     0,     0,    58,    59,     0,
-       0,    62,     0,     0,     0,    66,    54,    55,    15,     0,
+       0,     0,    31,     0,     0,     0,     0,    62,    63,     0,
+       0,    58,     0,     0,     0,    66,    54,    55,    15,     0,
        0,    51,     0,     3,     0,     0,     0,     0,    16,     0,
        0,    68,     0,     0,     0,     0,     0,     0,     0,    20,
        0,     0,     0,     0,     0,     0,     0,     6,     2,    35,
-       0,     0,     0,     0,     0,    63,    64,    65,     0,     0,
+       0,     0,     0,     0,     0,    59,    60,    61,     0,     0,
       48,    49,    50,    52,    53,     0,     0,     0,     0,    70,
       69,    72,    71,    74,    73,     0,     0,     0,     0,    42,
-      43,    44,    28,     4,     7,    45,    46,     0,     0,    61,
+      43,    44,    28,     4,     7,    45,    46,     0,     0,    65,
       56,    57,    75,    57,     0,     0,     0,     0,    33,    18,
        2,     0,     9,     0,     0,     0,    76,    77,     2,     0,
-       2,     4,     0,    36,     0,     0,    47,    60,    17,     4,
+       2,     4,     0,    36,     0,     0,    47,    64,    17,     4,
        0,     0,     4,     0,     0,    12,     0,     0,     0,     0,
       34,    30,    32,     0,     0,     0,    25,    23,     0,    10,
        2,     2,     2,     8,    12,     4,     4,     4,     0,    22,
@@ -787,25 +789,25 @@ static const yytype_int16 yytable[] =
       84,    85,    86,    87,    66,   192,    71,    72,   196,   197,
       73,    74,    75,   163,   114,   200,    76,    77,     6,    78,
        7,    89,    83,     8,    84,    85,    86,    87,     9,   100,
-     177,   178,    10,    11,   101,   102,   107,    12,   115,   136,
-      13,    14,    15,    16,   116,    17,   117,    18,   137,    19,
-     138,    43,   194,   150,    20,    21,    22,    23,    24,    25,
+     177,   178,    10,    11,   101,   102,   107,    12,   115,   116,
+      13,    14,    15,    16,   117,    17,   136,    18,   138,    19,
+     137,    43,   194,   150,    20,    21,    22,    23,    24,    25,
       26,    27,    28,    29,    30,    31,    32,    33,    34,     6,
       43,    47,   151,   152,    84,    85,    86,    87,   153,   156,
      157,    35,    36,   147,   165,    37,    38,   166,    39,   167,
      169,    40,    14,    15,    16,   172,   188,    41,   184,   185,
-      84,    85,    86,    87,   189,    20,    21,    22,   120,    84,
-      85,    86,    87,    84,    85,    86,    87,    32,    33,    34,
-       6,   139,    47,   191,   186,   195,    48,    84,    85,    86,
-      87,     0,    35,    36,   203,   140,   198,    38,   212,    49,
-     213,     0,    40,    14,    15,    16,     0,     0,    50,     0,
+      84,    85,    86,    87,   189,    20,    21,    22,   120,   191,
+     186,   203,    27,    28,    29,    30,   213,    32,    33,    34,
+       6,   195,    47,   198,   212,     0,    48,    84,    85,    86,
+      87,     0,    35,    36,     0,   139,     0,    38,     0,    49,
+       0,     0,    40,    14,    15,    16,     0,     0,    50,     0,
       93,    94,    95,    96,    97,    98,    20,    21,    22,    84,
-      85,    86,    87,     0,     0,     0,     0,   141,    32,    33,
+      85,    86,    87,    27,    28,    29,    30,   140,    32,    33,
       34,    84,    85,    86,    87,     0,     0,    84,    85,    86,
-      87,     0,     0,    35,    36,   145,     0,     0,    38,     0,
+      87,     0,     0,    35,    36,   141,     0,     0,    38,     0,
       49,     0,     0,    40,    84,    85,    86,    87,     0,    41,
-       0,     0,   146,    84,    85,    86,    87,     0,     0,     0,
-       0,   176
+       0,     0,   145,    84,    85,    86,    87,    84,    85,    86,
+      87,   146,     0,     0,     0,   176,    84,    85,    86,    87
 };
 
 static const yytype_int16 yycheck[] =
@@ -826,25 +828,25 @@ static const yytype_int16 yycheck[] =
       75,    76,    77,    78,    82,   184,     5,    63,   188,   189,
       63,    63,     5,   147,    65,   195,     5,     5,     3,     5,
        5,    82,    79,     8,    75,    76,    77,    78,    13,    21,
-     164,   165,    17,    18,    63,     5,    79,    22,     5,     3,
-      25,    26,    27,    28,     5,    30,     5,    32,     5,    34,
-      83,   185,   186,     5,    39,    40,    41,    42,    43,    44,
+     164,   165,    17,    18,    63,     5,    79,    22,     5,     5,
+      25,    26,    27,    28,     5,    30,     3,    32,    83,    34,
+       5,   185,   186,     5,    39,    40,    41,    42,    43,    44,
       45,    46,    47,    48,    49,    50,    51,    52,    53,     3,
      204,     5,     5,    83,    75,    76,    77,    78,     5,    14,
       20,    66,    67,    84,    81,    70,    71,    83,    73,    83,
        3,    76,    26,    27,    28,    79,     3,    82,    30,    29,
-      75,    76,    77,    78,     3,    39,    40,    41,    83,    75,
-      76,    77,    78,    75,    76,    77,    78,    51,    52,    53,
-       3,    83,     5,    31,    36,    15,    60,    75,    76,    77,
-      78,    -1,    66,    67,    79,    83,    38,    71,    38,    73,
-      79,    -1,    76,    26,    27,    28,    -1,    -1,    82,    -1,
+      75,    76,    77,    78,     3,    39,    40,    41,    83,    31,
+      36,    79,    46,    47,    48,    49,    79,    51,    52,    53,
+       3,    15,     5,    38,    38,    -1,    60,    75,    76,    77,
+      78,    -1,    66,    67,    -1,    83,    -1,    71,    -1,    73,
+      -1,    -1,    76,    26,    27,    28,    -1,    -1,    82,    -1,
       54,    55,    56,    57,    58,    59,    39,    40,    41,    75,
-      76,    77,    78,    -1,    -1,    -1,    -1,    83,    51,    52,
+      76,    77,    78,    46,    47,    48,    49,    83,    51,    52,
       53,    75,    76,    77,    78,    -1,    -1,    75,    76,    77,
       78,    -1,    -1,    66,    67,    83,    -1,    -1,    71,    -1,
       73,    -1,    -1,    76,    75,    76,    77,    78,    -1,    82,
-      -1,    -1,    83,    75,    76,    77,    78,    -1,    -1,    -1,
-      -1,    83
+      -1,    -1,    83,    75,    76,    77,    78,    75,    76,    77,
+      78,    83,    -1,    -1,    -1,    83,    75,    76,    77,    78
 };
 
 /* YYSTOS[STATE-NUM] -- The symbol kind of the accessing symbol of
@@ -883,8 +885,8 @@ static const yytype_int8 yyr1[] =
       93,    94,    92,    95,    92,    96,    92,    97,    98,    99,
       92,   100,    92,   101,    92,   102,    92,   103,   103,   103,
      103,   103,   103,   103,   103,   103,   103,   103,   103,   103,
-     103,   103,   103,   103,   103,   103,   103,   103,   104,   104,
-     104,   104,   104,   104,   104,   104,   104,   104,   105,   105,
+     103,   103,   103,   103,   103,   103,   103,   103,   103,   103,
+     103,   103,   104,   104,   104,   104,   104,   104,   105,   105,
      105,   105,   105,   105,   105,   105,   105,   105
 };
 
@@ -896,8 +898,8 @@ static const yytype_int8 yyr2[] =
        0,     0,    12,     0,    12,     0,    12,     0,     0,     0,
        8,     0,     8,     0,     8,     0,     6,     1,     1,     1,
        1,     1,     4,     4,     4,     4,     4,     6,     3,     3,
-       3,     2,     3,     3,     2,     2,     4,     4,     2,     2,
-       6,     4,     2,     3,     3,     3,     2,     2,     1,     3,
+       3,     2,     3,     3,     2,     2,     4,     4,     2,     3,
+       3,     3,     2,     2,     6,     4,     2,     2,     1,     3,
        3,     3,     3,     3,     3,     4,     5,     5
 };
 
@@ -1362,115 +1364,115 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* lignes: %empty  */
-#line 146 "fransous.y"
+#line 148 "fransous.y"
        { }
-#line 1368 "fransous.bison.cpp"
+#line 1370 "fransous.bison.cpp"
     break;
 
   case 5: /* label: LABEL ':'  */
-#line 150 "fransous.y"
+#line 152 "fransous.y"
                    { // Lorsque je rencontre un label
                      // je stocke le numéro d'instruction actelle
                      // dans la table des adresses. C'est tout!   
                      adresses [(yyvsp[-1].nom)] = ic;}
-#line 1377 "fransous.bison.cpp"
+#line 1379 "fransous.bison.cpp"
     break;
 
   case 7: /* case: %empty  */
-#line 158 "fransous.y"
+#line 160 "fransous.y"
        {}
-#line 1383 "fransous.bison.cpp"
+#line 1385 "fransous.bison.cpp"
     break;
 
   case 8: /* case: case DEFAULT SEPARATOR instruction BREAK '\n'  */
-#line 159 "fransous.y"
+#line 161 "fransous.y"
                                                         { breakN.push_back(ic);
                                                           add_instruction(JMP);}
-#line 1390 "fransous.bison.cpp"
+#line 1392 "fransous.bison.cpp"
     break;
 
   case 9: /* $@1: %empty  */
-#line 161 "fransous.y"
+#line 163 "fransous.y"
                {(yyvsp[0].adresse).save = ic-1;}
-#line 1396 "fransous.bison.cpp"
+#line 1398 "fransous.bison.cpp"
     break;
 
   case 10: /* $@2: %empty  */
-#line 162 "fransous.y"
+#line 164 "fransous.y"
                             {add_instruction(EGAL);
                             (yyvsp[-2].adresse).jc = ic; 
                             add_instruction(JMPCOND);}
-#line 1404 "fransous.bison.cpp"
+#line 1406 "fransous.bison.cpp"
     break;
 
   case 11: /* case: case $@1 CASE expr SEPARATOR $@2 instruction BREAK '\n'  */
-#line 166 "fransous.y"
+#line 168 "fransous.y"
                    {breakN.push_back(ic) ;
                     add_instruction(JMP);
                     code_genere[(yyvsp[-6].adresse).jc].value = ic;
                     add_instruction(VARID, 0, code_genere[(yyvsp[-8].adresse).save].name);}
-#line 1413 "fransous.bison.cpp"
+#line 1415 "fransous.bison.cpp"
     break;
 
   case 12: /* instruction: %empty  */
-#line 171 "fransous.y"
+#line 173 "fransous.y"
              {}
-#line 1419 "fransous.bison.cpp"
+#line 1421 "fransous.bison.cpp"
     break;
 
   case 13: /* instruction: expr  */
-#line 172 "fransous.y"
+#line 174 "fransous.y"
                        { }
-#line 1425 "fransous.bison.cpp"
+#line 1427 "fransous.bison.cpp"
     break;
 
   case 14: /* instruction: fonction  */
-#line 173 "fransous.y"
+#line 175 "fransous.y"
                        { }
-#line 1431 "fransous.bison.cpp"
+#line 1433 "fransous.bison.cpp"
     break;
 
   case 15: /* instruction: TAB VAR  */
-#line 174 "fransous.y"
+#line 176 "fransous.y"
                   {add_instruction(TAB, 0, (yyvsp[0].nom));}
-#line 1437 "fransous.bison.cpp"
+#line 1439 "fransous.bison.cpp"
     break;
 
   case 16: /* instruction: VAR '=' expr  */
-#line 175 "fransous.y"
+#line 177 "fransous.y"
                        { add_instruction(ASSIGN, 0, (yyvsp[-2].nom)); }
-#line 1443 "fransous.bison.cpp"
+#line 1445 "fransous.bison.cpp"
     break;
 
   case 17: /* instruction: INDICE expr DE VAR '=' expr  */
-#line 176 "fransous.y"
+#line 178 "fransous.y"
                                       {add_instruction(ASSIGNINDICE, 0, (yyvsp[-2].nom));}
-#line 1449 "fransous.bison.cpp"
+#line 1451 "fransous.bison.cpp"
     break;
 
   case 18: /* instruction: FONCTION '(' VAR ')' separateur  */
-#line 177 "fransous.y"
+#line 179 "fransous.y"
                                           { add_instruction(FONCTION); }
-#line 1455 "fransous.bison.cpp"
+#line 1457 "fransous.bison.cpp"
     break;
 
   case 19: /* instruction: GOTO LABEL  */
-#line 178 "fransous.y"
+#line 180 "fransous.y"
                        {  // J'insère un JMP vers une adresse que je ne connais pas encore.
                             // J'utiliserai la table des adresses pour la récupérer lors de l'exécution
                             add_instruction(JMP, -999, (yyvsp[0].nom)); 
                         }
-#line 1464 "fransous.bison.cpp"
+#line 1466 "fransous.bison.cpp"
     break;
 
   case 20: /* $@3: %empty  */
-#line 182 "fransous.y"
+#line 184 "fransous.y"
                                  {(yyvsp[-2].adresse).jc = ic; add_instruction(JMPCOND); }
-#line 1470 "fransous.bison.cpp"
+#line 1472 "fransous.bison.cpp"
     break;
 
   case 21: /* $@4: %empty  */
-#line 184 "fransous.y"
+#line 186 "fransous.y"
                           { // Je sauvegarde l'endroit actuel pour revenir modifier l'adresse 
                           // lorsqu'elle sera connue (celle du JMP)
                           (yyvsp[-6].adresse).jmp = ic;
@@ -1478,18 +1480,18 @@ yyreduce:
                           // Je mets à jour l'adresse du saut conditionnel
                           code_genere[(yyvsp[-6].adresse).jc].value = ic;
                         }
-#line 1482 "fransous.bison.cpp"
+#line 1484 "fransous.bison.cpp"
     break;
 
   case 22: /* instruction: IF condition separateur $@3 THEN separateur lignes $@4 ELSE separateur lignes ENDIF  */
-#line 193 "fransous.y"
+#line 195 "fransous.y"
                         { // Je mets à jour l'adresse du saut inconditionnel
                         code_genere[(yyvsp[-11].adresse).jmp].value = ic;}
-#line 1489 "fransous.bison.cpp"
+#line 1491 "fransous.bison.cpp"
     break;
 
   case 23: /* $@5: %empty  */
-#line 196 "fransous.y"
+#line 198 "fransous.y"
                                                          { add_instruction(VAR, 0, (yyvsp[-7].nom));
                                                                 add_instruction(NUM, (yyvsp[-5].valeur));
                                                                 add_instruction(NUM, (yyvsp[-1].valeur));
@@ -1506,19 +1508,19 @@ yyreduce:
                                                                 add_instruction(INF);
                                                                 (yyvsp[-8].adresse).jc = ic;
                                                                 add_instruction(JMPCOND);}
-#line 1510 "fransous.bison.cpp"
+#line 1512 "fransous.bison.cpp"
     break;
 
   case 24: /* instruction: FOR VAR BETWEEN NUM AND NUM INCR NUM separateur $@5 lignes ENDFOR  */
-#line 213 "fransous.y"
+#line 215 "fransous.y"
                                                         {add_instruction(JMP);
                                                               code_genere[ic-1].value = (yyvsp[-11].adresse).jmp;
                                                               code_genere[(yyvsp[-11].adresse).jc].value = ic;}
-#line 1518 "fransous.bison.cpp"
+#line 1520 "fransous.bison.cpp"
     break;
 
   case 25: /* $@6: %empty  */
-#line 216 "fransous.y"
+#line 218 "fransous.y"
                                                          { add_instruction(VAR, 0, (yyvsp[-7].nom));
                                                             add_instruction(NUM, (yyvsp[-5].valeur));
                                                             add_instruction(NUM, (yyvsp[-1].valeur));
@@ -1532,57 +1534,57 @@ yyreduce:
                                                             add_instruction(ASSIGN, 0, (yyvsp[-7].nom));
                                                             add_instruction(VAR, 0, (yyvsp[-7].nom));
                                                             add_instruction(NUM, (yyvsp[-3].valeur));
-                                                            add_instruction(INF);
+                                                            add_instruction(SUP);
                                                             (yyvsp[-8].adresse).jc = ic;
                                                             add_instruction(JMPCOND);}
-#line 1539 "fransous.bison.cpp"
+#line 1541 "fransous.bison.cpp"
     break;
 
   case 26: /* instruction: FOR VAR BETWEEN NUM AND NUM DECR NUM separateur $@6 lignes ENDFOR  */
-#line 233 "fransous.y"
+#line 235 "fransous.y"
                                                         {add_instruction(JMP);
                                                               code_genere[ic-1].value = (yyvsp[-11].adresse).jmp;
                                                               code_genere[(yyvsp[-11].adresse).jc].value = ic;}
-#line 1547 "fransous.bison.cpp"
+#line 1549 "fransous.bison.cpp"
     break;
 
   case 27: /* $@7: %empty  */
-#line 237 "fransous.y"
+#line 239 "fransous.y"
                                                       { (yyvsp[0].adresse).jmp = ic;}
-#line 1553 "fransous.bison.cpp"
+#line 1555 "fransous.bison.cpp"
     break;
 
   case 28: /* $@8: %empty  */
-#line 238 "fransous.y"
+#line 240 "fransous.y"
                                                       {(yyvsp[-3].adresse).jc = ic;
                                                         add_instruction(JMPCOND);
                                                       }
-#line 1561 "fransous.bison.cpp"
+#line 1563 "fransous.bison.cpp"
     break;
 
   case 29: /* $@9: %empty  */
-#line 241 "fransous.y"
+#line 243 "fransous.y"
                                                       { add_instruction(JMP, (yyvsp[-5].adresse).jmp);
                                                         code_genere[(yyvsp[-5].adresse).jc].value = ic;
                                                       }
-#line 1569 "fransous.bison.cpp"
+#line 1571 "fransous.bison.cpp"
     break;
 
   case 31: /* $@10: %empty  */
-#line 245 "fransous.y"
+#line 247 "fransous.y"
                                                       {(yyvsp[-1].adresse).jc = ic;}
-#line 1575 "fransous.bison.cpp"
+#line 1577 "fransous.bison.cpp"
     break;
 
   case 32: /* instruction: DO separateur $@10 lignes ENDDO '\n' WHILE condition  */
-#line 248 "fransous.y"
+#line 250 "fransous.y"
                                                       { add_instruction(NON);
                                                         add_instruction(JMPCOND, (yyvsp[-7].adresse).jc);}
-#line 1582 "fransous.bison.cpp"
+#line 1584 "fransous.bison.cpp"
     break;
 
   case 33: /* $@11: %empty  */
-#line 251 "fransous.y"
+#line 253 "fransous.y"
                                                       { add_instruction(VAR, 0, "1");
                                                         //add_instruction(NUM, -1);
                                                         //add_instruction(ASSIGN, 0, "1");
@@ -1601,29 +1603,29 @@ yyreduce:
                                                         add_instruction(INDICE, 0, (yyvsp[-1].nom));
                                                         add_instruction(ASSIGN, 0, (yyvsp[-3].nom));
                                                       }
-#line 1605 "fransous.bison.cpp"
+#line 1607 "fransous.bison.cpp"
     break;
 
   case 34: /* instruction: FOREACH VAR DE VAR separateur $@11 lignes ENDFOR  */
-#line 270 "fransous.y"
+#line 272 "fransous.y"
                                                       { add_instruction(JMP);
                                                         code_genere[ic-1].value = (yyvsp[-7].adresse).jmp;
                                                         code_genere[(yyvsp[-7].adresse).jc].value = ic;
                                                       }
-#line 1614 "fransous.bison.cpp"
+#line 1616 "fransous.bison.cpp"
     break;
 
   case 35: /* $@12: %empty  */
-#line 274 "fransous.y"
+#line 276 "fransous.y"
                                                       { if(!breakN.empty()){
                                                           adresseBreak.push_back(breakN);
                                                           breakN.clear();
                                                         }}
-#line 1623 "fransous.bison.cpp"
+#line 1625 "fransous.bison.cpp"
     break;
 
   case 36: /* instruction: SWITCH expr separateur $@12 case ENDSWITCH  */
-#line 279 "fransous.y"
+#line 281 "fransous.y"
                                                       {for(auto itr : breakN){
                                                           code_genere[itr].value = ic;
                                                           }
@@ -1632,257 +1634,257 @@ yyreduce:
                                                           breakN = adresseBreak.back();
                                                           adresseBreak.pop_back();
                                                         } }
-#line 1636 "fransous.bison.cpp"
+#line 1638 "fransous.bison.cpp"
     break;
 
   case 37: /* expr: NUM  */
-#line 287 "fransous.y"
+#line 289 "fransous.y"
           {add_instruction (NUM, (yyvsp[0].valeur));}
-#line 1642 "fransous.bison.cpp"
+#line 1644 "fransous.bison.cpp"
     break;
 
   case 38: /* expr: VARAPO  */
-#line 288 "fransous.y"
+#line 290 "fransous.y"
              {add_instruction(VARAPO, 0, (yyvsp[0].nom));}
-#line 1648 "fransous.bison.cpp"
+#line 1650 "fransous.bison.cpp"
     break;
 
   case 39: /* expr: VAR  */
-#line 289 "fransous.y"
+#line 291 "fransous.y"
           {add_instruction (VAR, 0, (yyvsp[0].nom)); }
-#line 1654 "fransous.bison.cpp"
+#line 1656 "fransous.bison.cpp"
     break;
 
   case 40: /* expr: VRAI  */
-#line 290 "fransous.y"
+#line 292 "fransous.y"
            {add_instruction (NUM, true);}
-#line 1660 "fransous.bison.cpp"
+#line 1662 "fransous.bison.cpp"
     break;
 
   case 41: /* expr: FAUX  */
-#line 291 "fransous.y"
+#line 293 "fransous.y"
            {add_instruction (NUM, false);}
-#line 1666 "fransous.bison.cpp"
+#line 1668 "fransous.bison.cpp"
     break;
 
   case 42: /* expr: SIN '(' expr ')'  */
-#line 292 "fransous.y"
+#line 294 "fransous.y"
                         {add_instruction(SIN);}
-#line 1672 "fransous.bison.cpp"
+#line 1674 "fransous.bison.cpp"
     break;
 
   case 43: /* expr: COS '(' expr ')'  */
-#line 293 "fransous.y"
+#line 295 "fransous.y"
                         {add_instruction(COS);}
-#line 1678 "fransous.bison.cpp"
+#line 1680 "fransous.bison.cpp"
     break;
 
   case 44: /* expr: TAN '(' expr ')'  */
-#line 294 "fransous.y"
+#line 296 "fransous.y"
                         {add_instruction(TAN);}
-#line 1684 "fransous.bison.cpp"
+#line 1686 "fransous.bison.cpp"
     break;
 
   case 45: /* expr: EXP '(' expr ')'  */
-#line 295 "fransous.y"
+#line 297 "fransous.y"
                         {add_instruction(EXP);}
-#line 1690 "fransous.bison.cpp"
+#line 1692 "fransous.bison.cpp"
     break;
 
   case 46: /* expr: SQRT '(' expr ')'  */
-#line 296 "fransous.y"
+#line 298 "fransous.y"
                         {add_instruction(SQRT);}
-#line 1696 "fransous.bison.cpp"
+#line 1698 "fransous.bison.cpp"
     break;
 
   case 47: /* expr: POW '(' expr ',' expr ')'  */
-#line 297 "fransous.y"
+#line 299 "fransous.y"
                               {add_instruction(POW);}
-#line 1702 "fransous.bison.cpp"
+#line 1704 "fransous.bison.cpp"
     break;
 
   case 48: /* expr: '(' expr ')'  */
-#line 298 "fransous.y"
+#line 300 "fransous.y"
                          { (yyval.valeur) = (yyvsp[-1].valeur);}
-#line 1708 "fransous.bison.cpp"
+#line 1710 "fransous.bison.cpp"
     break;
 
   case 49: /* expr: expr ADD expr  */
-#line 299 "fransous.y"
+#line 301 "fransous.y"
                     {add_instruction(ADD);}
-#line 1714 "fransous.bison.cpp"
+#line 1716 "fransous.bison.cpp"
     break;
 
   case 50: /* expr: expr SUB expr  */
-#line 300 "fransous.y"
+#line 302 "fransous.y"
                     {add_instruction(SUB);}
-#line 1720 "fransous.bison.cpp"
+#line 1722 "fransous.bison.cpp"
     break;
 
   case 51: /* expr: SUB expr  */
-#line 301 "fransous.y"
+#line 303 "fransous.y"
                 {add_instruction(NUM, -1); add_instruction(MULT);}
-#line 1726 "fransous.bison.cpp"
+#line 1728 "fransous.bison.cpp"
     break;
 
   case 52: /* expr: expr MULT expr  */
-#line 302 "fransous.y"
+#line 304 "fransous.y"
                      {add_instruction(MULT);}
-#line 1732 "fransous.bison.cpp"
+#line 1734 "fransous.bison.cpp"
     break;
 
   case 53: /* expr: expr DIV expr  */
-#line 303 "fransous.y"
+#line 305 "fransous.y"
                     {add_instruction(DIV);}
-#line 1738 "fransous.bison.cpp"
+#line 1740 "fransous.bison.cpp"
     break;
 
   case 54: /* expr: INCREMENTER VAR  */
-#line 304 "fransous.y"
+#line 306 "fransous.y"
                       {add_instruction(VAR, 0, (yyvsp[0].nom)); 
                        add_instruction(NUM, 1); 
                        add_instruction(ADD); 
                        add_instruction(ASSIGN, 0, (yyvsp[0].nom));}
-#line 1747 "fransous.bison.cpp"
+#line 1749 "fransous.bison.cpp"
     break;
 
   case 55: /* expr: DECREMENTER VAR  */
-#line 308 "fransous.y"
+#line 310 "fransous.y"
                       {add_instruction(VAR, 0, (yyvsp[0].nom)); 
                        add_instruction(NUM, 1); 
                        add_instruction(SUB);
                        add_instruction(ASSIGN, 0, (yyvsp[0].nom));}
-#line 1756 "fransous.bison.cpp"
+#line 1758 "fransous.bison.cpp"
     break;
 
   case 56: /* expr: TABADD expr A VAR  */
-#line 312 "fransous.y"
+#line 314 "fransous.y"
                          {add_instruction(TABADD, 0, (yyvsp[0].nom));}
-#line 1762 "fransous.bison.cpp"
+#line 1764 "fransous.bison.cpp"
     break;
 
   case 57: /* expr: INDICE expr DE VAR  */
-#line 313 "fransous.y"
+#line 315 "fransous.y"
                           {add_instruction(INDICE, 0, (yyvsp[0].nom));}
-#line 1768 "fransous.bison.cpp"
+#line 1770 "fransous.bison.cpp"
     break;
 
-  case 58: /* fonction: OPENFR expr  */
+  case 58: /* expr: TOLOWER VAR  */
 #line 316 "fransous.y"
-                       {add_instruction(OPENFR);}
-#line 1774 "fransous.bison.cpp"
+                   {add_instruction(TOLOWER);}
+#line 1776 "fransous.bison.cpp"
     break;
 
-  case 59: /* fonction: OPENFW expr  */
+  case 59: /* expr: FIRST DE VAR  */
 #line 317 "fransous.y"
-                     {add_instruction(OPENFW);}
-#line 1780 "fransous.bison.cpp"
+                    {add_instruction(FIRST);}
+#line 1782 "fransous.bison.cpp"
     break;
 
-  case 60: /* fonction: SUPPR expr DANS expr JUSQUE expr  */
+  case 60: /* expr: LAST DE VAR  */
 #line 318 "fransous.y"
-                                          {add_instruction(SUPPR);}
-#line 1786 "fransous.bison.cpp"
+                   {add_instruction(LAST);}
+#line 1788 "fransous.bison.cpp"
     break;
 
-  case 61: /* fonction: NEWNAME expr EN expr  */
+  case 61: /* expr: SIZE DE VAR  */
 #line 319 "fransous.y"
-                             {add_instruction(NEWNAME);}
-#line 1792 "fransous.bison.cpp"
+                   {add_instruction(SIZE, 0, (yyvsp[0].nom));}
+#line 1794 "fransous.bison.cpp"
     break;
 
-  case 62: /* fonction: TOLOWER VAR  */
-#line 320 "fransous.y"
-                     {add_instruction(TOLOWER);}
-#line 1798 "fransous.bison.cpp"
-    break;
-
-  case 63: /* fonction: FIRST DE VAR  */
-#line 321 "fransous.y"
-                      {add_instruction(FIRST);}
-#line 1804 "fransous.bison.cpp"
-    break;
-
-  case 64: /* fonction: LAST DE VAR  */
+  case 62: /* fonction: OPENFR expr  */
 #line 322 "fransous.y"
-                     {add_instruction(LAST);}
-#line 1810 "fransous.bison.cpp"
+                       {add_instruction(OPENFR);}
+#line 1800 "fransous.bison.cpp"
     break;
 
-  case 65: /* fonction: SIZE DE VAR  */
+  case 63: /* fonction: OPENFW expr  */
 #line 323 "fransous.y"
-                     {add_instruction(SIZE, 0, (yyvsp[0].nom));}
-#line 1816 "fransous.bison.cpp"
+                     {add_instruction(OPENFW);}
+#line 1806 "fransous.bison.cpp"
+    break;
+
+  case 64: /* fonction: SUPPR expr DANS expr JUSQUE expr  */
+#line 324 "fransous.y"
+                                          {add_instruction(SUPPR);}
+#line 1812 "fransous.bison.cpp"
+    break;
+
+  case 65: /* fonction: NEWNAME expr EN expr  */
+#line 325 "fransous.y"
+                             {add_instruction(NEWNAME);}
+#line 1818 "fransous.bison.cpp"
     break;
 
   case 66: /* fonction: WAIT VAR  */
-#line 324 "fransous.y"
+#line 326 "fransous.y"
                   {add_instruction(WAIT);}
-#line 1822 "fransous.bison.cpp"
+#line 1824 "fransous.bison.cpp"
     break;
 
   case 67: /* fonction: PRINT expr  */
-#line 325 "fransous.y"
+#line 327 "fransous.y"
                     {add_instruction(PRINT);}
-#line 1828 "fransous.bison.cpp"
+#line 1830 "fransous.bison.cpp"
     break;
 
   case 69: /* condition: expr SUP expr  */
-#line 330 "fransous.y"
+#line 332 "fransous.y"
                          {add_instruction(SUP);}
-#line 1834 "fransous.bison.cpp"
+#line 1836 "fransous.bison.cpp"
     break;
 
   case 70: /* condition: expr INF expr  */
-#line 331 "fransous.y"
+#line 333 "fransous.y"
                          {add_instruction(INF);}
-#line 1840 "fransous.bison.cpp"
+#line 1842 "fransous.bison.cpp"
     break;
 
   case 71: /* condition: expr SUPEG expr  */
-#line 332 "fransous.y"
+#line 334 "fransous.y"
                            {add_instruction(SUPEG);}
-#line 1846 "fransous.bison.cpp"
+#line 1848 "fransous.bison.cpp"
     break;
 
   case 72: /* condition: expr INFEG expr  */
-#line 333 "fransous.y"
+#line 335 "fransous.y"
                            {add_instruction(INFEG);}
-#line 1852 "fransous.bison.cpp"
+#line 1854 "fransous.bison.cpp"
     break;
 
   case 73: /* condition: expr DIFF expr  */
-#line 334 "fransous.y"
+#line 336 "fransous.y"
                           {add_instruction(DIFF);}
-#line 1858 "fransous.bison.cpp"
+#line 1860 "fransous.bison.cpp"
     break;
 
   case 74: /* condition: expr EGAL expr  */
-#line 335 "fransous.y"
+#line 337 "fransous.y"
                           {add_instruction(EGAL);}
-#line 1864 "fransous.bison.cpp"
+#line 1866 "fransous.bison.cpp"
     break;
 
   case 75: /* condition: NON '(' condition ')'  */
-#line 336 "fransous.y"
+#line 338 "fransous.y"
                                {add_instruction(NON);}
-#line 1870 "fransous.bison.cpp"
+#line 1872 "fransous.bison.cpp"
     break;
 
   case 76: /* condition: '(' condition ORCOND condition ')'  */
-#line 337 "fransous.y"
+#line 339 "fransous.y"
                                             {add_instruction(ORCOND);}
-#line 1876 "fransous.bison.cpp"
+#line 1878 "fransous.bison.cpp"
     break;
 
   case 77: /* condition: '(' condition ANDCOND condition ')'  */
-#line 338 "fransous.y"
+#line 340 "fransous.y"
                                              {add_instruction(ANDCOND);}
-#line 1882 "fransous.bison.cpp"
+#line 1884 "fransous.bison.cpp"
     break;
 
 
-#line 1886 "fransous.bison.cpp"
+#line 1888 "fransous.bison.cpp"
 
       default: break;
     }
@@ -2075,7 +2077,7 @@ yyreturnlab:
   return yyresult;
 }
 
-#line 339 "fransous.y"
+#line 341 "fransous.y"
 
 
 
@@ -2091,14 +2093,14 @@ string print_code(int ins) {
   switch (ins) {
     case ADD      : return "ADD"; break;
     case SUB      : return "SUB"; break;
-    case MULT     : return "MUL"; break;
+    case MULT     : return "MULT"; break;
     case DIV      : return "DIV"; break;
     case NUM      : return "NUM"; break;
     case VAR      : return "VAR"; break;
     case VARID    : return "VARID"; break;
     case VARAPO   : return "VARAPO"; break;
     case PRINT    : return "PRINT"; break;
-    case ASSIGN   : return "MOV"; break;
+    case ASSIGN   : return "ASSIGN"; break;
     case JMP      : return "JMP"; break;
     case JMPCOND  : return "JC "; break;
     case INF      : return "INF"; break;
@@ -2133,14 +2135,16 @@ string print_code(int ins) {
 
 // Fonction qui exécute le code généré sur un petit émulateur
 void execution ( const vector <instruction> &code_genere, 
-                 map<string,double> &variables )
+                 map<string,tuple<int, double, string>> &variables, map<string, vector<tuple<int, double, string>>> &variablesTables )
 {
   printf("\n------- Exécution du programme ---------\n");
-  stack<double> pile;
+  stack<tuple<int, double, string>> pile;
 
   int ic = 0;  // compteur instruction
+  int type1 = 0, type2 = 0;
   double r1, r2, r3;  // des registres
   char r4[50], r5[50];
+  string r6, r7;
 
 
   printf("C'est quoi la réponse à la grande question sur la vie, l'univers et le reste ?\n");
@@ -2148,22 +2152,22 @@ void execution ( const vector <instruction> &code_genere,
   while (ic < code_genere.size()){   // tant que nous ne sommes pas à la fin du programme
     auto ins = code_genere[ic];
     switch (ins.code){
-      case OPENFR :
-        r1=pile.top();
+      case OPENFR :                                 //////// REFAIRE
+        /*if(pile.top().first == -1)r1=pile.top().second;
         pile.pop();
         strcpy(r4, variablesString[r1].c_str());
-        fopen(r4,"r");
-        variables.erase( variables.find(variablesString[r1]));
-        variablesString.erase( variablesString.find(r1));
+        fopen(r4,"r");*/
+        /*variables.erase( variables.find(variablesString[r1]));
+        variablesString.erase( variablesString.find(r1));*/
         ic++;
       break;
-      case OPENFW :
-        r1=pile.top();
+      case OPENFW :                                 //////// REFAIRE
+        /*if(pile.top().first == -1)r1=pile.top().second;
         pile.pop();
         strcpy(r4, variablesString[r1].c_str());
-        fopen(r4,"w");
-        variables.erase( variables.find(variablesString[r1]));
-        variablesString.erase( variablesString.find(r1));
+        fopen(r4,"w");*/
+        /*variables.erase( variables.find(variablesString[r1]));
+        variablesString.erase( variablesString.find(r1));*/
         ic++;
       break;
       /*case SUPPR :
@@ -2176,8 +2180,8 @@ void execution ( const vector <instruction> &code_genere,
         remove(r3,r2,r1); /*Enleve "A" dans camion jusque M*/
         /*ic++;
       break;*/
-      case NEWNAME :
-        r1=pile.top();
+      case NEWNAME :                                 //////// REFAIRE
+        /*r1=pile.top();
         pile.pop();
         strcpy(r4, variablesString[r1].c_str());
         r2=pile.top();
@@ -2187,7 +2191,7 @@ void execution ( const vector <instruction> &code_genere,
         variables.erase( variables.find(variablesString[r1]));
         variablesString.erase( variablesString.find(r1));
         variables.erase( variables.find(variablesString[r2]));
-        variablesString.erase( variablesString.find(r2));
+        variablesString.erase( variablesString.find(r2));*/
         ic++;
       break;
       /*case TOLOWER :
@@ -2212,15 +2216,23 @@ void execution ( const vector <instruction> &code_genere,
         back(r4);
         ic++;
       break;*/
-      case SIZE : 
+      case SIZE :                                 //////// REFAIRE
         try{
-          pile.push(variablesTables[ins.name].size());
-          ic++;
-        }
+            pile.push(make_tuple(1,variablesTables[ins.name].size(), ""));
+            ic++;
+          }
         catch(...){
-          cout << "Tableau non déclaré.\n";
+          cout << "tableau " << ins.name << " non déclaré.\n";
           ic = code_genere.size();
         }
+        /*try{
+            pile.push(make_tuple(1, get<2>(variables.at(ins.name)).size(), ""));
+            ic++;
+         }
+        catch(...){
+          cout << "Elément non déclaré.\n";
+          ic = code_genere.size();
+        }*/
       break;
       /*case WAIT :
         r1=pile.top();
@@ -2229,61 +2241,81 @@ void execution ( const vector <instruction> &code_genere,
         ic++;
       break;*/
       case ADD:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        if(get<0>(pile.top()) == 1) r1=get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        r2 = pile.top();    // Rrécupérer la tête de pile;
+        if(get<0>(pile.top()) == 1) r2=get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        pile.push(r1+r2);
+        pile.push(make_tuple(1,r1+r2,""));
         ic++;
       break;
       case SUB:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        if(get<0>(pile.top()) == 1) r1=get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        r2 = pile.top();    // Rrécupérer la tête de pile;
+        if(get<0>(pile.top()) == 1) r2=get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        pile.push(r2-r1);
+        pile.push(make_tuple(1,r2-r1,""));
         ic++;
       break;
       case MULT:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        if(get<0>(pile.top()) == 1) r1=get<1>(pile.top());   // Rrécupérer la tête de pile;
         pile.pop();
 
-        r2 = pile.top();    // Rrécupérer la tête de pile;
+        if(get<0>(pile.top()) == 1) r2=get<1>(pile.top());   // Rrécupérer la tête de pile;
         pile.pop();
 
-        pile.push(r1*r2);
+        pile.push(make_tuple(1,r1*r2,""));
         ic++;
       break;
       case DIV:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        if(get<0>(pile.top()) == 1) r1=get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        r2 = pile.top();    // Rrécupérer la tête de pile;
+        if(get<0>(pile.top()) == 1) r2=get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        pile.push(r2/r1);
+        pile.push(make_tuple(1,r2/r1,""));
         ic++;
       break;
       case ASSIGN:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        /*type1 = get<0>(pile.top());
+        if(type1 == 1){
+          r1 = get<1>(pile.top());
+          r6 = "";
+        }
+        else{
+          r1 = 0;
+          r6 = get<2>(pile.top());
+        }
+
+
         pile.pop();
-        variables[ins.name] = r1;
+        variables[ins.name] = (type1 = 1) ? make_tuple(1,r1, "") : make_tuple(-1, 0, r6);*/
+        type1 = get<0>(pile.top());
+        r1 = get<1>(pile.top());
+        r6 = get<2>(pile.top());
+        pile.pop();
+
+        variables[ins.name] = make_tuple(type1, r1, r6);
         ic++;
       break;
 
       case PRINT:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        type1 = get<0>(pile.top());
+        r1 = get<1>(pile.top());
+        r6 = get<2>(pile.top());
+
         pile.pop();
-        cout << "$ " << r1 << endl; 
+        if(type1 == 1) cout << "$ " << r1 << endl; 
+        else cout << "$ " << r6 << endl;
         ic++;
       break;
 
       case NUM:   // pour un nombre, on empile
-        pile.push(ins.value);
+        pile.push(make_tuple(1,ins.value, ""));
         ic++;
       break;
 
@@ -2296,7 +2328,7 @@ void execution ( const vector <instruction> &code_genere,
       break;
 
       case JMPCOND: 
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        r1 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
         if ( r1 != 0 ) 
           ic++;
@@ -2307,152 +2339,155 @@ void execution ( const vector <instruction> &code_genere,
       case VAR:    // je consulte la table de symbole et j'empile la valeur de la VARS
           // Si elle existe bien sur... 
         try {
-            pile.push(variables.at(ins.name));
-            ic++;
+          //pile.push(make_tuple(get<0>(variables.at(ins.name)),(get<0>(variables.at(ins.name)) == 1) ? get<1>(variables.at(ins.name)) : 0, (get<0>(variables.at(ins.name)) == -1) ? get<2>(variables.at(ins.name)) : "" ));
+          pile.push(variables.at(ins.name));
+          ic++;
         }
-        catch(...) {
-            variables[ins.name] = 0;
-            pile.push(variables.at(ins.name));
-            ic++;
+        catch(...){
+          variables[ins.name] = make_tuple(1,0,"");
+          pile.push(make_tuple(1,0,""));
         }
       break;
       case VARID:
             pile.push(variables[ins.name]);
+            //pile.push(make_tuple(1,get<1>(variables.at(ins.name)),"" ));
             ic++;
       break;
-      case VARAPO:
-        r1 = variablesString.size();
-        variables[ins.name] = r1;
-        variablesString[r1] = ins.name;
-        pile.push(variables.at(ins.name));
-        ic++;
+      case VARAPO:                    /// A REFAIRE
+        try {
+            pile.push(make_tuple(-1, 0, ins.name));
+            ic++;
+        }
+        catch(...){
+          
+        }
       break;
       case SUP:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        r1 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        r2 = pile.top();    // Rrécupérer la tête de pile;
+        r2 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        pile.push(r2>r1);
+        pile.push(make_tuple(1,r2>r1, ""));
         ic++;
       break;
       case SUPEG:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        r1 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        r2 = pile.top();    // Rrécupérer la tête de pile;
+        r2 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        pile.push(r2>=r1);
+        pile.push(make_tuple(1,r2>=r1, ""));
         ic++;
       break;
       case INF:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        r1 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        r2 = pile.top();    // Rrécupérer la tête de pile;
+        r2 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        pile.push(r2<r1);
+        pile.push(make_tuple(1,r2<r1, ""));
         ic++;
       break;
       case INFEG:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        r1 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        r2 = pile.top();    // Rrécupérer la tête de pile;
+        r2 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        pile.push(r2<=r1);
+        pile.push(make_tuple(1,r2<=r1, ""));
         ic++;
       break;
       case EGAL:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        r1 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        r2 = pile.top();    // Rrécupérer la tête de pile;
+        r2 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        pile.push(r1==r2);
+        pile.push(make_tuple(1,r1==r2, ""));
         ic++;
       break;
       case DIFF:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        r1 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        r2 = pile.top();    // Rrécupérer la tête de pile;
+        r2 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        pile.push(r1!=r2);
+        pile.push(make_tuple(1,r1!=r2, ""));
         ic++;
       break;
       case NON:
-        r1 = pile.top();
+        r1 = get<1>(pile.top());
         pile.pop();
 
-        pile.push(!r1);
+        pile.push(make_tuple(1,!r1, ""));
         ic++;
       break;
       case ANDCOND:
-        r1 = pile.top();
+        r1 = get<1>(pile.top());
         pile.pop();
-        r2 = pile.top();
+        r2 = get<1>(pile.top());
         pile.pop();
-        pile.push(r1 && r2);
+        pile.push(make_tuple(1,r1 && r2, ""));
         ic++;
       break;
       case ORCOND:
-        r1 = pile.top();
+        r1 = get<1>(pile.top());
         pile.pop();
-        r2 = pile.top();
+        r2 = get<1>(pile.top());
         pile.pop();
-        pile.push(r1 || r2);
+        pile.push(make_tuple(1,r1 || r2, ""));
         ic++;
       break;
       case SIN:
-        r1 = pile.top();
+        r1 = get<1>(pile.top());
         pile.pop();
-        pile.push(sin(r1));
+        pile.push(make_tuple(1,sin(r1), ""));
         ic++;
       break;
       case COS:
-        r1 = pile.top();
+        r1 = get<1>(pile.top());
         pile.pop();
-        pile.push(cos(r1));
+        pile.push(make_tuple(1,cos(r1), ""));
         ic++;
       break;
       case TAN: 
-        r1 = pile.top();
+        r1 = get<1>(pile.top());
         pile.pop();
-        pile.push(tan(r1));
+        pile.push(make_tuple(1,tan(r1), ""));
         ic++;
       break;
       case EXP:
-        r1 = pile.top();
+        r1 = get<1>(pile.top());
         pile.pop();
-        pile.push(exp(r1));
+        pile.push(make_tuple(1,exp(r1), ""));
         ic++;
       break;
       case POW:
-        r1 = pile.top();
+        r1 = get<1>(pile.top());
         pile.pop();
-        r2 = pile.top();
+        r2 = get<1>(pile.top());
         pile.pop();
-        pile.push(pow(r2, r1));
+        pile.push(make_tuple(1,pow(r2, r1), ""));
         ic++;
       break;
       case SQRT:
-        r1 = pile.top();
+        r1 = get<1>(pile.top());
         pile.pop();
-        pile.push(sqrt(r1));
+        pile.push(make_tuple(1,sqrt(r1), ""));
         ic++;
       break;
-      case FONCTION:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+      case FONCTION:                    ///////// /!\ A REFAIRE
+        r1 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        r2 = pile.top();
+        r2 = get<1>(pile.top());
         pile.top();
         ic++;
       break;
@@ -2461,10 +2496,12 @@ void execution ( const vector <instruction> &code_genere,
         ic++;
       break;
       case TABADD:
-        r1 = pile.top();
+        type1 = get<0>(pile.top());
+        r1 = get<1>(pile.top());
+        r6 = get<2>(pile.top());
         pile.pop();
         try{
-          variablesTables[ins.name].push_back(r1);
+          variablesTables[ins.name].push_back(make_tuple(type1, r1, r6));
           ic++;
         }
         catch(...){
@@ -2473,24 +2510,29 @@ void execution ( const vector <instruction> &code_genere,
         }
       break;
       case INDICE:
-        r1 = pile.top() - 1;
+        r1 = get<1>(pile.top()) - 1;
         pile.pop();
         try{
           pile.push(variablesTables[ins.name].at(r1));
           ic++;
         }
         catch(...){
-          cout << "Tableau " << ins.name << " non déclaré. " << r1 << "\n";
+          cout << "Tableau " << ins.name << " non déclaré.\n";
           ic = code_genere.size();
         }
       break;
       case ASSIGNINDICE :
-        r1 = pile.top();
+        type1 = get<0>(pile.top());
+        r1 = get<1>(pile.top());
+        r6 = get<2>(pile.top());
         pile.pop();
-        r2 = pile.top()-1;
+
+        type2 = get<0>(pile.top());
+        r2 = get<1>(pile.top())-1;
         pile.pop();
+
         try{
-          variablesTables[ins.name].at(r2) = r1;
+          variablesTables[ins.name].at(r2) = make_tuple(type1,r1,r6);
           ic++;
         }
         catch(...){
@@ -2529,7 +2571,7 @@ int main(int argc, char **argv){
          << endl;
   }
 
-  execution(code_genere, variables);
+  execution(code_genere, variables, variablesTables);
 
   return 0;
 }

@@ -9,6 +9,7 @@
     #include <vector>
     #include <iostream>
     #include <stack>
+    #include <tuple>
 
     using namespace std;
 
@@ -25,9 +26,10 @@
         string name;      // ou une référence pour la table des données 
     };
 
-    map<string,double> variables;
+
+    map<string,tuple<int, double, string>> variables;
     map<double, string> variablesString;
-    map<string, vector<double>> variablesTables;
+    map<string, vector<tuple<int, double, string>>> variablesTables;
     vector<vector<double>> adresseBreak;
     vector<double> breakN;
     int ic = 0;
@@ -226,7 +228,7 @@ instruction: {}
                                                             add_instruction(ASSIGN, 0, $2);
                                                             add_instruction(VAR, 0, $2);
                                                             add_instruction(NUM, $6);
-                                                            add_instruction(INF);
+                                                            add_instruction(SUP);
                                                             $1.jc = ic;
                                                             add_instruction(JMPCOND);}
             lignes
@@ -311,16 +313,16 @@ expr: NUM {add_instruction (NUM, $1);}
                        add_instruction(ASSIGN, 0, $2);}
       |TABADD expr A VAR {add_instruction(TABADD, 0, $4);}
       |INDICE expr DE VAR {add_instruction(INDICE, 0, $4);}
+      |TOLOWER VAR {add_instruction(TOLOWER);}
+      |FIRST DE VAR {add_instruction(FIRST);}
+      |LAST DE VAR {add_instruction(LAST);}
+      |SIZE DE VAR {add_instruction(SIZE, 0, $3);}
 
     
 fonction : OPENFR expr {add_instruction(OPENFR);}
         |OPENFW expr {add_instruction(OPENFW);}
         |SUPPR expr DANS expr JUSQUE expr {add_instruction(SUPPR);}
         |NEWNAME expr EN expr{add_instruction(NEWNAME);}
-        |TOLOWER VAR {add_instruction(TOLOWER);}
-        |FIRST DE VAR {add_instruction(FIRST);}
-        |LAST DE VAR {add_instruction(LAST);}
-        |SIZE DE VAR {add_instruction(SIZE, 0, $3);}
         |WAIT VAR {add_instruction(WAIT);}
         |PRINT expr {add_instruction(PRINT);}
 
@@ -351,14 +353,14 @@ string print_code(int ins) {
   switch (ins) {
     case ADD      : return "ADD"; break;
     case SUB      : return "SUB"; break;
-    case MULT     : return "MUL"; break;
+    case MULT     : return "MULT"; break;
     case DIV      : return "DIV"; break;
     case NUM      : return "NUM"; break;
     case VAR      : return "VAR"; break;
     case VARID    : return "VARID"; break;
     case VARAPO   : return "VARAPO"; break;
     case PRINT    : return "PRINT"; break;
-    case ASSIGN   : return "MOV"; break;
+    case ASSIGN   : return "ASSIGN"; break;
     case JMP      : return "JMP"; break;
     case JMPCOND  : return "JC "; break;
     case INF      : return "INF"; break;
@@ -393,14 +395,16 @@ string print_code(int ins) {
 
 // Fonction qui exécute le code généré sur un petit émulateur
 void execution ( const vector <instruction> &code_genere, 
-                 map<string,double> &variables )
+                 map<string,tuple<int, double, string>> &variables, map<string, vector<tuple<int, double, string>>> &variablesTables )
 {
   printf("\n------- Exécution du programme ---------\n");
-  stack<double> pile;
+  stack<tuple<int, double, string>> pile;
 
   int ic = 0;  // compteur instruction
+  int type1 = 0, type2 = 0;
   double r1, r2, r3;  // des registres
   char r4[50], r5[50];
+  string r6, r7;
 
 
   printf("C'est quoi la réponse à la grande question sur la vie, l'univers et le reste ?\n");
@@ -408,22 +412,22 @@ void execution ( const vector <instruction> &code_genere,
   while (ic < code_genere.size()){   // tant que nous ne sommes pas à la fin du programme
     auto ins = code_genere[ic];
     switch (ins.code){
-      case OPENFR :
-        r1=pile.top();
+      case OPENFR :                                 //////// REFAIRE
+        /*if(pile.top().first == -1)r1=pile.top().second;
         pile.pop();
         strcpy(r4, variablesString[r1].c_str());
-        fopen(r4,"r");
-        variables.erase( variables.find(variablesString[r1]));
-        variablesString.erase( variablesString.find(r1));
+        fopen(r4,"r");*/
+        /*variables.erase( variables.find(variablesString[r1]));
+        variablesString.erase( variablesString.find(r1));*/
         ic++;
       break;
-      case OPENFW :
-        r1=pile.top();
+      case OPENFW :                                 //////// REFAIRE
+        /*if(pile.top().first == -1)r1=pile.top().second;
         pile.pop();
         strcpy(r4, variablesString[r1].c_str());
-        fopen(r4,"w");
-        variables.erase( variables.find(variablesString[r1]));
-        variablesString.erase( variablesString.find(r1));
+        fopen(r4,"w");*/
+        /*variables.erase( variables.find(variablesString[r1]));
+        variablesString.erase( variablesString.find(r1));*/
         ic++;
       break;
       /*case SUPPR :
@@ -436,8 +440,8 @@ void execution ( const vector <instruction> &code_genere,
         remove(r3,r2,r1); /*Enleve "A" dans camion jusque M*/
         /*ic++;
       break;*/
-      case NEWNAME :
-        r1=pile.top();
+      case NEWNAME :                                 //////// REFAIRE
+        /*r1=pile.top();
         pile.pop();
         strcpy(r4, variablesString[r1].c_str());
         r2=pile.top();
@@ -447,7 +451,7 @@ void execution ( const vector <instruction> &code_genere,
         variables.erase( variables.find(variablesString[r1]));
         variablesString.erase( variablesString.find(r1));
         variables.erase( variables.find(variablesString[r2]));
-        variablesString.erase( variablesString.find(r2));
+        variablesString.erase( variablesString.find(r2));*/
         ic++;
       break;
       /*case TOLOWER :
@@ -472,15 +476,23 @@ void execution ( const vector <instruction> &code_genere,
         back(r4);
         ic++;
       break;*/
-      case SIZE : 
+      case SIZE :                                 //////// REFAIRE
         try{
-          pile.push(variablesTables[ins.name].size());
-          ic++;
-        }
+            pile.push(make_tuple(1,variablesTables[ins.name].size(), ""));
+            ic++;
+          }
         catch(...){
-          cout << "Tableau non déclaré.\n";
+          cout << "tableau " << ins.name << " non déclaré.\n";
           ic = code_genere.size();
         }
+        /*try{
+            pile.push(make_tuple(1, get<2>(variables.at(ins.name)).size(), ""));
+            ic++;
+         }
+        catch(...){
+          cout << "Elément non déclaré.\n";
+          ic = code_genere.size();
+        }*/
       break;
       /*case WAIT :
         r1=pile.top();
@@ -489,61 +501,81 @@ void execution ( const vector <instruction> &code_genere,
         ic++;
       break;*/
       case ADD:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        if(get<0>(pile.top()) == 1) r1=get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        r2 = pile.top();    // Rrécupérer la tête de pile;
+        if(get<0>(pile.top()) == 1) r2=get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        pile.push(r1+r2);
+        pile.push(make_tuple(1,r1+r2,""));
         ic++;
       break;
       case SUB:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        if(get<0>(pile.top()) == 1) r1=get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        r2 = pile.top();    // Rrécupérer la tête de pile;
+        if(get<0>(pile.top()) == 1) r2=get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        pile.push(r2-r1);
+        pile.push(make_tuple(1,r2-r1,""));
         ic++;
       break;
       case MULT:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        if(get<0>(pile.top()) == 1) r1=get<1>(pile.top());   // Rrécupérer la tête de pile;
         pile.pop();
 
-        r2 = pile.top();    // Rrécupérer la tête de pile;
+        if(get<0>(pile.top()) == 1) r2=get<1>(pile.top());   // Rrécupérer la tête de pile;
         pile.pop();
 
-        pile.push(r1*r2);
+        pile.push(make_tuple(1,r1*r2,""));
         ic++;
       break;
       case DIV:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        if(get<0>(pile.top()) == 1) r1=get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        r2 = pile.top();    // Rrécupérer la tête de pile;
+        if(get<0>(pile.top()) == 1) r2=get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        pile.push(r2/r1);
+        pile.push(make_tuple(1,r2/r1,""));
         ic++;
       break;
       case ASSIGN:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        /*type1 = get<0>(pile.top());
+        if(type1 == 1){
+          r1 = get<1>(pile.top());
+          r6 = "";
+        }
+        else{
+          r1 = 0;
+          r6 = get<2>(pile.top());
+        }
+
+
         pile.pop();
-        variables[ins.name] = r1;
+        variables[ins.name] = (type1 = 1) ? make_tuple(1,r1, "") : make_tuple(-1, 0, r6);*/
+        type1 = get<0>(pile.top());
+        r1 = get<1>(pile.top());
+        r6 = get<2>(pile.top());
+        pile.pop();
+
+        variables[ins.name] = make_tuple(type1, r1, r6);
         ic++;
       break;
 
       case PRINT:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        type1 = get<0>(pile.top());
+        r1 = get<1>(pile.top());
+        r6 = get<2>(pile.top());
+
         pile.pop();
-        cout << "$ " << r1 << endl; 
+        if(type1 == 1) cout << "$ " << r1 << endl; 
+        else cout << "$ " << r6 << endl;
         ic++;
       break;
 
       case NUM:   // pour un nombre, on empile
-        pile.push(ins.value);
+        pile.push(make_tuple(1,ins.value, ""));
         ic++;
       break;
 
@@ -556,7 +588,7 @@ void execution ( const vector <instruction> &code_genere,
       break;
 
       case JMPCOND: 
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        r1 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
         if ( r1 != 0 ) 
           ic++;
@@ -567,152 +599,155 @@ void execution ( const vector <instruction> &code_genere,
       case VAR:    // je consulte la table de symbole et j'empile la valeur de la VARS
           // Si elle existe bien sur... 
         try {
-            pile.push(variables.at(ins.name));
-            ic++;
+          //pile.push(make_tuple(get<0>(variables.at(ins.name)),(get<0>(variables.at(ins.name)) == 1) ? get<1>(variables.at(ins.name)) : 0, (get<0>(variables.at(ins.name)) == -1) ? get<2>(variables.at(ins.name)) : "" ));
+          pile.push(variables.at(ins.name));
+          ic++;
         }
-        catch(...) {
-            variables[ins.name] = 0;
-            pile.push(variables.at(ins.name));
-            ic++;
+        catch(...){
+          variables[ins.name] = make_tuple(1,0,"");
+          pile.push(make_tuple(1,0,""));
         }
       break;
       case VARID:
             pile.push(variables[ins.name]);
+            //pile.push(make_tuple(1,get<1>(variables.at(ins.name)),"" ));
             ic++;
       break;
-      case VARAPO:
-        r1 = variablesString.size();
-        variables[ins.name] = r1;
-        variablesString[r1] = ins.name;
-        pile.push(variables.at(ins.name));
-        ic++;
+      case VARAPO:                    /// A REFAIRE
+        try {
+            pile.push(make_tuple(-1, 0, ins.name));
+            ic++;
+        }
+        catch(...){
+          
+        }
       break;
       case SUP:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        r1 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        r2 = pile.top();    // Rrécupérer la tête de pile;
+        r2 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        pile.push(r2>r1);
+        pile.push(make_tuple(1,r2>r1, ""));
         ic++;
       break;
       case SUPEG:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        r1 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        r2 = pile.top();    // Rrécupérer la tête de pile;
+        r2 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        pile.push(r2>=r1);
+        pile.push(make_tuple(1,r2>=r1, ""));
         ic++;
       break;
       case INF:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        r1 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        r2 = pile.top();    // Rrécupérer la tête de pile;
+        r2 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        pile.push(r2<r1);
+        pile.push(make_tuple(1,r2<r1, ""));
         ic++;
       break;
       case INFEG:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        r1 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        r2 = pile.top();    // Rrécupérer la tête de pile;
+        r2 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        pile.push(r2<=r1);
+        pile.push(make_tuple(1,r2<=r1, ""));
         ic++;
       break;
       case EGAL:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        r1 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        r2 = pile.top();    // Rrécupérer la tête de pile;
+        r2 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        pile.push(r1==r2);
+        pile.push(make_tuple(1,r1==r2, ""));
         ic++;
       break;
       case DIFF:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+        r1 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        r2 = pile.top();    // Rrécupérer la tête de pile;
+        r2 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        pile.push(r1!=r2);
+        pile.push(make_tuple(1,r1!=r2, ""));
         ic++;
       break;
       case NON:
-        r1 = pile.top();
+        r1 = get<1>(pile.top());
         pile.pop();
 
-        pile.push(!r1);
+        pile.push(make_tuple(1,!r1, ""));
         ic++;
       break;
       case ANDCOND:
-        r1 = pile.top();
+        r1 = get<1>(pile.top());
         pile.pop();
-        r2 = pile.top();
+        r2 = get<1>(pile.top());
         pile.pop();
-        pile.push(r1 && r2);
+        pile.push(make_tuple(1,r1 && r2, ""));
         ic++;
       break;
       case ORCOND:
-        r1 = pile.top();
+        r1 = get<1>(pile.top());
         pile.pop();
-        r2 = pile.top();
+        r2 = get<1>(pile.top());
         pile.pop();
-        pile.push(r1 || r2);
+        pile.push(make_tuple(1,r1 || r2, ""));
         ic++;
       break;
       case SIN:
-        r1 = pile.top();
+        r1 = get<1>(pile.top());
         pile.pop();
-        pile.push(sin(r1));
+        pile.push(make_tuple(1,sin(r1), ""));
         ic++;
       break;
       case COS:
-        r1 = pile.top();
+        r1 = get<1>(pile.top());
         pile.pop();
-        pile.push(cos(r1));
+        pile.push(make_tuple(1,cos(r1), ""));
         ic++;
       break;
       case TAN: 
-        r1 = pile.top();
+        r1 = get<1>(pile.top());
         pile.pop();
-        pile.push(tan(r1));
+        pile.push(make_tuple(1,tan(r1), ""));
         ic++;
       break;
       case EXP:
-        r1 = pile.top();
+        r1 = get<1>(pile.top());
         pile.pop();
-        pile.push(exp(r1));
+        pile.push(make_tuple(1,exp(r1), ""));
         ic++;
       break;
       case POW:
-        r1 = pile.top();
+        r1 = get<1>(pile.top());
         pile.pop();
-        r2 = pile.top();
+        r2 = get<1>(pile.top());
         pile.pop();
-        pile.push(pow(r2, r1));
+        pile.push(make_tuple(1,pow(r2, r1), ""));
         ic++;
       break;
       case SQRT:
-        r1 = pile.top();
+        r1 = get<1>(pile.top());
         pile.pop();
-        pile.push(sqrt(r1));
+        pile.push(make_tuple(1,sqrt(r1), ""));
         ic++;
       break;
-      case FONCTION:
-        r1 = pile.top();    // Rrécupérer la tête de pile;
+      case FONCTION:                    ///////// /!\ A REFAIRE
+        r1 = get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
 
-        r2 = pile.top();
+        r2 = get<1>(pile.top());
         pile.top();
         ic++;
       break;
@@ -721,10 +756,12 @@ void execution ( const vector <instruction> &code_genere,
         ic++;
       break;
       case TABADD:
-        r1 = pile.top();
+        type1 = get<0>(pile.top());
+        r1 = get<1>(pile.top());
+        r6 = get<2>(pile.top());
         pile.pop();
         try{
-          variablesTables[ins.name].push_back(r1);
+          variablesTables[ins.name].push_back(make_tuple(type1, r1, r6));
           ic++;
         }
         catch(...){
@@ -733,7 +770,7 @@ void execution ( const vector <instruction> &code_genere,
         }
       break;
       case INDICE:
-        r1 = pile.top() - 1;
+        r1 = get<1>(pile.top()) - 1;
         pile.pop();
         try{
           pile.push(variablesTables[ins.name].at(r1));
@@ -745,12 +782,17 @@ void execution ( const vector <instruction> &code_genere,
         }
       break;
       case ASSIGNINDICE :
-        r1 = pile.top();
+        type1 = get<0>(pile.top());
+        r1 = get<1>(pile.top());
+        r6 = get<2>(pile.top());
         pile.pop();
-        r2 = pile.top()-1;
+
+        type2 = get<0>(pile.top());
+        r2 = get<1>(pile.top())-1;
         pile.pop();
+
         try{
-          variablesTables[ins.name].at(r2) = r1;
+          variablesTables[ins.name].at(r2) = make_tuple(type1,r1,r6);
           ic++;
         }
         catch(...){
@@ -789,7 +831,7 @@ int main(int argc, char **argv){
          << endl;
   }
 
-  execution(code_genere, variables);
+  execution(code_genere, variables, variablesTables);
 
   return 0;
 }

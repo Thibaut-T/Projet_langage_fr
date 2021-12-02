@@ -45,7 +45,7 @@
 extern int yydebug;
 #endif
 /* "%code requires" blocks.  */
-#line 45 "fransous.y"
+#line 47 "fransous.y"
 
     typedef struct adr {
         int jmp;  // adresse du jmp
@@ -149,7 +149,7 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 53 "fransous.y"
+#line 55 "fransous.y"
 
   double valeur;
   char nom[50];
