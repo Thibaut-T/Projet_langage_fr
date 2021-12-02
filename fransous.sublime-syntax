@@ -1,0 +1,55 @@
+%YAML 1.2
+---
+name: fransous
+file_extensions:
+  - txt
+scope: default.text # Identifiant par défault du code
+contexts:
+  main:
+
+
+    - match: '\b(fin du pour|pour tous|choix|cas|si|alors|fin choix|fin cas|tant que|fin tant|sinon|fin du si|)\b'
+      scope: "fransous.boucle" # Identifiant (Relié à celui du thème)
+
+    - match: '\b(-)?[0-9.]+|-|\b'
+      scope: "fransous.vars"
+
+    - match: '[A-Za-z]+\([A-Za-z]+\)'
+      scope: "fransous.fonction"
+
+    - match: '\([A-Za-z]+\)'
+      scope: "fransous.texteenparenthese"
+
+    - match: '"'
+      scope: "fransous.guillemets"
+      push: string
+
+    - match: '//'
+      scope: 'fransous.commentaire'
+      push: comment
+
+    - match: '\+|\-|\/|\*|\=|\:|\<|\>|\<=|\>=|\==|plus|moins|fois|divise'
+      scope: "fransous.operateurs"
+
+    - match: '\btableau\b'
+      scope: "fransous.tableau"
+
+    - match: '\bajouter|element[s]?|creer|afficher|de|a\b'
+      scope: "fransous.tableau"
+
+  string:
+
+    - match: '[A-Za-z]'
+      scope: "fransous.textebasique"
+    - match: '"'
+      scope: "fransous.guillemets"
+      pop:  true
+
+
+  comment:
+
+    - match: '[A-Za-z]'
+      scope: "fransous.textecomment"
+    - match: '\n'
+      scope: "fransous.commentaire"
+      pop:  true
