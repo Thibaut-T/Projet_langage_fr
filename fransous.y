@@ -10,6 +10,7 @@
     #include <iostream>
     #include <stack>
     #include <tuple>
+    #include <sstream>
 
     using namespace std;
 
@@ -128,6 +129,8 @@
 %token DECREMENTER
 %token ORCOND
 %token ANDCOND
+%token CONCAT
+%token ENDL
 
 
 %token TAB
@@ -316,7 +319,8 @@ expr: NUM {add_instruction (NUM, $1);}
       |TOLOWER VAR {add_instruction(TOLOWER);}
       |FIRST DE VAR {add_instruction(FIRST);}
       |LAST DE VAR {add_instruction(LAST);}
-      |SIZE DE VAR {add_instruction(SIZE, 0, $3);}
+      |SIZE VAR {add_instruction(SIZE, 0, $2);}
+      |ENDL {add_instruction(ENDL);}
 
     
 fonction : OPENFR expr {add_instruction(OPENFR);}
@@ -324,8 +328,11 @@ fonction : OPENFR expr {add_instruction(OPENFR);}
         |SUPPR expr DANS expr JUSQUE expr {add_instruction(SUPPR);}
         |NEWNAME expr EN expr{add_instruction(NEWNAME);}
         |WAIT VAR {add_instruction(WAIT);}
-        |PRINT expr {add_instruction(PRINT);}
+        |PRINT expr concatenation {add_instruction(PRINT);}
 
+
+concatenation : {}
+              | concatenation AND expr {add_instruction(CONCAT);}
 
 
 condition  : expr
@@ -389,6 +396,8 @@ string print_code(int ins) {
     case TABADD   : return "TADADD"; break;
     case INDICE   : return "INDICE"; break;
     case ASSIGNINDICE : return "ASSIGNINDICE"; break;
+    case CONCAT   : return "CONCAT"; break;
+    case ENDL     : return "ENDL"; break;
     default : return ""; break;
   }
 }
@@ -405,6 +414,7 @@ void execution ( const vector <instruction> &code_genere,
   double r1, r2, r3;  // des registres
   char r4[50], r5[50];
   string r6, r7;
+  stringstream r8;
 
 
   printf("C'est quoi la réponse à la grande question sur la vie, l'univers et le reste ?\n");
@@ -430,16 +440,16 @@ void execution ( const vector <instruction> &code_genere,
         variablesString.erase( variablesString.find(r1));*/
         ic++;
       break;
-      /*case SUPPR :
-        r1=pile.top();
+      case SUPPR :
+        /*r1=pile.top();
         pile.pop();
         r2=pile.top();
         pile.pop();
         r3=pile.top();
         pile.pop();
         remove(r3,r2,r1); /*Enleve "A" dans camion jusque M*/
-        /*ic++;
-      break;*/
+        ic++;
+      break;
       case NEWNAME :                                 //////// REFAIRE
         /*r1=pile.top();
         pile.pop();
@@ -476,23 +486,19 @@ void execution ( const vector <instruction> &code_genere,
         back(r4);
         ic++;
       break;*/
-      case SIZE :                                 //////// REFAIRE
-        try{
+      case SIZE :
+        if(variablesTables.find(ins.name) != variablesTables.end()){
             pile.push(make_tuple(1,variablesTables[ins.name].size(), ""));
             ic++;
           }
-        catch(...){
-          cout << "tableau " << ins.name << " non déclaré.\n";
-          ic = code_genere.size();
-        }
-        /*try{
+        else if(variables.find(ins.name) != variables.end()){
             pile.push(make_tuple(1, get<2>(variables.at(ins.name)).size(), ""));
             ic++;
          }
-        catch(...){
-          cout << "Elément non déclaré.\n";
+        else{
+          cout << ins.name << " non déclaré.\n";
           ic = code_genere.size();
-        }*/
+        }
       break;
       /*case WAIT :
         r1=pile.top();
@@ -541,19 +547,6 @@ void execution ( const vector <instruction> &code_genere,
         ic++;
       break;
       case ASSIGN:
-        /*type1 = get<0>(pile.top());
-        if(type1 == 1){
-          r1 = get<1>(pile.top());
-          r6 = "";
-        }
-        else{
-          r1 = 0;
-          r6 = get<2>(pile.top());
-        }
-
-
-        pile.pop();
-        variables[ins.name] = (type1 = 1) ? make_tuple(1,r1, "") : make_tuple(-1, 0, r6);*/
         type1 = get<0>(pile.top());
         r1 = get<1>(pile.top());
         r6 = get<2>(pile.top());
@@ -571,6 +564,30 @@ void execution ( const vector <instruction> &code_genere,
         pile.pop();
         if(type1 == 1) cout << "$ " << r1 << endl; 
         else cout << "$ " << r6 << endl;
+        ic++;
+      break;
+      case CONCAT :
+        if(get<0>(pile.top()) == 1){
+          r8 << get<1>(pile.top());
+          r6 = r8.str();
+          r8.str("");
+        }
+        else r6 = get<2>(pile.top());
+        pile.pop();
+        
+        if(get<0>(pile.top()) == 1){
+          r8 << get<1>(pile.top());
+          r7 = r8.str();
+          r8.str("");
+        } 
+        else r7 = get<2>(pile.top());
+        pile.pop();
+
+        pile.push(make_tuple(-1, 0, r7 + r6));
+        ic++;
+      break;
+      case ENDL:
+        pile.push(make_tuple(-1, 0, "\n$ "));
         ic++;
       break;
 
@@ -598,29 +615,20 @@ void execution ( const vector <instruction> &code_genere,
 
       case VAR:    // je consulte la table de symbole et j'empile la valeur de la VARS
           // Si elle existe bien sur... 
-        try {
-          //pile.push(make_tuple(get<0>(variables.at(ins.name)),(get<0>(variables.at(ins.name)) == 1) ? get<1>(variables.at(ins.name)) : 0, (get<0>(variables.at(ins.name)) == -1) ? get<2>(variables.at(ins.name)) : "" ));
-          pile.push(variables.at(ins.name));
-          ic++;
-        }
-        catch(...){
+        if(variables.find(ins.name) == variables.end()){
           variables[ins.name] = make_tuple(1,0,"");
-          pile.push(make_tuple(1,0,""));
         }
+        pile.push(variables.at(ins.name));
+        ic++;
       break;
       case VARID:
-            pile.push(variables[ins.name]);
-            //pile.push(make_tuple(1,get<1>(variables.at(ins.name)),"" ));
-            ic++;
+        pile.push(variables[ins.name]);
+        //pile.push(make_tuple(1,get<1>(variables.at(ins.name)),"" ));
+        ic++;
       break;
-      case VARAPO:                    /// A REFAIRE
-        try {
-            pile.push(make_tuple(-1, 0, ins.name));
-            ic++;
-        }
-        catch(...){
-          
-        }
+      case VARAPO:
+        pile.push(make_tuple(-1, 0, ins.name.substr(1,ins.name.size()-2)));
+        ic++;
       break;
       case SUP:
         r1 = get<1>(pile.top());    // Rrécupérer la tête de pile;
@@ -760,11 +768,11 @@ void execution ( const vector <instruction> &code_genere,
         r1 = get<1>(pile.top());
         r6 = get<2>(pile.top());
         pile.pop();
-        try{
+        if(variablesTables.find(ins.name) != variablesTables.end()){
           variablesTables[ins.name].push_back(make_tuple(type1, r1, r6));
           ic++;
         }
-        catch(...){
+        else{
           cout << "Tableau non déclaré.\n";
           ic = code_genere.size();
         }
@@ -772,11 +780,11 @@ void execution ( const vector <instruction> &code_genere,
       case INDICE:
         r1 = get<1>(pile.top()) - 1;
         pile.pop();
-        try{
+        if(variablesTables.find(ins.name) != variablesTables.end()){
           pile.push(variablesTables[ins.name].at(r1));
           ic++;
         }
-        catch(...){
+        else{
           cout << "Tableau " << ins.name << " non déclaré.\n";
           ic = code_genere.size();
         }
@@ -791,12 +799,18 @@ void execution ( const vector <instruction> &code_genere,
         r2 = get<1>(pile.top())-1;
         pile.pop();
 
-        try{
-          variablesTables[ins.name].at(r2) = make_tuple(type1,r1,r6);
-          ic++;
+        if(variablesTables.find(ins.name) != variablesTables.end()){
+          if(r2 < variablesTables[ins.name].size()){
+            variablesTables[ins.name].at(r2) = make_tuple(type1,r1,r6);
+            ic++;
+          }
+          else{
+            cout << "Impossible d'ajouter à " << ins.name << " un élément à l'indice numéro : " << r2 + 1 << '.\n';
+            ic = code_genere.size();
+          }
         }
-        catch(...){
-          cout << "Impossible d'insérer un élément dans " << ins.name <<'\n';
+        else{
+          cout << ins.name << " non déclaré.\n";
           ic = code_genere.size();
         }
       break;

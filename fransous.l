@@ -15,6 +15,7 @@
 
 (\/\*)([\s\S]*?)(\*\/)|\/\/([\S\s]*?)\n  {return commentaire;}
 afficher|Afficher|AFFICHER {return PRINT;}
+fin[" "]de[" "]ligne|Fin[" "]De[" "]Ligne|FIN[" "]DE[" "]LIGNE {return ENDL;}
 choix|Choix|CHOIX {return SWITCH;}
 fin[" "]choix|FIN[" "]CHOIX|Fin[""]Choix {return ENDSWITCH;}
 reste|Reste|RESTE {return DEFAULT;}
@@ -52,7 +53,7 @@ dans {return DANS;};
 jusque {return JUSQUE;};
 premier|Premier|PREMIER {return FIRST;};
 dernier|Dernier|DERNIER {return LAST;};
-taille|Taille|TAILLE {return SIZE;};
+taille[" "]de|Taille[" "]De|TAILLE[" "]DE {return SIZE;};
 Attendre|attendre|ATTENDRE {return WAIT;};
 de {return DE;};
 : { return SEPARATOR;}
@@ -93,8 +94,9 @@ faux {return FAUX;}
                        }
 
 
-\"[A-Za-z_][A-Za-z_0-9]*\" {strcpy( yylval.nom, yytext) ;
-                         return VARAPO;}
+\"[A-Za-z_0-9 ]*\" {//\"[A-Za-z_][A-Za-z_0-9]*\"
+                        strcpy( yylval.nom, yytext) ;
+                        return VARAPO;}
 
 
 [0-9]+(\.[0-9]*)?([Ee][+-]?[0-9]+)? { // s'il s'agit d'un nombre on le stocke dans le champ "valeur"

@@ -42,3 +42,16 @@ pour tous elements elem de alexis :
 fin du pour
 
 
+x = "Projet langage en francais"
+
+afficher x
+
+x = "Projet langage en français"
+afficher x
+afficher taille de x
+
+x = " ans"
+y = 20
+z = 2
+q = 0
+afficher "j ai " et z et q et fin de ligne et x

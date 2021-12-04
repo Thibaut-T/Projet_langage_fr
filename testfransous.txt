@@ -1,12 +1,5 @@
-x = 1
-creer un tableau alexis
-ajouter x a alexis
-element numero 1 de alexis = 2
-ajouter 3 a alexis
-ajouter 6 a alexis
-
-afficher taille de alexis
-
-pour tous elements elem de alexis :
-    afficher elem
-fin du pour
+x = " ans"
+y = 20
+z = 2
+q = 0
+afficher "j ai " et z et q et fin de ligne et x
