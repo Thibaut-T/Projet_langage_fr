@@ -55,3 +55,47 @@ y = 20
 z = 2
 q = 0
 afficher "j ai " et z et q et fin de ligne et x
+
+x = " ans"
+y = 20
+z = 2
+q = 0
+afficher "j'ai " et z et q et fin de ligne et x
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+creer un tableau Test
+
+pour i entre 1 et 10 on ajoute 1:
+    ajouter var a Test
+    incrementer var
+fin du pour
+
+element numero 3 de Test = "Elements du tableau"
+
+pour tous elements elem de Test:
+    afficher elem
+fin du pour
+
+str = "je suis un test "
+
+Mettre en majuscule str
+afficher "Taille de str : " et taille de str fin de ligne
+
+str2 = "Moi aussi,"
+
+concatene str et str2 dans str3
+
+afficher str3

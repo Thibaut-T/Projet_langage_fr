@@ -1,5 +1,16 @@
-x = " ans"
-y = 20
-z = 2
-q = 0
-afficher "j ai " et z et q et fin de ligne et x
+
+x = 0
+nombre = 3.14
+
+faire :
+    nombre = nombre + x
+    incrementer x
+fin faire
+tant que x < 10 et que nombre < 5
+
+choix x :
+    cas 0 : afficher "x = 0" fin du cas
+    cas 1 : afficher "x = 1" fin du cas
+    cas 2 : afficher "x = 2" fin du cas
+    reste : afficher "x suppérieur à 2" fin du cas
+fin choix

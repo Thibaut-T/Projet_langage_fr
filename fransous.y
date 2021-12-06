@@ -469,18 +469,25 @@ void execution ( const vector <instruction> &code_genere,
         pile.pop();
         strcpy(r4, variablesString[r1].c_str());
         variablesString[r1] = tolower(r4);
-        ic++;
+        ic++;     ++UPPER; ++  %*/
       break;
       case FIRST :
-        r1=pile.top();
+        type1=get<0>(pile.top());
+        r1 = get<1>(pile.top());
+        r6 = get<2>(pile.top());
+        /*
+
+        
+
+
         pile.pop();
         strcpy(r4, variablesString[r1].c_str());
         front(r4);
-        ic++;
+        ic++;*/
       break;
 
       case LAST :
-        r1=pile.top();
+        /*r1=pile.top();
         pile.pop();
         strcpy(r4, variablesString[r1].c_str());
         back(r4);
