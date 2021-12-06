@@ -1,0 +1,61 @@
+{
+	"name": "fransous",
+	"globals":
+	{
+       "background" : "#CCFFFF",
+	},
+	"rules": 
+	[
+		{
+		"name": "boucle", 
+		"scope": "fransous.boucle", 
+		"foreground": "#DC2B4B",
+		"font_style": "bold"
+		},
+		{
+		"name": "variable", 
+		"scope": "fransous.vars", 
+		"foreground": "#05ACFD",
+		},
+		{
+		"name": "fonction", 
+		"scope": "fransous.fonction", 
+		"foreground": "#05ACFD",
+		},
+		{
+		"name": "texte_parenthese", 
+		"scope": "fransous.texteenparenthese", 
+		"foreground": "#000000",
+		},
+		{
+		"name": "parenthese", 
+		"scope": "fransous.guillemets", 
+		"foreground": "#E1AF34",
+		},
+		{
+		"name": "texte", 
+		"scope": "fransous.textebasique", 
+		"foreground": "#E1AF34",
+		},
+		{
+		"name": "commentaire", 
+		"scope": "fransous.textecomment", 
+		"foreground": "#03920D",
+		},
+		{
+		"name": "commentaire2", 
+		"scope": "fransous.commentaire", 
+		"foreground": "#03920D",
+		},
+		{
+		"name": "commentaire2", 
+		"scope": "fransous.operateurs", 
+		"foreground": "#F92200",
+		},
+		{
+		"name": "tableau", 
+		"scope": "fransous.tableau", 
+		"foreground": "#0610FB",
+		},
+	]
+}
