@@ -9,7 +9,6 @@ Création d'un langage de programmation en français, dans le cadre du module de
 - [Ugo Bertrand](https://github.com/Okawashi)
 - [Alexis Chevet](https://github.com/alchev)
 - [Corentin Dessenne](https://github.com/Corentin-Dessenne)
-- [Pierre Sénéchal](https://github.com/Norgh)
 - [Thibaut Tournemaine](https://github.com/Thibaut-T)
 
 ## Manuel d'utilisation
