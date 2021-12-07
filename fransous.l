@@ -30,50 +30,51 @@ alors|ALORS|Alors   { return THEN; }
 sinon|Sinon|SINON   { return ELSE; }
 fonction|Fonction|FONCTION {return FONCTION;}
 fin[" "]du[" "]si|FIN[" "]DU[" "]SI|Fin[" "]du[" "]si|Fin[" "]Du[" "]Si  { return ENDIF; }
-pour[" "]tous[" "]elements|Pour[" "]Tous[" "]Elements|POUR[" "]TOUS[" "]ELEMENTS {return FOREACH;}
+pour[" "]tous[" "]éléments|Pour[" "]Tous[" "]Eléments|POUR[" "]TOUS[" "]ELEMENTS {return FOREACH;}
 pour|POUR|Pour { return FOR;}
 fin[" "]du[" "]pour|FIN[" "]DU[" "]POUR|Fin[" "]Du[" "]Pour { return ENDFOR;}
 entre {return BETWEEN;}
 
 on[" "]ajoute {return INCR;}
-on[" "]enleve {return DECR;}
+on[" "]enlève {return DECR;}
 Sin|SIN|sin|sinus|Sinus|SINUS { return SIN;  }
 Cos|COS|cos|cosinus|Cosinus|COSINUS { return COS;  }
 Tan|TAN|tan|tangente|Tangente|TANGENTE { return TAN; }
 exp|Exp|EXP {return EXP;};
 racine|Racine|RACINE {return SQRT;};
-carre|Carre|CARRE {return POW;};
-Ouvrir[" "]en[" "]lecture|OUVRIR[" "]EN[" "]LECTURE|ouvrir[" "]en[" "]lecture { return OPENFR;};
-Ouvrir[" "]en[" "]ecriture|OUVRIR[" "]EN[" "]ECRITURE|ouvrir[" "]en[" "]ecriture { return OPENFW;};
+puissance|Puissance|PUISSANCE {return POW;};
 supprimer|Supprimer|SUPPRIMER {return SUPPR;};
 renommer|Renommer|RENOMMER {return NEWNAME;};
-minuscule|Minuscule|MINUSCULE {return TOLOWER;};
+mettre[" "]en[" "]minuscule|Mettre[" "]En[" "]Minuscule|METTRE[" "]EN[" "]MINUSCULE {return TOLOWER;};
+mettre[" "]en[" "]majuscule|Mettre[" "]En[" "]Majuscule|METTRE[" "]EN[" "]MAJUSCULE  {return UPPER;}
 en {return EN;};
 dans {return DANS;};
 jusque {return JUSQUE;};
-premier|Premier|PREMIER {return FIRST;};
-dernier|Dernier|DERNIER {return LAST;};
+premier[" "]élément[" "]de|Premier[" "]Elément[" "]De|PREMIER[" "]ELEMENT[" "]DE {return FIRST;};
+dernier[" "]élément[" "]de|Dernier[" "]Elément[" "]De|DERNIER[" "]ELEMENT[" "]DE {return LAST;};
 taille[" "]de|Taille[" "]De|TAILLE[" "]DE {return SIZE;};
-Attendre|attendre|ATTENDRE {return WAIT;};
 de {return DE;};
 : { return SEPARATOR;}
-"<"|inferieur|Inferieur {return INF;}
-">"|superieur|Superieur {return SUP;}
-"<="|inferieur[" "]ou[" "]egal|Inferieur[" "]ou[" "]egal|Inferieur[" "]Ou[" "]Egal {return INFEG; }
-">="|superieur[" "]ou[" "]egal|Superieur[" "]ou[" "]Egal|superieur[" "]Ou[" "]Egal {return SUPEG; }
-"!="|different|Different {return DIFF; }
-"=="|egal|Egal {return EGAL; }
+"<"|inférieur|Inférieur {return INF;}
+">"|supérieur|Supérieur {return SUP;}
+"<="|inférieur[" "]ou[" "]égal|Inférieur[" "]ou[" "]égal|Inférieur[" "]Ou[" "]Egal {return INFEG; }
+">="|supérieur[" "]ou[" "]égal|Supérieur[" "]ou[" "]égal|supérieur[" "]Ou[" "]Egal {return SUPEG; }
+"!="|différent|Différent {return DIFF; }
+"=="|égal|Egal {return EGAL; }
 ou[" "]que|Ou[" "]Que|OU[" "]QUE {return ORCOND;}
 et[" "]que|Et[" "]Que|ET[" "]QUE { return ANDCOND;}
 et {return AND;}
 
 creer[" "]un[" "]tableau|Creer[" "]Un[" "]Tableau|CREER[" "]UN[" "]TABLEAU {return TAB;}
 ajouter|Ajouter|AJOUTER { return TABADD;}
-a|A {return A;}
-element[" "]numero|Element[" "]Numero|ELEMENT[" "]NUMERO {return INDICE;}
+à|A {return A;}
+élément[" "]numéro|Elément[" "]Numéro|ELEMENT[" "]NUMERO {return INDICE;}
 
 incrementer|Incrementer|INCREMENTER {return INCREMENTER;}
 decrementer|Decrementer|DECREMENTER {return DECREMENTER;}
+concaténer|Concaténer|CONCATENER {return CONCAT;}
+
+
 \(     {  return '('; }
 \)     {  return ')'; }
 vrai {return VRAI;}
@@ -82,10 +83,11 @@ faux {return FAUX;}
 "+"|plus    { return ADD; }
 "-"|moins   { return SUB; }
 "*"|fois    { return MULT; }
-"/"|divise  { return DIV; } /*Peut-être penser à un autre nom pour l'opérateur*/
+"/"|diviser[" "]par  { return DIV; } /*Peut-être penser à un autre nom pour l'opérateur*/
+"%"|modulo|MODULO|Modulo {return MOD;}
 
 
-"="|"<-"|"est"    {  return '='; }
+"="    {  return '='; }
 "," {return ',';}
   
 [A-Za-z_][A-Za-z_0-9]* { 
@@ -94,7 +96,7 @@ faux {return FAUX;}
                        }
 
 
-\"[A-Za-z_0-9 \.\'\,\;\:]*\" {//\"[A-Za-z_][A-Za-z_0-9]*\"
+\"([^\r\n\t\f\v]*?)\" {
                         strcpy( yylval.nom, yytext) ;
                         return VARAPO;}
 

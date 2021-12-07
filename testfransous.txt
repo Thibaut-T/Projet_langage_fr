@@ -1,16 +1,20 @@
+creer un tableau Test
 
-x = 0
-nombre = 3.14
+pour i entre 1 et 10 on ajoute 1:
+    ajouter var à Test
+    incrementer var
+fin du pour
 
-faire :
-    nombre = nombre + x
-    incrementer x
-fin faire
-tant que x < 10 et que nombre < 5
+élément numéro 3 de Test = "Elément du tableau"
 
-choix x :
-    cas 0 : afficher "x = 0" fin du cas
-    cas 1 : afficher "x = 1" fin du cas
-    cas 2 : afficher "x = 2" fin du cas
-    reste : afficher "x suppérieur à 2" fin du cas
-fin choix
+pour tous éléments elem de Test:
+    afficher elem
+fin du pour
+
+supprimer élément numéro 3 de Test
+
+afficher fin de ligne
+
+pour tous éléments elem de Test:
+    afficher elem
+fin du pour

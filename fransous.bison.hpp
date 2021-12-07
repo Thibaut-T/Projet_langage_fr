@@ -45,7 +45,7 @@
 extern int yydebug;
 #endif
 /* "%code requires" blocks.  */
-#line 48 "fransous.y"
+#line 50 "fransous.y"
 
     typedef struct adr {
         int jmp;  // adresse du jmp
@@ -109,40 +109,46 @@ extern int yydebug;
     SUPPR = 299,                   /* SUPPR  */
     NEWNAME = 300,                 /* NEWNAME  */
     TOLOWER = 301,                 /* TOLOWER  */
-    FIRST = 302,                   /* FIRST  */
-    LAST = 303,                    /* LAST  */
-    SIZE = 304,                    /* SIZE  */
-    WAIT = 305,                    /* WAIT  */
-    VARAPO = 306,                  /* VARAPO  */
-    VRAI = 307,                    /* VRAI  */
-    FAUX = 308,                    /* FAUX  */
-    INF = 309,                     /* INF  */
-    SUP = 310,                     /* SUP  */
-    INFEG = 311,                   /* INFEG  */
-    SUPEG = 312,                   /* SUPEG  */
-    EGAL = 313,                    /* EGAL  */
-    DIFF = 314,                    /* DIFF  */
-    NON = 315,                     /* NON  */
-    commentaire = 316,             /* commentaire  */
-    DANS = 317,                    /* DANS  */
-    DE = 318,                      /* DE  */
-    JUSQUE = 319,                  /* JUSQUE  */
-    EN = 320,                      /* EN  */
-    INCREMENTER = 321,             /* INCREMENTER  */
-    DECREMENTER = 322,             /* DECREMENTER  */
-    ORCOND = 323,                  /* ORCOND  */
-    ANDCOND = 324,                 /* ANDCOND  */
-    CONCAT = 325,                  /* CONCAT  */
-    ENDL = 326,                    /* ENDL  */
-    TAB = 327,                     /* TAB  */
-    TABADD = 328,                  /* TABADD  */
-    A = 329,                       /* A  */
-    INDICE = 330,                  /* INDICE  */
-    ASSIGNINDICE = 331,            /* ASSIGNINDICE  */
-    ADD = 332,                     /* ADD  */
-    SUB = 333,                     /* SUB  */
-    MULT = 334,                    /* MULT  */
-    DIV = 335                      /* DIV  */
+    TOLOWERVAR = 302,              /* TOLOWERVAR  */
+    TOLOWERVARAPO = 303,           /* TOLOWERVARAPO  */
+    UPPER = 304,                   /* UPPER  */
+    UPPERVAR = 305,                /* UPPERVAR  */
+    UPPERVARAPO = 306,             /* UPPERVARAPO  */
+    FIRST = 307,                   /* FIRST  */
+    LAST = 308,                    /* LAST  */
+    SIZE = 309,                    /* SIZE  */
+    WAIT = 310,                    /* WAIT  */
+    VARAPO = 311,                  /* VARAPO  */
+    VRAI = 312,                    /* VRAI  */
+    FAUX = 313,                    /* FAUX  */
+    INF = 314,                     /* INF  */
+    SUP = 315,                     /* SUP  */
+    INFEG = 316,                   /* INFEG  */
+    SUPEG = 317,                   /* SUPEG  */
+    EGAL = 318,                    /* EGAL  */
+    DIFF = 319,                    /* DIFF  */
+    NON = 320,                     /* NON  */
+    commentaire = 321,             /* commentaire  */
+    DANS = 322,                    /* DANS  */
+    DE = 323,                      /* DE  */
+    JUSQUE = 324,                  /* JUSQUE  */
+    EN = 325,                      /* EN  */
+    INCREMENTER = 326,             /* INCREMENTER  */
+    DECREMENTER = 327,             /* DECREMENTER  */
+    ORCOND = 328,                  /* ORCOND  */
+    ANDCOND = 329,                 /* ANDCOND  */
+    CONCAT = 330,                  /* CONCAT  */
+    ENDL = 331,                    /* ENDL  */
+    TAB = 332,                     /* TAB  */
+    TABADD = 333,                  /* TABADD  */
+    A = 334,                       /* A  */
+    INDICE = 335,                  /* INDICE  */
+    ASSIGNINDICE = 336,            /* ASSIGNINDICE  */
+    ADD = 337,                     /* ADD  */
+    SUB = 338,                     /* SUB  */
+    MULT = 339,                    /* MULT  */
+    DIV = 340,                     /* DIV  */
+    MOD = 341                      /* MOD  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -151,13 +157,13 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 56 "fransous.y"
+#line 58 "fransous.y"
 
   double valeur;
   char nom[50];
   type_adresse adresse;  
 
-#line 161 "fransous.bison.hpp"
+#line 167 "fransous.bison.hpp"
 
 };
 typedef union YYSTYPE YYSTYPE;

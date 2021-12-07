@@ -29,10 +29,12 @@
 
 
     map<string,tuple<int, double, string>> variables;
-    map<double, string> variablesString;
     map<string, vector<tuple<int, double, string>>> variablesTables;
+
+
     vector<vector<double>> adresseBreak;
     vector<double> breakN;
+
     int ic = 0;
     map<string,int> adresses;
     vector <instruction> code_genere;
@@ -106,6 +108,11 @@
 %token SUPPR
 %token NEWNAME
 %token TOLOWER
+%token TOLOWERVAR
+%token TOLOWERVARAPO
+%token UPPER
+%token UPPERVAR
+%token UPPERVARAPO
 %token FIRST
 %token LAST
 %token SIZE
@@ -143,9 +150,10 @@
 %token SUB
 %token MULT
 %token DIV
+%token MOD
 
 %left ADD SUB
-%left MULT DIV
+%left MULT DIV MOD
 
 %%
 lignes:{ }
@@ -162,7 +170,8 @@ separateur : SEPARATOR '\n'
 
 case : {}
         | case DEFAULT SEPARATOR instruction BREAK '\n' { breakN.push_back(ic);
-                                                          add_instruction(JMP);}
+                                                          add_instruction(JMP);
+                                                        }
         | case {$1.save = ic-1;}
         CASE expr SEPARATOR {add_instruction(EGAL);
                             $3.jc = ic; 
@@ -197,7 +206,6 @@ instruction: {}
         lignes 
         ENDIF           { // Je mets à jour l'adresse du saut inconditionnel
                         code_genere[$1.jmp].value = ic;} 
-
         |FOR VAR BETWEEN NUM AND NUM INCR NUM separateur { add_instruction(VAR, 0, $2);
                                                                 add_instruction(NUM, $4);
                                                                 add_instruction(NUM, $8);
@@ -217,7 +225,8 @@ instruction: {}
             lignes
         ENDFOR                                          {add_instruction(JMP);
                                                               code_genere[ic-1].value = $1.jmp;
-                                                              code_genere[$1.jc].value = ic;}
+                                                              code_genere[$1.jc].value = ic;
+                                                              add_instruction(SUPPR, 0, $2);}
         |FOR VAR BETWEEN NUM AND NUM DECR NUM separateur { add_instruction(VAR, 0, $2);
                                                             add_instruction(NUM, $4);
                                                             add_instruction(NUM, $8);
@@ -237,7 +246,8 @@ instruction: {}
             lignes
         ENDFOR                                          {add_instruction(JMP);
                                                               code_genere[ic-1].value = $1.jmp;
-                                                              code_genere[$1.jc].value = ic;}
+                                                              code_genere[$1.jc].value = ic;
+                                                              add_instruction(SUPPR, 0, $2);}
         
         |WHILE                                        { $1.jmp = ic;}
           condition separateur                        {$1.jc = ic;
@@ -254,8 +264,6 @@ instruction: {}
                                                         add_instruction(JMPCOND, $1.jc);}
         
         |FOREACH VAR DE VAR separateur                { add_instruction(VAR, 0, "1");
-                                                        //add_instruction(NUM, -1);
-                                                        //add_instruction(ASSIGN, 0, "1");
                                                         add_instruction(VAR, 0, $2);
                                                         $1.jmp = ic;
                                                         add_instruction(VAR, 0, "1");
@@ -275,6 +283,8 @@ instruction: {}
         ENDFOR                                        { add_instruction(JMP);
                                                         code_genere[ic-1].value = $1.jmp;
                                                         code_genere[$1.jc].value = ic;
+                                                        add_instruction(SUPPR, 0, $2);
+                                                        add_instruction(SUPPR, 0, "1");
                                                       }
         |SWITCH expr separateur                       { if(!breakN.empty()){
                                                           adresseBreak.push_back(breakN);
@@ -283,12 +293,13 @@ instruction: {}
             case
         ENDSWITCH                                     {for(auto itr : breakN){
                                                           code_genere[itr].value = ic;
-                                                          }
+                                                        }
                                                         breakN.clear();
                                                         if(!adresseBreak.empty()){
                                                           breakN = adresseBreak.back();
                                                           adresseBreak.pop_back();
-                                                        } }
+                                                        } 
+                                                      }
 expr: NUM {add_instruction (NUM, $1);}
      |VARAPO {add_instruction(VARAPO, 0, $1);}
      |VAR {add_instruction (VAR, 0, $1); }
@@ -301,6 +312,7 @@ expr: NUM {add_instruction (NUM, $1);}
      |SQRT '(' expr ')' {add_instruction(SQRT);}
      |POW '('expr ',' expr')' {add_instruction(POW);}
      | '(' expr ')'      { $$ = $2;}
+     |expr MOD expr {add_instruction(MOD);}
      |expr ADD expr {add_instruction(ADD);} 
      |expr SUB expr {add_instruction(SUB);} 
      | SUB expr {add_instruction(NUM, -1); add_instruction(MULT);}
@@ -316,23 +328,29 @@ expr: NUM {add_instruction (NUM, $1);}
                        add_instruction(ASSIGN, 0, $2);}
       |TABADD expr A VAR {add_instruction(TABADD, 0, $4);}
       |INDICE expr DE VAR {add_instruction(INDICE, 0, $4);}
-      |TOLOWER VAR {add_instruction(TOLOWER);}
-      |FIRST DE VAR {add_instruction(FIRST);}
-      |LAST DE VAR {add_instruction(LAST);}
+      |SUPPR INDICE expr DE VAR {add_instruction(SUPPR, 1, $5);}
+      |SUPPR VAR {add_instruction(SUPPR, 0, $2);}
+      |TOLOWER VAR {add_instruction(TOLOWERVAR, 0, $2);}
+      |TOLOWER VARAPO {add_instruction(TOLOWERVARAPO, 0, $2);}
+      |UPPER VAR {add_instruction(UPPERVAR, 0, $2);}
+      |UPPER VARAPO {add_instruction(UPPERVARAPO, 0, $2);}
+      |FIRST VAR {add_instruction(FIRST, 0, $2);}
+      |FIRST VARAPO {add_instruction(FIRST, 0, $2);}
+      |LAST VAR {add_instruction(LAST, 0, $2);}
+      |LAST VARAPO {add_instruction(LAST, 0, $2);}
       |SIZE VAR {add_instruction(SIZE, 0, $2);}
       |ENDL {add_instruction(ENDL);}
+      |CONCAT expr AND expr DANS VAR { add_instruction(CONCAT); add_instruction(ASSIGN, 0, $6);}
 
     
-fonction : OPENFR expr {add_instruction(OPENFR);}
-        |OPENFW expr {add_instruction(OPENFW);}
-        |SUPPR expr DANS expr JUSQUE expr {add_instruction(SUPPR);}
-        |NEWNAME expr EN expr{add_instruction(NEWNAME);}
-        |WAIT VAR {add_instruction(WAIT);}
-        |PRINT expr concatenation {add_instruction(PRINT);}
+fonction :
+          PRINT condition concatenation {add_instruction(PRINT);}
 
 
 concatenation : {}
-              | concatenation AND expr {add_instruction(CONCAT);}
+              | concatenation AND condition {add_instruction(CONCAT);}
+
+
 
 
 condition  : expr
@@ -358,6 +376,8 @@ int yyerror(char *s) {
 // (au lieu des nombres associés au tokens)
 string print_code(int ins) {
   switch (ins) {
+    case SUPPR    : return "SUPPR"; break;
+    case MOD      : return "MOD"; break;
     case ADD      : return "ADD"; break;
     case SUB      : return "SUB"; break;
     case MULT     : return "MULT"; break;
@@ -381,7 +401,10 @@ string print_code(int ins) {
     case ORCOND   : return "ORCOND"; break;
     case OPENFR   : return "OPENFR"; break;
     case OPENFW   : return "OPENFW"; break;
-    case TOLOWER  : return "TOLOWER"; break;
+    case TOLOWERVAR  : return "TOLOWERVAR"; break;
+    case TOLOWERVARAPO  : return "TOLOWERVARAPO"; break;
+    case UPPERVAR : return "UPPERVAR"; break;
+    case UPPERVARAPO : return "UPPERVARAPO"; break;
     case FIRST    : return "FIRST"; break;
     case LAST     : return "LAST"; break;
     case SIZE     : return "SIZE"; break;
@@ -417,82 +440,84 @@ void execution ( const vector <instruction> &code_genere,
   stringstream r8;
 
 
-  printf("C'est quoi la réponse à la grande question sur la vie, l'univers et le reste ?\n");
+  //printf("C'est quoi la réponse à la grande question sur la vie, l'univers et le reste ?\n");
 
   while (ic < code_genere.size()){   // tant que nous ne sommes pas à la fin du programme
     auto ins = code_genere[ic];
     switch (ins.code){
-      case OPENFR :                                 //////// REFAIRE
-        /*if(pile.top().first == -1)r1=pile.top().second;
-        pile.pop();
-        strcpy(r4, variablesString[r1].c_str());
-        fopen(r4,"r");*/
-        /*variables.erase( variables.find(variablesString[r1]));
-        variablesString.erase( variablesString.find(r1));*/
-        ic++;
-      break;
-      case OPENFW :                                 //////// REFAIRE
-        /*if(pile.top().first == -1)r1=pile.top().second;
-        pile.pop();
-        strcpy(r4, variablesString[r1].c_str());
-        fopen(r4,"w");*/
-        /*variables.erase( variables.find(variablesString[r1]));
-        variablesString.erase( variablesString.find(r1));*/
-        ic++;
-      break;
       case SUPPR :
-        /*r1=pile.top();
-        pile.pop();
-        r2=pile.top();
-        pile.pop();
-        r3=pile.top();
-        pile.pop();
-        remove(r3,r2,r1); /*Enleve "A" dans camion jusque M*/
+
+        if(ins.value == 0 && variables.find(ins.name) != variables.end()){
+          variables.erase(variables.find(ins.name));
+        }
+        else if(ins.value == 1 && variablesTables.find(ins.name) != variablesTables.end()){
+          type1 = get<0>(pile.top());
+          r1 = get<1>(pile.top())-1;
+          pile.pop();
+          if(type1 == 1) variablesTables[ins.name].erase(variablesTables[ins.name].begin()+r1);
+        }
+
         ic++;
       break;
-      case NEWNAME :                                 //////// REFAIRE
-        /*r1=pile.top();
-        pile.pop();
-        strcpy(r4, variablesString[r1].c_str());
-        r2=pile.top();
-        pile.pop();
-        strcpy(r5, variablesString[r2].c_str());
-        rename(r5,r4);
-        variables.erase( variables.find(variablesString[r1]));
-        variablesString.erase( variablesString.find(r1));
-        variables.erase( variables.find(variablesString[r2]));
-        variablesString.erase( variablesString.find(r2));*/
-        ic++;
+      case TOLOWERVAR :
+        if(variables.find(ins.name) != variables.end()){
+          r6 = get<2>(variables[ins.name]);
+          for_each(r6.begin(), r6.end(), [](char & c) {
+            c = tolower(c);
+          });
+          variables[ins.name] = make_tuple(-1, 0, r6);
+        }
+        ic++; 
       break;
-      /*case TOLOWER :
-        r1=pile.top();
-        pile.pop();
-        strcpy(r4, variablesString[r1].c_str());
-        variablesString[r1] = tolower(r4);
-        ic++;     ++UPPER; ++  %*/
+      case TOLOWERVARAPO :
+        r6 = ins.name.substr(1,ins.name.size()-2);
+        for_each(r6.begin(), r6.end(), [](char & c) {
+          c = tolower(c);
+        });
+        pile.push(make_tuple(-1, 0, r6));
+        ic++; 
       break;
+      case UPPERVAR :
+        if(variables.find(ins.name) != variables.end()){
+          r6 = get<2>(variables[ins.name]);
+          for_each(r6.begin(), r6.end(), [](char & c) {
+            c = toupper(c);
+          });
+          variables[ins.name] = make_tuple(-1, 0, r6);
+        }
+        ic++; 
+      break;
+      case UPPERVARAPO :
+          r6 = ins.name.substr(1,ins.name.size()-2);
+          for_each(r6.begin(), r6.end(), [](char & c) {
+            c = toupper(c);
+          });
+          pile.push(make_tuple(-1, 0, r6));
+        ic++; 
+      break;
+
       case FIRST :
-        type1=get<0>(pile.top());
-        r1 = get<1>(pile.top());
-        r6 = get<2>(pile.top());
-        /*
+        if(variablesTables.find(ins.name) != variablesTables.end()) pile.push(variablesTables[ins.name].front());
+        else if(variables.find(ins.name) != variables.end()){
+          type1 = get<0>(variables[ins.name]);
+          r6 = get<2>(variables[ins.name]);
+          if(type1 == -1) pile.push(make_tuple(-1, 0, r6.substr(0,1)));
+        }
+        else pile.push(make_tuple(-1, 0, ins.name.substr(1,1)));
 
-        
-
-
-        pile.pop();
-        strcpy(r4, variablesString[r1].c_str());
-        front(r4);
-        ic++;*/
-      break;
-
-      case LAST :
-        /*r1=pile.top();
-        pile.pop();
-        strcpy(r4, variablesString[r1].c_str());
-        back(r4);
         ic++;
-      break;*/
+      break;
+      case LAST :
+        if(variablesTables.find(ins.name) != variablesTables.end()) pile.push(variablesTables[ins.name].back());
+        else if(variables.find(ins.name) != variables.end()){
+          type1 = get<0>(variables[ins.name]);
+          r6 = get<2>(variables[ins.name]);
+          if(type1 == -1) pile.push(make_tuple(-1, 0, r6.substr(r6.size()-1,1)));
+        }
+        else  pile.push(make_tuple(-1, 0, ins.name.substr(ins.name.size()-2, 1)));
+
+        ic++;
+      break;
       case SIZE :
         if(variablesTables.find(ins.name) != variablesTables.end()){
             pile.push(make_tuple(1,variablesTables[ins.name].size(), ""));
@@ -507,12 +532,6 @@ void execution ( const vector <instruction> &code_genere,
           ic = code_genere.size();
         }
       break;
-      /*case WAIT :
-        r1=pile.top();
-        pile.pop();
-        wait(r1);
-        ic++;
-      break;*/
       case ADD:
         if(get<0>(pile.top()) == 1) r1=get<1>(pile.top());    // Rrécupérer la tête de pile;
         pile.pop();
@@ -521,6 +540,16 @@ void execution ( const vector <instruction> &code_genere,
         pile.pop();
 
         pile.push(make_tuple(1,r1+r2,""));
+        ic++;
+      break;
+      case MOD:
+        if(get<0>(pile.top()) == 1) r1=get<1>(pile.top());    // Rrécupérer la tête de pile;
+        pile.pop();
+
+        if(get<0>(pile.top()) == 1) r2=get<1>(pile.top());    // Rrécupérer la tête de pile;
+        pile.pop();
+
+        pile.push(make_tuple(1,(int)round(r2)%(int)round(r1),""));
         ic++;
       break;
       case SUB:
@@ -840,7 +869,7 @@ int main(int argc, char **argv){
 
   yyparse();
 
-  for (int i = 0; i < code_genere.size(); i++){
+  /*for (int i = 0; i < code_genere.size(); i++){
     auto instruction = code_genere [i];
     cout << i 
          << '\t'
@@ -850,7 +879,7 @@ int main(int argc, char **argv){
          << '\t' 
          << instruction.name 
          << endl;
-  }
+  }*/
 
   execution(code_genere, variables, variablesTables);
 

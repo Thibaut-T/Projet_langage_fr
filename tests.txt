@@ -63,6 +63,64 @@ q = 0
 afficher "j'ai " et z et q et fin de ligne et x
 
 
+creer un tableau Test
+
+pour i entre 1 et 10 on ajoute 1:
+    ajouter var à Test
+    incrementer var
+fin du pour
+
+élément numéro 3 de Test = "Elément du tableau"
+
+pour tous éléments elem de Test:
+    afficher elem
+fin du pour
+
+supprimer élément numéro 3 de Test
+
+afficher fin de ligne
+
+pour tous éléments elem de Test:
+    afficher elem
+fin du pour
+
+
+ecole = "ISEN"
+
+afficher fin de ligne et premier élément de Test
+afficher dernier élément de Test
+afficher fin de ligne et premier élément de "ISEN"
+afficher dernier élément de "ISEN"
+afficher fin de ligne et premier élément de ecole
+afficher dernier élément de ecole
+
+ecole = "ISEN"
+ecole1 = "isen"
+
+mettre en majuscule ecole1
+mettre en minuscule ecole
+
+afficher fin de ligne et ecole1
+afficher ecole
+afficher fin de ligne et mettre en majuscule "isen"
+afficher mettre en minuscule "ISEN"
+
+x = "On aime pas"
+y = " JUNIA"
+
+concaténer x et y dans tot
+
+afficher tot
+
+x = 1
+
+si x % 2 != 0:
+alors:
+    incrementer x
+sinon:
+fin du si
+
+afficher "x = " et x
 
 
 
@@ -83,19 +141,43 @@ pour i entre 1 et 10 on ajoute 1:
     incrementer var
 fin du pour
 
-element numero 3 de Test = "Elements du tableau"
+element numero 3 de Test = "Elément du tableau"
 
 pour tous elements elem de Test:
     afficher elem
 fin du pour
 
+
+
 str = "je suis un test "
 
-Mettre en majuscule str
-afficher "Taille de str : " et taille de str fin de ligne
+mettre en majuscule str
+afficher "Taille de str : " et taille de str et fin de ligne
 
-str2 = "Moi aussi,"
+str2 = ", Moi aussi."
 
-concatene str et str2 dans str3
+concaténer str et str2 dans str3
 
 afficher str3
+mettre en minuscule str3
+
+afficher str3
+
+
+
+
+x = 0
+nombre = 3.14
+
+faire :
+    nombre = nombre + x
+    incrementer x
+fin faire
+tant que ( x < 10 et que nombre < 5 )
+
+choix x :
+    cas 0 : afficher "x = 0" fin cas
+    cas 1 : afficher "x = 1" fin cas
+    cas 2 : afficher "x = 2" fin cas
+    reste : afficher "x suppérieur à 2" fin cas
+fin choix
