@@ -8,7 +8,7 @@ afficher y
 afficher z
 afficher b
 
-pour x entre 5 et 0 on enleve 1 :
+pour x entre 5 et 0 on enlève 1 :
     afficher x
 fin du pour
 
@@ -33,11 +33,11 @@ choix x:
 fin choix
 
 creer un tableau alexis
-ajouter x a alexis
-element numero 1 de alexis = 2
-ajouter 3 a alexis
-ajouter 6 a alexis
-pour tous elements elem de alexis :
+ajouter x à alexis
+élément numéro 1 de alexis = 2
+ajouter 3 à alexis
+ajouter 6 à alexis
+pour tous éléments elem de alexis :
     afficher elem
 fin du pour
 
@@ -137,13 +137,13 @@ afficher "x = " et x
 creer un tableau Test
 
 pour i entre 1 et 10 on ajoute 1:
-    ajouter var a Test
+    ajouter var à Test
     incrementer var
 fin du pour
 
-element numero 3 de Test = "Elément du tableau"
+élément numéro 3 de Test = "Elément du tableau"
 
-pour tous elements elem de Test:
+pour tous éléments elem de Test:
     afficher elem
 fin du pour
 
@@ -179,5 +179,5 @@ choix x :
     cas 0 : afficher "x = 0" fin cas
     cas 1 : afficher "x = 1" fin cas
     cas 2 : afficher "x = 2" fin cas
-    reste : afficher "x suppérieur à 2" fin cas
+    reste : afficher "x supérieur à 2" fin cas
 fin choix
