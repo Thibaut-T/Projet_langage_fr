@@ -16,11 +16,13 @@ pour x entre 0 et 5 on ajoute 1 :
     afficher x
 fin du pour
 
+x = 0
 tant que x < 5 :
     afficher x
     x = x+1
 fin tant que
 
+x = 0
 faire :
     afficher x
     x = x + 1
@@ -54,7 +56,7 @@ x = " ans"
 y = 20
 z = 2
 q = 0
-afficher "j ai " et z et q et fin de ligne et x
+afficher "j ai " et y et fin de ligne et x
 
 x = " ans"
 y = 20
