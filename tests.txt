@@ -1,0 +1,183 @@
+x = -5 
+y = 2-3
+z = 2+5
+b = z+y
+
+afficher x
+afficher y
+afficher z
+afficher b
+
+pour x entre 5 et 0 on enlève 1 :
+    afficher x
+fin du pour
+
+pour x entre 0 et 5 on ajoute 1 :
+    afficher x
+fin du pour
+x = 0
+tant que x < 5 :
+    afficher x
+    x = x+1
+fin tant que
+x = 0
+faire :
+    afficher x
+    x = x + 1
+fin faire
+tant que x < 5
+
+choix x:
+    cas 0: afficher 0 fin cas
+    cas 1: afficher 1 fin cas
+fin choix
+
+creer un tableau alexis
+ajouter x à alexis
+élément numéro 1 de alexis = 2
+ajouter 3 à alexis
+ajouter 6 à alexis
+pour tous éléments elem de alexis :
+    afficher elem
+fin du pour
+
+
+x = "Projet langage en francais"
+
+afficher x
+
+x = "Projet langage en français"
+afficher x
+afficher taille de x
+
+x = " ans"
+y = 20
+z = 2
+q = 0
+afficher "j ai " et y et fin de ligne et x
+
+x = " ans"
+y = 20
+z = 2
+q = 0
+afficher "j'ai " et z et q et fin de ligne et x
+
+
+creer un tableau Test
+
+pour i entre 1 et 10 on ajoute 1:
+    ajouter var à Test
+    incrementer var
+fin du pour
+
+élément numéro 3 de Test = "Elément du tableau"
+
+pour tous éléments elem de Test:
+    afficher elem
+fin du pour
+
+supprimer élément numéro 3 de Test
+
+afficher fin de ligne
+
+pour tous éléments elem de Test:
+    afficher elem
+fin du pour
+
+
+ecole = "ISEN"
+
+afficher fin de ligne et premier élément de Test
+afficher dernier élément de Test
+afficher fin de ligne et premier élément de "ISEN"
+afficher dernier élément de "ISEN"
+afficher fin de ligne et premier élément de ecole
+afficher dernier élément de ecole
+
+ecole = "ISEN"
+ecole1 = "isen"
+
+mettre en majuscule ecole1
+mettre en minuscule ecole
+
+afficher fin de ligne et ecole1
+afficher ecole
+afficher fin de ligne et mettre en majuscule "isen"
+afficher mettre en minuscule "ISEN"
+
+x = "On aime pas"
+y = " JUNIA"
+
+concaténer x et y dans tot
+
+afficher tot
+
+x = 1
+
+si x % 2 != 0:
+alors:
+    incrementer x
+sinon:
+fin du si
+
+afficher "x = " et x
+
+
+
+
+
+
+
+
+
+
+
+
+
+creer un tableau Test
+
+pour i entre 1 et 10 on ajoute 1:
+    ajouter var à Test
+    incrementer var
+fin du pour
+
+élément numéro 3 de Test = "Elément du tableau"
+
+pour tous éléments elem de Test:
+    afficher elem
+fin du pour
+
+
+
+str = "je suis un test "
+
+mettre en majuscule str
+afficher "Taille de str : " et taille de str et fin de ligne
+
+str2 = ", Moi aussi."
+
+concaténer str et str2 dans str3
+
+afficher str3
+mettre en minuscule str3
+
+afficher str3
+
+
+
+
+x = 0
+nombre = 3.14
+
+faire :
+    nombre = nombre + x
+    incrementer x
+fin faire
+tant que ( x < 10 et que nombre < 5 )
+
+choix x :
+    cas 0 : afficher "x = 0" fin cas
+    cas 1 : afficher "x = 1" fin cas
+    cas 2 : afficher "x = 2" fin cas
+    reste : afficher "x supérieur à 2" fin cas
+fin choix

@@ -1,15 +1,20 @@
-pour cos() :
+creer un tableau Test
+
+pour i entre 1 et 10 on ajoute 1:
+    ajouter var à Test
+    incrementer var
 fin du pour
 
-choix :
- cas : 
-    sin() fin cas
- cas : 
-    tan() fin cas
-fin choix
+élément numéro 3 de Test = "Elément du tableau"
 
-si :
-    alors :
-        cos()
-fin du si
+pour tous éléments elem de Test:
+    afficher elem
+fin du pour
 
+supprimer élément numéro 3 de Test
+
+afficher fin de ligne
+
+pour tous éléments elem de Test:
+    afficher elem
+fin du pour
