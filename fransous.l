@@ -28,7 +28,6 @@ fin[" "]faire|Fin[" "]Faire|FIN[" "]FAIRE {return ENDDO;}
 si|SI|Si     { return IF; }
 alors|ALORS|Alors   { return THEN; }
 sinon|Sinon|SINON   { return ELSE; }
-fonction|Fonction|FONCTION {return FONCTION;}
 fin[" "]du[" "]si|FIN[" "]DU[" "]SI|Fin[" "]du[" "]si|Fin[" "]Du[" "]Si  { return ENDIF; }
 pour[" "]tous[" "]éléments|Pour[" "]Tous[" "]Eléments|POUR[" "]TOUS[" "]ELEMENTS {return FOREACH;}
 pour|POUR|Pour { return FOR;}
@@ -44,7 +43,6 @@ exp|Exp|EXP {return EXP;};
 racine|Racine|RACINE {return SQRT;};
 puissance|Puissance|PUISSANCE {return POW;};
 supprimer|Supprimer|SUPPRIMER {return SUPPR;};
-renommer|Renommer|RENOMMER {return NEWNAME;};
 mettre[" "]en[" "]minuscule|Mettre[" "]En[" "]Minuscule|METTRE[" "]EN[" "]MINUSCULE {return TOLOWER;};
 mettre[" "]en[" "]majuscule|Mettre[" "]En[" "]Majuscule|METTRE[" "]EN[" "]MAJUSCULE  {return UPPER;}
 en {return EN;};

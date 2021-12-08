@@ -104,51 +104,47 @@ extern int yydebug;
     EXP = 294,                     /* EXP  */
     SQRT = 295,                    /* SQRT  */
     POW = 296,                     /* POW  */
-    OPENFR = 297,                  /* OPENFR  */
-    OPENFW = 298,                  /* OPENFW  */
-    SUPPR = 299,                   /* SUPPR  */
-    NEWNAME = 300,                 /* NEWNAME  */
-    TOLOWER = 301,                 /* TOLOWER  */
-    TOLOWERVAR = 302,              /* TOLOWERVAR  */
-    TOLOWERVARAPO = 303,           /* TOLOWERVARAPO  */
-    UPPER = 304,                   /* UPPER  */
-    UPPERVAR = 305,                /* UPPERVAR  */
-    UPPERVARAPO = 306,             /* UPPERVARAPO  */
-    FIRST = 307,                   /* FIRST  */
-    LAST = 308,                    /* LAST  */
-    SIZE = 309,                    /* SIZE  */
-    WAIT = 310,                    /* WAIT  */
-    VARAPO = 311,                  /* VARAPO  */
-    VRAI = 312,                    /* VRAI  */
-    FAUX = 313,                    /* FAUX  */
-    INF = 314,                     /* INF  */
-    SUP = 315,                     /* SUP  */
-    INFEG = 316,                   /* INFEG  */
-    SUPEG = 317,                   /* SUPEG  */
-    EGAL = 318,                    /* EGAL  */
-    DIFF = 319,                    /* DIFF  */
-    NON = 320,                     /* NON  */
-    commentaire = 321,             /* commentaire  */
-    DANS = 322,                    /* DANS  */
-    DE = 323,                      /* DE  */
-    JUSQUE = 324,                  /* JUSQUE  */
-    EN = 325,                      /* EN  */
-    INCREMENTER = 326,             /* INCREMENTER  */
-    DECREMENTER = 327,             /* DECREMENTER  */
-    ORCOND = 328,                  /* ORCOND  */
-    ANDCOND = 329,                 /* ANDCOND  */
-    CONCAT = 330,                  /* CONCAT  */
-    ENDL = 331,                    /* ENDL  */
-    TAB = 332,                     /* TAB  */
-    TABADD = 333,                  /* TABADD  */
-    A = 334,                       /* A  */
-    INDICE = 335,                  /* INDICE  */
-    ASSIGNINDICE = 336,            /* ASSIGNINDICE  */
-    ADD = 337,                     /* ADD  */
-    SUB = 338,                     /* SUB  */
-    MULT = 339,                    /* MULT  */
-    DIV = 340,                     /* DIV  */
-    MOD = 341                      /* MOD  */
+    SUPPR = 297,                   /* SUPPR  */
+    TOLOWER = 298,                 /* TOLOWER  */
+    TOLOWERVAR = 299,              /* TOLOWERVAR  */
+    TOLOWERVARAPO = 300,           /* TOLOWERVARAPO  */
+    UPPER = 301,                   /* UPPER  */
+    UPPERVAR = 302,                /* UPPERVAR  */
+    UPPERVARAPO = 303,             /* UPPERVARAPO  */
+    FIRST = 304,                   /* FIRST  */
+    LAST = 305,                    /* LAST  */
+    SIZE = 306,                    /* SIZE  */
+    VARAPO = 307,                  /* VARAPO  */
+    VRAI = 308,                    /* VRAI  */
+    FAUX = 309,                    /* FAUX  */
+    INF = 310,                     /* INF  */
+    SUP = 311,                     /* SUP  */
+    INFEG = 312,                   /* INFEG  */
+    SUPEG = 313,                   /* SUPEG  */
+    EGAL = 314,                    /* EGAL  */
+    DIFF = 315,                    /* DIFF  */
+    NON = 316,                     /* NON  */
+    commentaire = 317,             /* commentaire  */
+    DANS = 318,                    /* DANS  */
+    DE = 319,                      /* DE  */
+    JUSQUE = 320,                  /* JUSQUE  */
+    EN = 321,                      /* EN  */
+    INCREMENTER = 322,             /* INCREMENTER  */
+    DECREMENTER = 323,             /* DECREMENTER  */
+    ORCOND = 324,                  /* ORCOND  */
+    ANDCOND = 325,                 /* ANDCOND  */
+    CONCAT = 326,                  /* CONCAT  */
+    ENDL = 327,                    /* ENDL  */
+    TAB = 328,                     /* TAB  */
+    TABADD = 329,                  /* TABADD  */
+    A = 330,                       /* A  */
+    INDICE = 331,                  /* INDICE  */
+    ASSIGNINDICE = 332,            /* ASSIGNINDICE  */
+    ADD = 333,                     /* ADD  */
+    SUB = 334,                     /* SUB  */
+    MULT = 335,                    /* MULT  */
+    DIV = 336,                     /* DIV  */
+    MOD = 337                      /* MOD  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
@@ -163,7 +159,7 @@ union YYSTYPE
   char nom[50];
   type_adresse adresse;  
 
-#line 167 "fransous.bison.hpp"
+#line 163 "fransous.bison.hpp"
 
 };
 typedef union YYSTYPE YYSTYPE;

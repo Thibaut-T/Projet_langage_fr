@@ -103,10 +103,7 @@
 %token EXP
 %token SQRT
 %token POW
-%token OPENFR
-%token OPENFW
 %token SUPPR
-%token NEWNAME
 %token TOLOWER
 %token TOLOWERVAR
 %token TOLOWERVARAPO
@@ -116,7 +113,6 @@
 %token FIRST
 %token LAST
 %token SIZE
-%token WAIT
 %token <nom>VARAPO
 %token VRAI
 %token FAUX
@@ -375,7 +371,7 @@ int yyerror(char *s) {
 // Petite fonction pour mieux voir le code généré 
 // (au lieu des nombres associés au tokens)
 string print_code(int ins) {
-  switch (ins) {
+/*  switch (ins) {
     case SUPPR    : return "SUPPR"; break;
     case MOD      : return "MOD"; break;
     case ADD      : return "ADD"; break;
@@ -399,8 +395,6 @@ string print_code(int ins) {
     case NON      : return "NON"; break;
     case ANDCOND  : return "ANDCOND"; break;
     case ORCOND   : return "ORCOND"; break;
-    case OPENFR   : return "OPENFR"; break;
-    case OPENFW   : return "OPENFW"; break;
     case TOLOWERVAR  : return "TOLOWERVAR"; break;
     case TOLOWERVARAPO  : return "TOLOWERVARAPO"; break;
     case UPPERVAR : return "UPPERVAR"; break;
@@ -422,7 +416,7 @@ string print_code(int ins) {
     case CONCAT   : return "CONCAT"; break;
     case ENDL     : return "ENDL"; break;
     default : return ""; break;
-  }
+  }*/
 }
 
 // Fonction qui exécute le code généré sur un petit émulateur
@@ -435,12 +429,8 @@ void execution ( const vector <instruction> &code_genere,
   int ic = 0;  // compteur instruction
   int type1 = 0, type2 = 0;
   double r1, r2, r3;  // des registres
-  char r4[50], r5[50];
   string r6, r7;
   stringstream r8;
-
-
-  //printf("C'est quoi la réponse à la grande question sur la vie, l'univers et le reste ?\n");
 
   while (ic < code_genere.size()){   // tant que nous ne sommes pas à la fin du programme
     auto ins = code_genere[ic];
@@ -650,7 +640,6 @@ void execution ( const vector <instruction> &code_genere,
       break;
 
       case VAR:    // je consulte la table de symbole et j'empile la valeur de la VARS
-          // Si elle existe bien sur... 
         if(variables.find(ins.name) == variables.end()){
           variables[ins.name] = make_tuple(1,0,"");
         }
@@ -659,7 +648,6 @@ void execution ( const vector <instruction> &code_genere,
       break;
       case VARID:
         pile.push(variables[ins.name]);
-        //pile.push(make_tuple(1,get<1>(variables.at(ins.name)),"" ));
         ic++;
       break;
       case VARAPO:
@@ -787,14 +775,6 @@ void execution ( const vector <instruction> &code_genere,
         pile.push(make_tuple(1,sqrt(r1), ""));
         ic++;
       break;
-      case FONCTION:                    ///////// /!\ A REFAIRE
-        r1 = get<1>(pile.top());    // Rrécupérer la tête de pile;
-        pile.pop();
-
-        r2 = get<1>(pile.top());
-        pile.top();
-        ic++;
-      break;
       case TAB : 
         variablesTables[ins.name];
         ic++;
@@ -868,18 +848,6 @@ int main(int argc, char **argv){
   yyin = (argc > 1) ? fopen(argv[1], "r") : stdin;
 
   yyparse();
-
-  /*for (int i = 0; i < code_genere.size(); i++){
-    auto instruction = code_genere [i];
-    cout << i 
-         << '\t'
-         << print_code(instruction.code) 
-         << '\t'
-         << instruction.value 
-         << '\t' 
-         << instruction.name 
-         << endl;
-  }*/
 
   execution(code_genere, variables, variablesTables);
 
