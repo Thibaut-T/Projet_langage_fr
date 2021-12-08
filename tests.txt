@@ -3,36 +3,33 @@ y = 2-3
 z = 2+5
 b = z+y
 
-afficher x
-afficher y
-afficher z
-afficher b
+afficher "Valeur de x: " et x
+afficher "Valeur de y: " et y
+afficher "Valeur de z: " et z
+afficher "Valeur de b: " et b
 
 pour x entre 5 et 0 on enlève 1 :
-    afficher x
+    afficher x et " (x-1)"
 fin du pour
+afficher "Fin de la boucle, 5 -> 1."
 
 pour x entre 0 et 5 on ajoute 1 :
-    afficher x
+    afficher x et " (x+1)"
 fin du pour
-
+afficher "Fin de la boucle, 0 -> 4."
 x = 0
 tant que x < 5 :
     afficher x
     x = x+1
 fin tant que
-
+afficher "Fin de la boucle, x = 5."
 x = 0
 faire :
     afficher x
     x = x + 1
 fin faire
 tant que x < 5
-
-choix x:
-    cas 0: afficher 0 fin cas
-    cas 1: afficher 1 fin cas
-fin choix
+afficher "Fin de la boucle, x = 5."
 
 creer un tableau alexis
 ajouter x à alexis
@@ -42,27 +39,23 @@ ajouter 6 à alexis
 pour tous éléments elem de alexis :
     afficher elem
 fin du pour
-
-
-x = "Projet langage en francais"
-
-afficher x
+afficher "Les différents éléments du tableau 'alexis'"
 
 x = "Projet langage en français"
 afficher x
-afficher taille de x
+afficher "Taille de x: " et taille de x
 
 x = " ans"
 y = 20
 z = 2
 q = 0
-afficher "j ai " et y et fin de ligne et x
+afficher "J'ai " et y et fin de ligne et x
 
 x = " ans"
 y = 20
 z = 2
 q = 0
-afficher "j'ai " et z et q et fin de ligne et x
+afficher "J'ai " et z et q et fin de ligne et x
 
 
 creer un tableau Test
@@ -107,7 +100,7 @@ afficher ecole
 afficher fin de ligne et mettre en majuscule "isen"
 afficher mettre en minuscule "ISEN"
 
-x = "On aime pas"
+x = "On aime bien"
 y = " JUNIA"
 
 concaténer x et y dans tot
