@@ -11,6 +11,11 @@ Projet de création d'un langage de programmation en français, dans le cadre du
 - [Corentin Dessenne](https://github.com/Corentin-Dessenne)
 - [Thibaut Tournemaine](https://github.com/Thibaut-T)
 
+## Librairies utilisées
+
+* Make pour construire l'exécutable
+* Lex/Yacc pour l'analyse syntaxique
+
 ## Manuel d'utilisation
 
 Commme indiqué plus haut, le fransous est un langage de programmation entièrement en français.
@@ -27,7 +32,7 @@ Voici donc un aperçu des fonctionnalités du langage
 
 ### Boucles itératives et opérations conditionnelles
 
-* Fransous gère différentes boucles, à savoir les boucles pour, les boucles tant que ainsi que les boucles faire..tant que.
+* Fransous gère différentes boucles, à savoir les boucles **pour**, les boucles **tant que** ainsi que les boucles **faire..tant que**.
 * Le langage gère également les choix entre différents cas
 
 ![Boucles](https://github.com/Thibaut-T/Projet_langage_fr/blob/main/exemples/boucles.png)
