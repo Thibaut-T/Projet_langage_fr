@@ -19,7 +19,7 @@ Voici donc un aperçu des fonctionnalités du langage
 
 ### Affichage et assignation de valeurs à une variable
 
-* Exemple de syntaxe et sortie :
+* Fransous gère les opérations arithmétiques de base (addition, soustraction, multiplication, division) ainsi que plusieurs opérations mathématiques (fonctions trigonométriques, exponentielle, racine carrée, ...).
 
 ![Exemple assignation](https://github.com/Thibaut-T/Projet_langage_fr/blob/main/exemples/allocation.png)
 
